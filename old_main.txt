@@ -1,0 +1,294 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main,                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/05 13:24:40 by mimeyer           #+#    #+#             */
+/*   Updated: 2025/11/05 21:25:38 by mimeyer          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+#include "main.h"
+#include <stdint.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <bsd/string.h>
+#include <limits.h>
+#include <ctype.h>
+
+
+t_int__int my_isalpha = &ft_isalpha;
+t_int__int og_isalpha = &isalpha;
+t_int__int my_isdigit = &ft_isdigit;
+t_int__int og_isdigit = &isdigit;
+t_int__int my_isalnum = &ft_isalnum;
+t_int__int og_isalnum = &isalnum;
+t_int__int my_isascii = &ft_isascii;
+t_int__int og_isascii = &isascii;
+t_int__int my_isprint = &ft_isprint;
+t_int__int og_isprint = &isprint;
+t_int__int my_toupper = &ft_toupper;
+t_int__int og_toupper = &toupper;
+t_int__int my_tolower = &ft_tolower;
+t_int__int og_tolower = &tolower;
+
+t_int__constcharptr_constcharptr_size_t my_strncmp = &ft_strncmp;
+t_int__constcharptr_constcharptr_size_t og_strncmp = &strncmp;
+
+t_int__constvoidptr_constvoidptr_size_t my_memcmp = &ft_memcmp;
+t_int__constvoidptr_constvoidptr_size_t og_memcmp = &memcmp;
+
+t_int__constcharptr my_atoi = &ft_atoi;
+t_int__constcharptr og_atoi = &atoi;
+
+t_void__voidptr_size_t my_bzero = &ft_bzero;
+t_void__voidptr_size_t og_bzero = &bzero;
+
+t_voidptr__voidptr_int_size_t my_memset = &ft_memset;
+t_voidptr__voidptr_int_size_t og_memset = &memset;
+
+t_voidptr__constvoidptr_int_size_t my_memchr = &ft_memchr;
+t_voidptr__constvoidptr_int_size_t og_memchr = &memchr;
+
+t_voidptr__voidptr_constvoidptr_size_t my_memcpy = &ft_memcpy;
+t_voidptr__voidptr_constvoidptr_size_t og_memcpy = &memcpy;
+t_voidptr__voidptr_constvoidptr_size_t my_memmove = &ft_memmove;
+t_voidptr__voidptr_constvoidptr_size_t og_memmove = &memmove;
+
+t_size_t__constcharptr my_strlen = &ft_strlen;
+t_size_t__constcharptr og_strlen = &strlen;
+
+t_size_t__charptr_constcharptr_size_t my_strlcpy = NULL;//&ft_strlcpy;
+t_size_t__charptr_constcharptr_size_t og_strlcpy = NULL;//&strlcpy;
+t_size_t__charptr_constcharptr_size_t my_strlcat = NULL;//&ft_strlcat;
+t_size_t__charptr_constcharptr_size_t og_strlcat = NULL;//&strlcat;
+
+t_charptr__constcharptr_int my_strchr = &ft_strchr;
+t_charptr__constcharptr_int og_strchr = &strchr;
+t_charptr__constcharptr_int my_strrchr = &ft_strrchr;
+t_charptr__constcharptr_int og_strrchr = &strrchr;
+
+t_charptr__constcharptr_constcharptr_size_t my_strnstr = NULL;//&ft_strnstr;
+t_charptr__constcharptr_constcharptr_size_t og_strnstr = NULL ;//&strnstr;
+
+void * my_calloc = NULL;
+void * og_calloc = NULL;
+void * my_itoa = NULL;
+void * og_itoa = NULL;
+void * my_putchar_fd = NULL;
+void * og_putchar_fd = NULL;
+void * my_putendl_fd = NULL;
+void * og_putendl_fd = NULL;
+void * my_putnbr_fd = NULL;
+void * og_putnbr_fd = NULL;
+void * my_putstr_fd = NULL;
+void * og_putstr_fd = NULL; 
+void * my_split = NULL;
+void * og_split = NULL;
+void * my_strdup = NULL;
+void * og_strdup = NULL;
+void * my_striteri = NULL;
+void * og_striteri = NULL; 
+void * my_strjoin = NULL;
+void * og_strjoin = NULL;
+void * my_strmapi = NULL;
+void * og_strmapi = NULL;
+void * my_strtrim = NULL;
+void * og_strtrim = NULL;
+void * my_substr = NULL;
+void * og_substr = NULL;
+
+void *combined[2];
+
+// int get_size(void *array[])
+// {
+// 	int i = 0;
+// 	while(array[i])
+// 		i++;
+// 	return(i);
+// }
+
+/**
+ * @brief a function which calls and returns the result of a function
+ * 
+ * @param funct input function
+ * @param params array of input parameters
+ * 
+ * @return value determined by function
+ * 
+ */
+void	*give_res(void *funct, void *params[])
+{
+	if (get_size(*params) == 4)
+	{
+		return((int)funct(const char *)(params[0], params[1], params[2]));
+	}
+	else if (get_size(*params) == 3)
+	{
+		void *(*newfunct)(void *, void *) = funct;
+		return(newfunct(params[0], params[1]));
+	}
+	else if (get_size(*params) == 2)
+	{
+		void *(*newfunct)(void *) = funct;
+		return(newfunct(params[0]));
+	}
+	else
+		return(0);
+}
+
+
+/**
+ * @brief get an array of default test cases
+ * 
+ * @return array of test cases
+ * 
+ * @param type 1 - int;  2 - char;  3 - str
+ * 
+ */
+/*
+void *get_testcases(int type)
+{
+	// t_testcase testcases;
+	
+	switch (type)
+	{
+	case 0:
+		// testcases.int_test = malloc(sizeof(int) * 6);
+		void	*temp[] = {0, 5, -5, INT_MAX, INT_MIN};
+		// testcases.int_test = temp;
+		return(temp);
+	case 1:
+		// testcases.char_test = malloc(sizeof(char) * 4);
+		void	*temp[] = {'a', '1', 0};
+		// testcases.char_test = temp;
+		return(temp);
+	case 3:
+		// testcases.str_test = malloc(sizeof(char*) * 6);
+		void	*temp[] = {"hello", "     -3294786", "42", "hello world", 0};
+		// testcases.str_test = temp;
+		return(temp);
+	default:
+		return(0);
+	}
+}
+*/
+
+/**
+ * @brief
+//  */
+void	*match_function(char *input, void *params[])
+{
+	t_test test[10];
+	test[0].try = my_isascii;
+	typeof(test[0].try);
+
+	void	*my_func[] = {my_atoi, my_bzero, my_calloc,
+			my_isalnum, my_isalpha, my_isascii, my_isdigit,
+			my_isprint, my_itoa, my_memchr, my_memcmp, my_memcpy,
+			my_memmove, my_memset, my_putchar_fd, my_putendl_fd,
+			my_putnbr_fd, my_putstr_fd, my_split, my_strchr,
+			my_strdup, my_striteri, my_strjoin, my_strlcat,
+			my_strlcpy, my_strlen, my_strmapi, my_strncmp, my_strnstr,
+			my_strrchr, my_strtrim, my_substr, my_tolower,
+			my_toupper};
+
+	void	*og_func[] = {og_atoi, og_bzero, og_calloc,
+			og_isalnum, og_isalpha, og_isascii, og_isdigit,
+			og_isprint, og_itoa, og_memchr, og_memcmp, og_memcpy,
+			og_memmove, og_memset, og_putchar_fd, og_putendl_fd,
+			og_putnbr_fd, og_putstr_fd, og_split, og_strchr,
+			og_strdup, og_striteri, og_strjoin, og_strlcat,
+			og_strlcpy, og_strlen, og_strmapi, og_strncmp, og_strnstr,
+			og_strrchr, og_strtrim, og_substr, og_tolower,
+			og_toupper};
+
+	char	*string_func[] = {"ft_atoi", "ft_bzero", "ft_calloc",
+			"ft_isalnum", "ft_isalpha", "ft_isascii", "ft_isdigit",
+			"ft_isprint", "ft_itoa", "ft_memchr", "ft_memcmp", "ft_memcpy",
+			"ft_memmove", "ft_memset", "ft_putchar_fd", "ft_putendl_fd",
+			"ft_putnbr_fd", "ft_putstr_fd", "ft_split", "ft_strchr",
+			"ft_strdup", "ft_striteri", "ft_strjoin", "ft_strlcat",
+			"ft_strlcpy", "ft_strlen", "ft_strmapi", "ft_strncmp", "ft_strnstr",
+			"ft_strrchr", "ft_strtrim", "ft_substr", "ft_tolower",
+			"ft_toupper"};
+
+	size_t		i;
+	
+	for (i = 0; i < sizeof(my_func); i++)
+	{
+		if (strcmp(input, string_func[i]) == 0)
+			break ;
+	}
+	// if (get_size(*params) == 4)
+	// {
+	void *temp = my_func + i;
+	printf("%p \n %p", temp, my_atoi);
+	if  (params)
+	{}
+		return(my_func[i])(params[0], params[1], params[2]);
+	}
+	combined[0] = give_res(my_func[i], params);
+	combined[1] = give_res(og_func[i], params);
+	return (combined);
+}
+
+// void	*swap(void *ptr, size_t *value)
+// {
+// 	ptr = &value;
+// 	return (ptr);
+// }
+
+// int compare(void *funct[], void *params[])
+// {
+	
+// 	return(memcmp(give_res(funct[0], params), give_res(funct[1], params), sizeof(give_res(funct[1], params))));
+// }
+
+int	main(int argc, char **argv)
+{
+	my_atoi("123");
+	if (argc <= 1)
+		return((int) argv[0][0]);
+	char temp[2] = "";
+	char get_type = 0;
+	void *params[3];
+	// void_params = swap(void_params, params);
+	void *funct[2];
+
+
+	// int i;
+	// for (i = 0; i < 3; i++)
+	// {
+	// 	printf("\nparam (x if empty) %i: ", i);
+	// 	scanf("%s", temp);
+	// 	printf("%s\n", temp);
+	// 	if(*temp != 'x')
+	// 	{	
+	// 		printf("convert to char(c), int(i), size_t(t): ");
+	// 		scanf(" %c", &get_type);
+	// 		if (get_type == 'c')
+	// 			params[i] = (char *) &temp;
+	// 		else if (get_type == 'i')
+	// 		{
+	// 			*temp = (char) atoi(temp);
+	// 			params[i] = (int *) &temp;
+	// 		}
+	// 		else if (get_type == 't')
+	// 		{
+	// 			*temp = (char) atoi(temp);
+	// 			params[i] = (size_t *) temp;
+	// 		}
+	// 	}
+	// }
+	// *funct = match_function(argv[1], params);
+
+	// printf("\n**************\n");
+	// printf("\nmine: %p\nog: %p", funct[0], funct[1]);
+	// // printf("compare: %i: ", memcmp(funct[0], funct[1], sizeof(funct[1])));
+	// printf("**************\n");
+}

@@ -1,0 +1,96 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.h                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/09 21:39:36 by mimeyer           #+#    #+#             */
+/*   Updated: 2025/11/11 13:11:50 by mimeyer          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#ifndef MAIN_H
+# define MAIN_H
+
+# include "libft.h"
+# include <stdarg.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <string.h>
+# include <bsd/string.h>
+# include <limits.h>
+# include <ctype.h>
+
+typedef int (*t_int__int)(int);
+typedef int (*t_int__constcharptr_constcharptr_size_t)(const char *, const char*, size_t);
+typedef int (*t_int__constcharptr)(const char *);
+typedef void (*t_void__voidptr_size_t)(void *, size_t);
+typedef void *(*t_voidptr__voidptr_int_size_t)(void *, int, size_t);
+typedef void *(*t_voidptr__constvoidptr_int_size_t)(const void *, int, size_t);
+typedef void *(*t_voidptr__voidptr_constvoidptr_size_t)(void *, const void *, size_t);
+typedef size_t (*t_size_t__constcharptr)(const char *);
+typedef size_t (*t_size_t__charptr_constcharptr_size_t)(char *, const char *, size_t);
+typedef char *(*t_charptr__constcharptr_int)(const char *, int);
+typedef char *(*t_charptr__constcharptr_constcharptr_size_t)(const char *, const char *, size_t);
+typedef int (*t_int__constvoidptr_constvoidptr_size_t)(const void *, const void *, size_t);
+
+
+# define INT__INT int (*)(int)
+
+# define INT__CONSTCHARPTR int (*)(const char *)
+
+# define SIZE_T__CONSTCHARPTR size_t (*)(const char *)
+
+# define VOID__VOIDPTR_SIZE_T void (*)(void *, size_t)
+
+# define CHARPTR__CONSTCHARPTR_INT char *(*)(const char *, int)
+
+# define INT__CONSTCHARPTR_CONSTCHARPTR_SIZE_T int (*)(const char *,const char *, size_t)
+
+# define INT__CONSTVOIDPTR_CONSTVOIDPTR_SIZE_T int (*)(const void *,const void *, size_t)
+
+# define VOIDPTR__VOIDPTR_INT_SIZE_T void *(*)(void *, int, size_t)
+
+# define VOIDPTR__CONSTVOIDPTR_INT_SIZE_T void *(*)(const void *, int, size_t)
+
+# define VOIDPTR__VOIDPTR_CONSTVOIDPTR_SIZE_T void *(*)(void *, const void *,size_t)
+
+# define SIZE_T__CHARPTR_CONSTCHARPTR_SIZE_T size_t (*)(char *, const char *,size_t)
+
+# define CHARPTR__CONSTCHARPTR_CONSTCHARPTR_SIZE_T char *(*)(const char *,const char *, size_t)
+
+#define INT int
+
+# define RETURN_LIST 	INT, \
+						(char *), \
+						(void), \
+						(void *),\
+						(size_t) 
+
+# define PARAM_LIST 	INT , \
+						(const char*) , \
+						(void *, size_t) , \
+						(const char *, int) , \
+						(const char *,const char *, size_t) ,\
+						(void *, int, size_t) ,\
+						(const void *, int, size_t) ,\
+						(void *, const void *,size_t) 
+
+
+
+
+typedef struct s_lib_func{
+	int (*my_funct) (const char*);
+	int (*og_funct) (const char*);
+}	t_lib_func;
+
+typedef struct s_functions{
+	
+	char *name;
+	t_lib_func *funky_funk;
+}	t_functions;
+
+
+
+#endif

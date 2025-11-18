@@ -1,0 +1,246 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/09 21:22:41 by mimeyer           #+#    #+#             */
+/*   Updated: 2025/11/12 12:39:43 by mimeyer          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "main.h"
+
+int call_func(size_t i, int n, ...)
+{
+	va_list args;
+	va_list og_args;
+	va_list size_args;
+	va_start(args, n);
+	va_start(og_args, n);
+	va_start(size_args, n);
+	
+	long int my_temp = 0;
+	long int og_temp = 0;
+	size_t size_temp = 0;
+
+	// const char *test = (const char *) va_arg(args, const char *);
+	// if (!test)
+	// 	return(0);
+
+	void *my_ptr = 0;
+	void *og_ptr = 0;
+	
+	switch (i)
+	{
+		case 0:
+			my_temp = ft_atoi(va_arg(args, const char *));
+			og_temp = atoi(va_arg(og_args, const char *));
+			size_temp = sizeof(atoi(va_arg(size_args, const char *)));
+			printf("\nmy_temp: %li\nog_temp: %li\n\n", my_temp, og_temp);
+			return(memcmp(&my_temp, &og_temp, size_temp));
+		// case 1:
+			// my_ptr = memcpy(my_ptr, va_arg(args, const void *), va_arg(args, size_t));
+			// og_ptr = memcpy(og_ptr, va_arg(args, const void *), va_arg(args, size_t));
+			// ft_bzero(my_ptr, va_arg(args, size_t));
+			// bzero(og_ptr, va_arg(args, size_t));
+			// size_temp = sizeof(bzero((void *) va_arg(args, ), va_arg(args, )));	
+			// return(memcmp(my_ptr, og_ptr, (size_t) va_arg(args, )));
+		// case 2:
+		// 	my_temp = ft_calloc(va_arg(args, ));
+		// 	og_temp = calloc(va_arg(args, ));
+		// 	size_temp = sizeof(calloc(va_arg(args, )));	
+		// 	return(memcmp(&my_temp, &og_temp, size_temp));
+		case 3:
+			my_temp = ft_isalnum(va_arg(args, int));
+			og_temp = isalnum(va_arg(og_args, int));
+			size_temp = sizeof(isalnum(va_arg(size_args, int)));
+			printf("\nmy_temp: %li\nog_temp: %li\n\n", my_temp, og_temp);
+			return(memcmp(&my_temp, &og_temp, size_temp));
+		case 4:
+			my_temp = ft_isalpha(va_arg(args, int));
+			og_temp = isalpha(va_arg(og_args, int));
+			size_temp = sizeof(isalpha(va_arg(size_args, int)));
+			printf("\nmy_temp: %li\nog_temp: %li\n\n", my_temp, og_temp);	
+			return(memcmp(&my_temp, &og_temp, size_temp));
+		case 5:
+			my_temp = ft_isascii(va_arg(args, int));
+			og_temp = isascii(va_arg(og_args, int));
+			size_temp = sizeof(isascii(va_arg(size_args, int)));	
+			printf("\nmy_temp: %li\nog_temp: %li\n\n", my_temp, og_temp);
+			return(memcmp(&my_temp, &og_temp, size_temp));
+		case 6:
+			my_temp = ft_isdigit(va_arg(args, int));
+			og_temp = isdigit(va_arg(og_args, int));
+			size_temp = sizeof(isdigit(va_arg(size_args, int)));	
+			printf("\nmy_temp: %li\nog_temp: %li\n\n", my_temp, og_temp);
+			return(memcmp(&my_temp, &og_temp, size_temp));
+		case 7:
+			my_temp = ft_isprint(va_arg(args, int));
+			og_temp = isprint(va_arg(og_args, int));
+			size_temp = sizeof(isprint(va_arg(size_args, int)));	
+			printf("\nmy_temp: %li\nog_temp: %li\n\n", my_temp, og_temp);
+			return(memcmp(&my_temp, &og_temp, size_temp));
+		// case 8:
+		// 	my_temp = ft_itoa(va_arg(args, ));
+		// 	og_temp = itoa(va_arg(args, ));
+		// 	size_temp = sizeof(itoa(va_arg(args, )));	
+		//	printf("\nmy_temp: %li\nog_temp: %li\n\n", my_temp, og_temp);
+		// 	return(memcmp(&my_temp, &og_temp, size_temp));
+		case 9:
+			my_ptr = ft_memchr(va_arg(args, const void *), va_arg(args, int), va_arg(args, size_t));
+			og_ptr = memchr(va_arg(og_args, const void *), va_arg(og_args, int), va_arg(og_args, size_t));
+			size_temp = sizeof(memchr(va_arg(size_args, const void *), va_arg(size_args, int), va_arg(size_args, size_t)));	
+			printf("\nmy_ptr: %p\nog_ptr: %p\n\n", (void *)my_ptr, (void *)og_ptr);
+			return(memcmp(my_ptr, og_ptr, size_temp));
+		case 10:
+			my_temp = ft_memcmp(va_arg(args, const void *), va_arg(args, const void *), va_arg(args, size_t));
+			og_temp = memcmp(va_arg(og_args, const void *), va_arg(og_args, const void *), va_arg(og_args, size_t));
+			size_temp = sizeof(memcmp(va_arg(size_args, const void *), va_arg(size_args, const void *), va_arg(size_args, size_t)));	
+			printf("\nmy_temp: %ld\nog_temp: %ld\n\n", my_temp, og_temp);
+			return(memcmp(&my_temp, &og_temp, size_temp));
+		case 11:
+			my_ptr = ft_memcpy(va_arg(args, void *), va_arg(args, const void *), va_arg(args, size_t));
+			og_ptr = memcpy(va_arg(og_args, void *), va_arg(og_args, const void *), va_arg(og_args, size_t));
+			size_temp = sizeof(memcpy(va_arg(size_args, void *), va_arg(size_args, const void *), va_arg(size_args, size_t)));	
+			printf("\nmy_ptr: %p\nog_ptr: %p\n\n", (void *)my_ptr, (void *)og_ptr);
+			return(memcmp(my_ptr, og_ptr, size_temp));
+		case 12:
+			my_ptr = ft_memmove(va_arg(args, void *), va_arg(args, const void *), va_arg(args, size_t));
+			og_ptr = memmove(va_arg(og_args, void *), va_arg(og_args, const void *), va_arg(og_args, size_t));
+			size_temp = sizeof(memmove(va_arg(size_args, void *), va_arg(size_args, const void *), va_arg(size_args, size_t)));	
+			printf("\nmy_ptr: %p\nog_ptr: %p\n\n", (void *)my_ptr, (void *)og_ptr);
+			return(memcmp(my_ptr, og_ptr, size_temp));
+		case 13:
+			my_ptr = ft_memset(va_arg(args, void *), va_arg(args, int), va_arg(args, size_t));
+			og_ptr = memset(va_arg(og_args, void *), va_arg(og_args, int), va_arg(og_args, size_t));
+			size_temp = sizeof(memset(va_arg(size_args, void *), va_arg(size_args, int), va_arg(size_args, size_t)));	
+			printf("\nmy_ptr: %p\nog_ptr: %p\n\n", (void *)my_ptr, (void *)og_ptr);
+			return(memcmp(my_ptr, og_ptr, size_temp));
+		case 19:
+			my_ptr = ft_strchr(va_arg(args, const char *), va_arg(args, int));
+			og_ptr = strchr(va_arg(og_args, const char *), va_arg(og_args, int));
+			size_temp = sizeof(strchr(va_arg(size_args, const char *), va_arg(size_args, int)));	
+			printf("\nmy_ptr: %p\nog_ptr: %p\n\n", (void *)my_ptr, (void *)og_ptr);
+			return(memcmp(my_ptr, og_ptr, size_temp));
+		case 23:
+			my_temp = ft_strlcat(va_arg(args, char *), va_arg(args, const char *), va_arg(args, size_t));
+			og_temp = strlcat(va_arg(og_args, char *), va_arg(og_args, const char *), va_arg(og_args, size_t));
+			size_temp = sizeof(strlcat(va_arg(size_args, char *), va_arg(size_args, const char *), va_arg(size_args, size_t)));	
+			printf("\nmy_temp: %ld\nog_temp: %ld\n\n", my_temp, og_temp);
+			return(memcmp(&my_temp, &og_temp, size_temp));
+		case 24:
+			my_temp = ft_strlcpy(va_arg(args, char *), va_arg(args, const char *), va_arg(args, size_t));
+			og_temp = strlcpy(va_arg(og_args, char *), va_arg(og_args, const char *), va_arg(og_args, size_t));
+			size_temp = sizeof(strlcpy(va_arg(size_args, char *), va_arg(size_args, const char *), va_arg(size_args, size_t)));	
+			printf("\nmy_temp: %ld\nog_temp: %ld\n\n", my_temp, og_temp);
+			return(memcmp(&my_temp, &og_temp, size_temp));
+		case 28:
+			my_ptr = ft_strnstr(va_arg(args, const char *), va_arg(args, const char *), va_arg(args, size_t));
+			og_ptr = strnstr(va_arg(og_args, const char *), va_arg(og_args, const char *), va_arg(og_args, size_t));
+			size_temp = sizeof(strnstr(va_arg(size_args, const char *), va_arg(size_args, const char *), va_arg(size_args, size_t)));	
+			printf("\nmy_ptr: %p\nog_ptr: %p\n\n", (void *)my_ptr, (void *)og_ptr);
+			return(memcmp(my_ptr, og_ptr, size_temp));
+		case 29:
+			my_ptr = ft_strrchr(va_arg(args, const char *), va_arg(args, int));
+			og_ptr = strrchr(va_arg(og_args, const char *), va_arg(og_args, int));
+			size_temp = sizeof(strrchr(va_arg(size_args, const char *), va_arg(size_args, int)));	
+			printf("\nmy_ptr: %p\nog_ptr: %p\n\n", (void *)my_ptr, (void *)og_ptr);
+			return(memcmp(my_ptr, og_ptr, size_temp));
+		case 32:
+			my_temp = ft_tolower(va_arg(args, int));
+			og_temp = tolower(va_arg(og_args, int));
+			size_temp = sizeof(tolower(va_arg(size_args, int)));	
+			printf("\nmy_temp: %ld\nog_temp: %ld\n\n", my_temp, og_temp);
+			return(memcmp(&my_temp, &og_temp, size_temp));
+		case 33:
+			my_temp = ft_toupper(va_arg(args, int));
+			og_temp = toupper(va_arg(og_args, int));
+			size_temp = sizeof(toupper(va_arg(size_args, int)));
+			printf("\nmy_temp: %ld\nog_temp: %ld\n\n", my_temp, og_temp);
+			return(memcmp(&my_temp, &og_temp, size_temp));
+		default:
+			return(1);
+	}
+}
+
+size_t find_funct(const char *name)
+{
+	size_t i = 0;
+	char *names[] = {
+		"ft_atoi",
+		"ft_bzero",
+		"ft_calloc",
+		"ft_isalnum",
+		"ft_isalpha",
+		"ft_isascii",
+		"ft_isdigit",
+		"ft_isprint",
+		"ft_itoa",
+		"ft_memchr",
+		"ft_memcmp",
+		"ft_memcpy",
+		"ft_memmove",
+		"ft_memset",
+		"ft_putchar_fd",
+		"ft_putendl_fd",
+		"ft_putnbr_fd",
+		"ft_putstr",
+		"ft_split",
+		"ft_strchr",
+		"ft_strdup",
+		"ft_striteri",
+		"ft_strjoin",
+		"ft_strlcat",
+		"ft_strlcpy",
+		"ft_strlen",
+		"ft_strmapi",
+		"ft_strncmp",
+		"ft_strnstr",
+		"ft_strrchr",
+		"ft_strtrim",
+		"ft_substr",
+		"ft_tolower",
+		"ft_toupper",
+	};
+	for (;i < 34; i++)
+	{
+		if (strcmp(names[i],name) == 0)
+			return(i);
+	}
+	return(0);
+}
+
+int main(int argc, const char **argv)
+{
+	if (argc <= 1)
+		return(0);
+	char **arr;
+	arr = malloc(sizeof(char *) * 4);
+	for (int a = 0; a < 4; a++)
+	{
+		arr[a] = malloc(sizeof(char) * 100);
+	}
+	int param_num = 1;
+	// unsigned long int param = 0;
+	size_t i = 0;
+	printf("Enter number of parameters: ");
+	for (i = scanf("%lu", &i);i != 0; i--)
+	{
+		printf("Enter parameter %i: ", param_num);
+		scanf("%s", arr[param_num - 1]);
+		// arr [param_num - 1] = (char *)param;
+	}
+	i = find_funct(argv[1]);
+	int len = 0;
+	for (len = 0; arr[len][0]; len ++);
+	if (len == 1)
+		len = call_func(i, 1, arr[0]);
+	else if (len == 2)
+		len = call_func(i, 2, arr[0], arr[1]);
+	else if (len == 2)
+		len = call_func(i, 3, arr[0], arr[1], arr[2]);
+	printf("**************\n\n%i\n\n**************\n", len);
+		
+}
