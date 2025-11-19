@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 17:03:01 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/11/18 18:05:37 by mimeyer          ###   ########.fr       */
+/*   Updated: 2025/11/19 16:29:21 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 		*strsup = 0;
 		return (strsup);
 	}
-	ft_strlcpy(strsup, s + (start * (len / len)), len + 1);
+	ft_strlcpy(strsup, s + start, len + 1);
 	return (strsup);
 }
 
