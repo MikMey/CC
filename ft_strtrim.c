@@ -6,64 +6,72 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 20:53:43 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/11/18 17:49:55 by mimeyer          ###   ########.fr       */
+/*   Updated: 2025/11/19 17:11:30 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long int	*loops(const char *s1, const char *set, long int *limits);
+static long int	loop_lower(const char *s1, const char *set, long int lower);
+static long int	loop_upper(const char *s1, const char *set, long int lower,
+					long int upper);
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	char		*trimmed_str;
-	long int	*limits;
+	long int	lower;
+	long int	upper;
 
-	limits = malloc(sizeof(size_t) * 2);
-	if (limits == 0)
-		return (NULL);
-	limits[0] = 0;
-	limits[1] = ft_strlen(s1) - 1;
-	limits = loops(s1, set, limits);
-	limits[1]++;
-	if ((limits[1] - limits[0]) < 0)
+	lower = 0;
+	upper = ft_strlen(s1) - 1;
+	lower = loop_lower(s1, set, lower);
+	upper = loop_upper(s1, set, lower, upper);
+	upper++;
+	if ((upper - lower) < 0)
 		trimmed_str = malloc(sizeof(char) * 1);
 	else
-		trimmed_str = malloc(sizeof(char) * (limits[1] - limits[0] + 1));
+		trimmed_str = malloc(sizeof(char) * (upper - lower + 1));
 	if (trimmed_str == 0)
 		return (NULL);
-	ft_strlcpy(trimmed_str, s1 + limits[0], limits[1] - limits[0] + 1);
-	free(limits);
+	ft_strlcpy(trimmed_str, s1 + lower, upper - lower + 1);
 	return (trimmed_str);
 }
 
-long int	*loops(const char *s1, const char *set, long int *limits)
+static long int	loop_lower(const char *s1, const char *set, long int lower)
 {
 	size_t	i;
 
 	i = 0;
-	while (s1[limits[0]] && set[i])
+	while (s1[lower] && set[i])
 	{
-		if (s1[limits[0]] == set[i])
+		if (s1[lower] == set[i])
 		{
-			limits[0]++;
+			lower++;
 			i = 0;
 		}
 		else
 			i++;
 	}
+	return (lower);
+}
+
+static long int	loop_upper(const char *s1, const char *set, long int lower,
+		long int upper)
+{
+	size_t	i;
+
 	i = 0;
-	while (limits[1] != limits[0] && set[i])
+	while (upper != lower && set[i])
 	{
-		if (s1[limits[1]] == set[i])
+		if (s1[upper] == set[i])
 		{
-			limits[1]--;
+			upper--;
 			i = 0;
 		}
 		else
 			i++;
 	}
-	return (limits);
+	return (upper);
 }
 
 // int main(int argc, char **argv)
