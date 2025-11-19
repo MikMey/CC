@@ -6,14 +6,14 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 15:50:02 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/11/18 15:15:27 by mimeyer          ###   ########.fr       */
+/*   Updated: 2025/11/19 16:55:50 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	check_strns(char *ss, char c, size_t strns);
-char	**assign_str(char **splitstr, char c, char *ss);
+static size_t	check_strns(char *ss, char c, size_t strns);
+static char		**assign_str(char **splitstr, char c, char *ss);
 
 char	**ft_split(char const *s, char c)
 {
@@ -42,7 +42,7 @@ char	**ft_split(char const *s, char c)
 	return (splitstr);
 }
 
-size_t	check_strns(char *ss, char c, size_t strns)
+static size_t	check_strns(char *ss, char c, size_t strns)
 {
 	size_t	temp_i;
 	size_t	i;
@@ -63,7 +63,7 @@ size_t	check_strns(char *ss, char c, size_t strns)
 	return (strns);
 }
 
-char	**assign_str(char **splitstr, char c, char *ss)
+static char	**assign_str(char **splitstr, char c, char *ss)
 {
 	size_t	strns;
 	size_t	i;
