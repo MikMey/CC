@@ -6,14 +6,14 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 12:48:41 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/11/18 14:55:25 by mimeyer          ###   ########.fr       */
+/*   Updated: 2025/11/19 16:55:39 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	invert(long nn, int i, char *str);
-int		check_size(long nn);
+static void		invert(long nn, int i, char *str);
+static int		check_size(long nn);
 
 char	*ft_itoa(int n)
 {
@@ -41,14 +41,14 @@ char	*ft_itoa(int n)
 	return (str);
 }
 
-void	invert(long nn, int i, char *str)
+static void	invert(long nn, int i, char *str)
 {
 	if ((nn / 10) != 0)
 		invert(nn / 10, i - 1, str);
 	str[i] = (nn % 10) + '0';
 }
 
-int	check_size(long nn)
+static int	check_size(long nn)
 {
 	int	i;
 
