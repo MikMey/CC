@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   structs.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/23 18:18:10 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/11/25 16:51:46 by mimeyer          ###   ########.fr       */
+/*   Created: 2025/11/24 14:48:02 by mimeyer           #+#    #+#             */
+/*   Updated: 2025/11/27 14:09:17 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef STRUCTS_H
+# define STRUCTS_H
 
-int main(int argc, char const *argv[])
-{
-	if(argc < 1)
-		return(atoi(argv[0]));
-	ft_printf("%%\ntest");
-}
+# include "libft/libft.h"
+# include <stdarg.h>
+# include <stddef.h>
+# include <stdio.h>
+# include <stdlib.h>
+# include <unistd.h>
+
+#endif

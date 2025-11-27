@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   structs.h                                          :+:      :+:    :+:   */
+/*   p.c                                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/24 14:48:02 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/11/24 16:19:03 by mimeyer          ###   ########.fr       */
+/*   Created: 2025/11/25 14:15:18 by mimeyer           #+#    #+#             */
+/*   Updated: 2025/11/26 20:59:26 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef STRUCTS_H
-# define STRUCTS_H
+#include "../flags.h"
 
-# include "./libft/libft.h"
-# include <stdarg.h>
-# include <stddef.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
-
-#endif
+int	p(va_list args, char *pl, int *payload_i)
+{
+	if (!pl[*payload_i])
+		return (0);
+	write(1, "0x", 2);
+	write(1, va_arg(args, void *), 8);
+	return (10);
+}

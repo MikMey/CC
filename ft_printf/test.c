@@ -1,17 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   p.c                                                :+:      :+:    :+:   */
+/*   test.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/25 14:15:18 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/11/25 17:47:30 by mimeyer          ###   ########.fr       */
+/*   Created: 2025/11/23 18:18:10 by mimeyer           #+#    #+#             */
+/*   Updated: 2025/11/26 21:09:03 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../flags.h"
+#include "ft_printf.h"
 
-char	*p(va_list args, const char *pl, int *payload_i)
+int main(int argc, char const *argv[])
 {
+	if(argc < 1)
+		return(atoi(argv[0]));
+	ft_printf("%s\ntest", "hi");
 }

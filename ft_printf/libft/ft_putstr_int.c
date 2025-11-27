@@ -1,21 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   ft_putstr_int.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/23 15:20:47 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/11/25 12:27:10 by mimeyer          ###   ########.fr       */
+/*   Created: 2025/11/25 15:24:22 by mimeyer           #+#    #+#             */
+/*   Updated: 2025/11/26 18:35:32 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#include "libft.h"
 
-# include "flags.h"
-# include "structs.h"
+int	ft_putstr_int(char *s)
+{
+	size_t	i;
 
-int	ft_printf(const char *pl, ...);
-
-#endif
+	i = 0;
+	while (s[i])
+	{
+		write(1, &s[i], 1);
+		i++;
+	}
+	return (i - 1);
+}

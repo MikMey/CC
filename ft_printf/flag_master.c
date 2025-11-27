@@ -6,12 +6,17 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 20:02:49 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/11/26 14:31:37 by mimeyer          ###   ########.fr       */
+/*   Updated: 2025/11/27 13:59:05 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "flags.h"
 
+/**
+ * @brief act uppon flag or write string
+ *
+ * @return len of print
+ */
 int	flag_master(const char *pl, va_list args)
 {
 	int	*payload_i;
@@ -43,15 +48,14 @@ int	find_flag(const char *pl, va_list args, int *payload_i)
 	len = 0;
 	while (ft_strchr(FLAGS, *pl))
 	{
-		len += ft_putstr_int(call_funct(ft_idxstrchr(FLAGS, *pl), args, pl,
-					payload_i));
+		len += call_funct(ft_idxstrchr(FLAGS, *pl), args, pl, payload_i);
 		if (ft_strchr(END_FLAGS, *pl))
 			break ;
 	}
 	return (len);
 }
 
-char	*call_funct(int idx, va_list args, const char *pl, int *payload_i)
+int	call_funct(int idx, va_list args, const char *pl, int *payload_i)
 {
 	static t_flags	*funct_arr;
 
@@ -60,10 +64,10 @@ char	*call_funct(int idx, va_list args, const char *pl, int *payload_i)
 	if (!funct_arr)
 	{
 		free_all(funct_arr);
-		return (NULL);
+		return (0);
 	}
 	*payload_i += 1;
-	return (funct_arr[idx](args, pl, payload_i));
+	return (funct_arr[idx](args, (char *)pl, payload_i));
 }
 
 t_flags	*get_functions(void)
@@ -71,8 +75,8 @@ t_flags	*get_functions(void)
 	t_flags	*funct_arr;
 
 	funct_arr = malloc(sizeof(t_flags) * 16);
-	ft_memcpy(funct_arr, (t_flags[]){&dash, &dot, &zero, &space, &d, &u, &i,
-		&hash, &p, &s, &c, &upper_x, &lower_x, &percent, &plus, 0},
+	ft_memcpy(funct_arr, (t_flags[]){&dash, &dot, &zero, &space, &plus, &d, &u,
+		&i, &hash, &p, &s, &c, &upper_x, &lower_x, &percent, NULL},
 		sizeof(funct_arr) * 16);
 	return (funct_arr);
 }

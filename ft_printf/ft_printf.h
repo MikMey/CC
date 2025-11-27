@@ -1,21 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   hash_dot.c                                         :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/25 14:14:35 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/11/25 17:47:28 by mimeyer          ###   ########.fr       */
+/*   Created: 2025/11/23 15:20:47 by mimeyer           #+#    #+#             */
+/*   Updated: 2025/11/26 21:18:46 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../flags.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-char	*hash(va_list args, const char *pl, int *payload_i)
-{
-}
+# include "flags.h"
+# include "structs.h"
 
-char	*dot(va_list args, const char *pl, int *payload_i)
-{
-}
+int	ft_printf(const char *pl, ...);
+
+#endif

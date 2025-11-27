@@ -7,6 +7,8 @@ BONUS_NAME	:= libft.a
 SRC		:= ./ft_atoi.c \
 ./ft_bzero.c \
 ./ft_calloc.c \
+./ft_idxmemchr.c \
+./ft_idxstrchr.c \
 ./ft_isalnum.c \
 ./ft_isalpha.c \
 ./ft_isascii.c \
@@ -22,6 +24,7 @@ SRC		:= ./ft_atoi.c \
 ./ft_putendl_fd.c \
 ./ft_putnbr_fd.c \
 ./ft_putstr_fd.c \
+./ft_putstr_int.c \
 ./ft_split.c \
 ./ft_strchr.c \
 ./ft_strdup.c \
@@ -37,9 +40,7 @@ SRC		:= ./ft_atoi.c \
 ./ft_strtrim.c \
 ./ft_substr.c \
 ./ft_tolower.c \
-./ft_toupper.c \
-./ft_idxstrchr \
-./ft_idxmemchr
+./ft_toupper.c
 
 BONUS_SRC := ./ft_lstsize.c \
 ./ft_lstadd_back.c \
@@ -58,15 +59,19 @@ OBJ = $(SRC:.c=.o)
 %.o: %.c
 	$(CC) $(CFLAGS) -o $@ -c $<
 
-$(BONUS_NAME): $(BONUS_OBJ)
-		$(AR) $(AFLAGS) $@ $^
+$(NAME): $(OBJ) $(BONUS_OBJ)
+	$(AR) $(AFLAGS) $(NAME) $(OBJ) $(BONUS_OBJ)
 
-bonus: $(BONUS_NAME)
 
-$(NAME): $(OBJ)
-		$(AR) $(AFLAGS) $@ $^
+# $(BONUS_NAME): $(BONUS_OBJ)
+# 		$(AR) $(AFLAGS) $(BONUS_NAME) $(BONUS_OBJ)
 
-all: 	$(NAME)
+bonus: $(NAME)
+
+# $(NAME): $(OBJ)
+# 		$(AR) $(AFLAGS) $(NAME) $(OBJ)
+
+all: $(NAME)
 
 clean: 
 		rm -f ${OBJ} ${BONUS_OBJ}
