@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 20:10:39 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/11/28 21:24:13 by mimeyer          ###   ########.fr       */
+/*   Updated: 2025/11/28 21:29:03 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ char *malloc_res(size_t size, char **buf)
 
 char *malloc_buffer(char **buf, size_t i)
 {
-	buf[i] = ft_calloc(sizeof(char), BUFFER_SIZE);
+	buf[i] = ft_calloc(sizeof(char), BUFFER_SIZE + 1);
 	if (!buf)
 	{
 		free_arr(buf);

@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 20:06:48 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/11/28 21:22:13 by mimeyer          ###   ########.fr       */
+/*   Updated: 2025/11/28 21:31:21 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char *read_until(int fd, char **buf)
 	size = read(fd, buf[i], BUFFER_SIZE);
 	while (size > 0)
 	{
-		while (buf[i][iter_idx] != '\n' && iter_idx < BUFFER_SIZE && buf[i][iter_idx++]);
+		while (iter_idx < BUFFER_SIZE && buf[i][iter_idx] != '\n' && buf[i][iter_idx++]);
 		if(iter_idx != BUFFER_SIZE)
 			break;
 		iter_idx = 0;
@@ -53,7 +53,7 @@ char *read_until(int fd, char **buf)
 	}
 	if (size == -1)
 		return(NULL);
-	res = malloc_res(iter_idx * i, buf);
+	res = malloc_res((iter_idx + 1) * (i + 1), buf);
 	ft_strlcpy(res, (const char **)buf, ((iter_idx + 1) * (i + 1) + 1));
 	return (res);
 }
