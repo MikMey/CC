@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 20:07:02 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/11/28 20:45:54 by mimeyer          ###   ########.fr       */
+/*   Updated: 2025/11/28 20:56:28 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,6 @@ size_t	ft_strlcpy(char *dest, const char *src, size_t n);
 char	*malloc_res(size_t size, char **buf);
 void	*ft_memcpy(void *dest, const void *src, size_t n);
 size_t	ft_strlen(const char *s);
+void	*ft_calloc(size_t nmemb, size_t size);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 20:06:48 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/11/28 20:52:33 by mimeyer          ###   ########.fr       */
+/*   Updated: 2025/11/28 20:56:21 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char *get_next_line(int fd)
 	char **buf;
 	char *res;
 
-	buf = malloc(sizeof(char *));
+	buf = ft_calloc(sizeof(char *), 10);
 	if(!buf)
 	{
 		free(buf);
@@ -70,6 +70,23 @@ void free_arr(char **buf)
 	}
 	free(buf);
 	return ;
+}
+
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	unsigned char	*ptr;
+	size_t			i;
+
+	i = 0;
+	ptr = malloc(nmemb * size);
+	if (ptr == 0)
+		return (NULL);
+	while (i < (size * nmemb))
+	{
+		ptr[i] = 0;
+		i++;
+	}
+	return (ptr);
 }
 
 int main(void)
