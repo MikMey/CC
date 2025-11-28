@@ -6,28 +6,23 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 20:10:39 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/11/28 20:57:26 by mimeyer          ###   ########.fr       */
+/*   Updated: 2025/11/28 21:24:13 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t n)
+size_t	ft_strlcpy(char *dest, const char **src, size_t n)
 {
-	if (dest == 0 || src == 0)
-		return (ft_strlen(src));
-	if (*src == '\0')
+	int i;
+
+	i = 0;
+	while(ft_strlen(dest) != n - 1 && src[i])
 	{
-		*dest = 0;
-		return (ft_strlen(src));
+		ft_strlcat(dest, src[i], ft_strlen(src[i]) + ft_strlen(dest) + 1);
+		i++;
 	}
-	if (n <= 0)
-		return (ft_strlen(src));
-	if (n > ft_strlen(src))
-		n = ft_strlen(src) + 1;
-	dest = ft_memcpy(dest, src, n);
-	dest[n - 1] = '\0';
-	return (ft_strlen(src));
+	return(i);
 }
 
 void	*ft_memcpy(void *dest, const void *src, size_t n)
