@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 20:06:48 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/11/28 21:31:21 by mimeyer          ###   ########.fr       */
+/*   Updated: 2025/11/28 21:44:03 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char *get_next_line(int fd)
 	char **buf;
 	char *res;
 
-	buf = ft_calloc(sizeof(char *), 10);
+	buf = ft_calloc(sizeof(char *), 1028);
 	if(!buf)
 	{
 		free(buf);
