@@ -1,0 +1,379 @@
+
+=================================================================
+==981650==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 15 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cb1f9 in main /home/kmurched/francinette/temp/libft/war-machine/tests/Part1_functions/ft_memset/main.c:24:14
+    #2 0x7f8cb3c29d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 15 byte(s) leaked in 1 allocation(s).
+
+=================================================================
+==981675==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 15 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cb1f9 in main /home/kmurched/francinette/temp/libft/war-machine/tests/Part1_functions/ft_memset/main.c:24:14
+    #2 0x7f35b1e29d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 15 byte(s) leaked in 1 allocation(s).
+
+=================================================================
+==981725==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 15 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cb1f9 in main /home/kmurched/francinette/temp/libft/war-machine/tests/Part1_functions/ft_memset/main.c:24:14
+    #2 0x7fe6e9a29d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 15 byte(s) leaked in 1 allocation(s).
+
+=================================================================
+==981772==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 5 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cb203 in main /home/kmurched/francinette/temp/libft/war-machine/tests/Part1_functions/ft_bzero/main.c:23:27
+    #2 0x7f33a8a29d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 5 byte(s) leaked in 1 allocation(s).
+
+=================================================================
+==981797==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 5 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cb203 in main /home/kmurched/francinette/temp/libft/war-machine/tests/Part1_functions/ft_bzero/main.c:23:27
+    #2 0x7f27a7429d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 5 byte(s) leaked in 1 allocation(s).
+
+=================================================================
+==981844==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 30 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cb1f9 in main /home/kmurched/francinette/temp/libft/war-machine/tests/Part1_functions/ft_memcpy/main.c:24:14
+    #2 0x7f25bf629d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 30 byte(s) leaked in 1 allocation(s).
+
+=================================================================
+==981869==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 30 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cb1f9 in main /home/kmurched/francinette/temp/libft/war-machine/tests/Part1_functions/ft_memcpy/main.c:24:14
+    #2 0x7f9439029d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 30 byte(s) leaked in 1 allocation(s).
+
+=================================================================
+==982088==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 15 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cb399 in main /home/kmurched/francinette/temp/libft/war-machine/tests/Part1_functions/ft_strlcpy/main.c:35:23
+    #2 0x7ff9c4629d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 15 byte(s) leaked in 1 allocation(s).
+
+=================================================================
+==982113==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 15 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cb399 in main /home/kmurched/francinette/temp/libft/war-machine/tests/Part1_functions/ft_strlcpy/main.c:35:23
+    #2 0x7f20ea829d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 15 byte(s) leaked in 1 allocation(s).
+
+=================================================================
+==982139==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 15 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cb399 in main /home/kmurched/francinette/temp/libft/war-machine/tests/Part1_functions/ft_strlcpy/main.c:35:23
+    #2 0x7ff29ec29d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 15 byte(s) leaked in 1 allocation(s).
+
+=================================================================
+==982164==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 15 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cb399 in main /home/kmurched/francinette/temp/libft/war-machine/tests/Part1_functions/ft_strlcpy/main.c:35:23
+    #2 0x7fc595429d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 15 byte(s) leaked in 1 allocation(s).
+
+=================================================================
+==982190==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 15 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cb399 in main /home/kmurched/francinette/temp/libft/war-machine/tests/Part1_functions/ft_strlcpy/main.c:35:23
+    #2 0x7f60ad029d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 15 byte(s) leaked in 1 allocation(s).
+
+=================================================================
+==982237==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 15 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cb39c in main /home/kmurched/francinette/temp/libft/war-machine/tests/Part1_functions/ft_strlcat/main.c:34:23
+    #2 0x7f932b429d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 15 byte(s) leaked in 1 allocation(s).
+
+=================================================================
+==982262==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 15 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cb39c in main /home/kmurched/francinette/temp/libft/war-machine/tests/Part1_functions/ft_strlcat/main.c:34:23
+    #2 0x7fc42e829d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 15 byte(s) leaked in 1 allocation(s).
+
+=================================================================
+==982323==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 15 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cb39c in main /home/kmurched/francinette/temp/libft/war-machine/tests/Part1_functions/ft_strlcat/main.c:34:23
+    #2 0x7f0d71c29d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 15 byte(s) leaked in 1 allocation(s).
+
+=================================================================
+==982349==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 15 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cb39c in main /home/kmurched/francinette/temp/libft/war-machine/tests/Part1_functions/ft_strlcat/main.c:34:23
+    #2 0x7f86cc429d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 15 byte(s) leaked in 1 allocation(s).
+
+=================================================================
+==982374==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 15 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cb39c in main /home/kmurched/francinette/temp/libft/war-machine/tests/Part1_functions/ft_strlcat/main.c:34:23
+    #2 0x7fee57829d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 15 byte(s) leaked in 1 allocation(s).
+
+=================================================================
+==982400==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 15 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cb39c in main /home/kmurched/francinette/temp/libft/war-machine/tests/Part1_functions/ft_strlcat/main.c:34:23
+    #2 0x7f4186c29d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 15 byte(s) leaked in 1 allocation(s).
+
+=================================================================
+==982425==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 15 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cb39c in main /home/kmurched/francinette/temp/libft/war-machine/tests/Part1_functions/ft_strlcat/main.c:34:23
+    #2 0x7f60d4229d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 15 byte(s) leaked in 1 allocation(s).
+
+=================================================================
+==982451==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 15 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cb39c in main /home/kmurched/francinette/temp/libft/war-machine/tests/Part1_functions/ft_strlcat/main.c:34:23
+    #2 0x7f1055029d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 15 byte(s) leaked in 1 allocation(s).
+
+=================================================================
+==984738==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 30 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cb370 in ft_calloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x4cb370)
+    #2 0x4cb256 in main /home/kmurched/francinette/temp/libft/war-machine/tests/Part1_functions/ft_calloc/main.c:26:17
+    #3 0x7f8eef629d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 30 byte(s) leaked in 1 allocation(s).
+
+=================================================================
+==985241==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 8 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cbb54 in ft_split (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x4cbb54)
+    #2 0x4cb2f8 in main /home/kmurched/francinette/temp/libft/war-machine/tests/Part2_functions/ft_split/main.c:39:18
+    #3 0x7f245de29d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 8 byte(s) leaked in 1 allocation(s).
+
+=================================================================
+==985315==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 208 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cbb54 in ft_split (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x4cbb54)
+    #2 0x4cb5b6 in main /home/kmurched/francinette/temp/libft/war-machine/tests/Part2_functions/ft_split/main.c:81:18
+    #3 0x7f420e029d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+Indirect leak of 253 byte(s) in 25 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cb8c6 in safe_malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x4cb8c6)
+    #2 0x4cbacb in fill (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x4cbacb)
+    #3 0x4cbb7d in ft_split (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x4cbb7d)
+    #4 0x4cb5b6 in main /home/kmurched/francinette/temp/libft/war-machine/tests/Part2_functions/ft_split/main.c:81:18
+    #5 0x7f420e029d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 461 byte(s) leaked in 26 allocation(s).
+
+=================================================================
+==985341==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 16 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cbb54 in ft_split (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x4cbb54)
+    #2 0x4cb6a0 in main /home/kmurched/francinette/temp/libft/war-machine/tests/Part2_functions/ft_split/main.c:95:18
+    #3 0x7f2aa7429d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+Indirect leak of 253 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cb8c6 in safe_malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x4cb8c6)
+    #2 0x4cbacb in fill (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x4cbacb)
+    #3 0x4cbb7d in ft_split (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x4cbb7d)
+    #4 0x4cb6a0 in main /home/kmurched/francinette/temp/libft/war-machine/tests/Part2_functions/ft_split/main.c:95:18
+    #5 0x7f2aa7429d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 269 byte(s) leaked in 2 allocation(s).
+
+=================================================================
+==985367==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 8 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cbb54 in ft_split (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x4cbb54)
+    #2 0x4cb78a in main /home/kmurched/francinette/temp/libft/war-machine/tests/Part2_functions/ft_split/main.c:109:18
+    #3 0x7ff751429d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 8 byte(s) leaked in 1 allocation(s).
+
+=================================================================
+==985695==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 12 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cb3d9 in main /home/kmurched/francinette/temp/libft/war-machine/tests/Part2_functions/ft_strmapi/main.c:50:16
+    #2 0x7f8f4ea29d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 12 byte(s) leaked in 1 allocation(s).
+
+=================================================================
+==986605==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 16 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cb1e5 in ft_lstnewone /home/kmurched/francinette/temp/libft/war-machine/tests/Bonus_functions/ft_lstsize/main.c:22:19
+    #2 0x4cb410 in main /home/kmurched/francinette/temp/libft/war-machine/tests/Bonus_functions/ft_lstsize/main.c:45:9
+    #3 0x7fd7b8229d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+Direct leak of 16 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cb1e5 in ft_lstnewone /home/kmurched/francinette/temp/libft/war-machine/tests/Bonus_functions/ft_lstsize/main.c:22:19
+    #2 0x4cb423 in main /home/kmurched/francinette/temp/libft/war-machine/tests/Bonus_functions/ft_lstsize/main.c:46:10
+    #3 0x7fd7b8229d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+Indirect leak of 6 byte(s) in 1 object(s) allocated from:
+    #0 0x485e14 in strdup (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x485e14)
+    #1 0x4cb3d1 in main /home/kmurched/francinette/temp/libft/war-machine/tests/Bonus_functions/ft_lstsize/main.c:41:16
+    #2 0x7fd7b8229d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 38 byte(s) leaked in 3 allocation(s).
+
+=================================================================
+==986652==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 16 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cb1e5 in ft_lstnewone /home/kmurched/francinette/temp/libft/war-machine/tests/Bonus_functions/ft_lstlast/main.c:22:19
+    #2 0x4cb34a in main /home/kmurched/francinette/temp/libft/war-machine/tests/Bonus_functions/ft_lstlast/main.c:48:10
+    #3 0x7f032f029d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+Direct leak of 16 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cb1e5 in ft_lstnewone /home/kmurched/francinette/temp/libft/war-machine/tests/Bonus_functions/ft_lstlast/main.c:22:19
+    #2 0x4cb33d in main /home/kmurched/francinette/temp/libft/war-machine/tests/Bonus_functions/ft_lstlast/main.c:47:9
+    #3 0x7f032f029d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 32 byte(s) leaked in 2 allocation(s).
+
+=================================================================
+==986757==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 16 byte(s) in 1 object(s) allocated from:
+    #0 0x49a17d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a17d)
+    #1 0x4cb285 in ft_lstnewone /home/kmurched/francinette/temp/libft/war-machine/tests/Bonus_functions/ft_lstdelone/main.c:33:19
+    #2 0x4cb404 in main /home/kmurched/francinette/temp/libft/war-machine/tests/Bonus_functions/ft_lstdelone/main.c:58:10
+    #3 0x7f5fb0229d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 16 byte(s) leaked in 1 allocation(s).
+
+=================================================================
+==986896==ERROR: LeakSanitizer: detected memory leaks
+
+Direct leak of 16 byte(s) in 1 object(s) allocated from:
+    #0 0x49a18d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a18d)
+    #1 0x4cb2e5 in ft_lstnewone /home/kmurched/francinette/temp/libft/war-machine/tests/Bonus_functions/ft_lstmap/main.c:34:19
+    #2 0x4cb57d in main /home/kmurched/francinette/temp/libft/war-machine/tests/Bonus_functions/ft_lstmap/main.c:77:9
+    #3 0x7ff7a2629d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+Direct leak of 16 byte(s) in 1 object(s) allocated from:
+    #0 0x49a18d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a18d)
+    #1 0x4cb94a in ft_lstnew (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x4cb94a)
+    #2 0x4cb8cb in ft_lstmap (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x4cb8cb)
+    #3 0x4cb716 in main /home/kmurched/francinette/temp/libft/war-machine/tests/Bonus_functions/ft_lstmap/main.c:89:16
+    #4 0x7ff7a2629d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+Indirect leak of 48 byte(s) in 3 object(s) allocated from:
+    #0 0x49a18d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a18d)
+    #1 0x4cb94a in ft_lstnew (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x4cb94a)
+    #2 0x4cb8cb in ft_lstmap (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x4cb8cb)
+    #3 0x4cb716 in main /home/kmurched/francinette/temp/libft/war-machine/tests/Bonus_functions/ft_lstmap/main.c:89:16
+    #4 0x7ff7a2629d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+Indirect leak of 16 byte(s) in 1 object(s) allocated from:
+    #0 0x49a18d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a18d)
+    #1 0x4cb2e5 in ft_lstnewone /home/kmurched/francinette/temp/libft/war-machine/tests/Bonus_functions/ft_lstmap/main.c:34:19
+    #2 0x4cb58a in main /home/kmurched/francinette/temp/libft/war-machine/tests/Bonus_functions/ft_lstmap/main.c:78:10
+    #3 0x7ff7a2629d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+Indirect leak of 16 byte(s) in 1 object(s) allocated from:
+    #0 0x49a18d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a18d)
+    #1 0x4cb2e5 in ft_lstnewone /home/kmurched/francinette/temp/libft/war-machine/tests/Bonus_functions/ft_lstmap/main.c:34:19
+    #2 0x4cb5a4 in main /home/kmurched/francinette/temp/libft/war-machine/tests/Bonus_functions/ft_lstmap/main.c:80:10
+    #3 0x7ff7a2629d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+Indirect leak of 16 byte(s) in 1 object(s) allocated from:
+    #0 0x49a18d in malloc (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x49a18d)
+    #1 0x4cb2e5 in ft_lstnewone /home/kmurched/francinette/temp/libft/war-machine/tests/Bonus_functions/ft_lstmap/main.c:34:19
+    #2 0x4cb597 in main /home/kmurched/francinette/temp/libft/war-machine/tests/Bonus_functions/ft_lstmap/main.c:79:10
+    #3 0x7ff7a2629d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+Indirect leak of 6 byte(s) in 1 object(s) allocated from:
+    #0 0x485e24 in strdup (/home/kmurched/francinette/temp/libft/war-machine/user_exe+0x485e24)
+    #1 0x4cb54a in main /home/kmurched/francinette/temp/libft/war-machine/tests/Bonus_functions/ft_lstmap/main.c:73:16
+    #2 0x7ff7a2629d8f in __libc_start_call_main csu/../sysdeps/nptl/libc_start_call_main.h:58:16
+
+SUMMARY: AddressSanitizer: 134 byte(s) leaked in 9 allocation(s).
