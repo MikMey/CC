@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 20:06:48 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/11/28 21:44:03 by mimeyer          ###   ########.fr       */
+/*   Updated: 2025/11/30 22:25:39 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,48 +14,63 @@
 
 char *get_next_line(int fd)
 {
-	char **buf;
+	static t_list *lst;
 	char *res;
-
-	buf = ft_calloc(sizeof(char *), 1028);
-	if(!buf)
-	{
-		free(buf);
-		return(NULL);
-	}
-	res = read_until(fd, buf);
-	free_arr(buf);
+	res = read_until(fd, &lst);
 	return(res);
 }
 
 
-char *read_until(int fd, char **buf)
+char *read_until(int fd, t_list **lst)
 {
-	static size_t i;
-	size_t iter_idx;
-	char *res;
-	long int size;
-	
-	if(malloc_buffer(buf, i) == 0)
-			return(NULL);
-	iter_idx = 0;
-	size = read(fd, buf[i], BUFFER_SIZE);
-	while (size > 0)
+	int i;
+	int size;
+	char *temp;
+
+	i = 0;
+	init_find_fd(*lst, fd);
+	(*lst)->cache = ft_calloc(sizeof(char), BUFFER_SIZE + 1);
+	size = read((*lst)->fd, (*lst)->cache, BUFFER_SIZE);
+	while (!(ft_strchr((*lst)->cache, '\n')) && !(ft_strchr((*lst)->cache, '\0')))
 	{
-		while (iter_idx < BUFFER_SIZE && buf[i][iter_idx] != '\n' && buf[i][iter_idx++]);
-		if(iter_idx != BUFFER_SIZE)
-			break;
-		iter_idx = 0;
+		ft_strlcpy_swap(temp, (*lst)->cache, BUFFER_SIZE * i + 1);
 		i++;
-		if(malloc_buffer(buf, i) == 0)
-			return(NULL);
-		read(fd, buf[i], BUFFER_SIZE);
+		ft_strlcpy_swap((*lst)->cache, temp, BUFFER_SIZE * i + 1);
+		size = read((*lst)->fd, (*lst)->cache, BUFFER_SIZE);
 	}
-	if (size == -1)
-		return(NULL);
-	res = malloc_res((iter_idx + 1) * (i + 1), buf);
-	ft_strlcpy(res, (const char **)buf, ((iter_idx + 1) * (i + 1) + 1));
-	return (res);
+}
+
+void	ft_strlcpy_swap(char *dest, char *src, size_t n)
+{
+	dest = ft_calloc(sizeof(char), n);
+	if (dest == 0 || src == 0)
+		return (free(src));
+	if (*src == '\0')
+	{
+		*dest = 0;
+		return (free(src));
+	}
+	if (n <= 0)
+		return (free(src));
+	if (n > ft_strlen(src))
+		n = ft_strlen(src) + 1;
+	dest = ft_memcpy(dest, src, n);
+	dest[n - 1] = '\0';
+	return (free(src));
+}
+
+char	*ft_strchr(const char *s, int c)
+{
+	size_t	i;
+
+	i = 0;
+	if (c == 0)
+	{
+		while (s[i])
+			i++;
+		return ((char *)s + i);
+	}
+	return (ft_memchr(s, c, ft_strlen(s) + 1));
 }
 
 void free_arr(char **buf)
@@ -102,7 +117,7 @@ size_t	ft_strlcat(char *dest, const char *src, size_t n)
 		i++;
 	}
 	if (src[i] == '\0' || dest[n - 1] != '\0')
-		dest[len + i] = '\0';
+		dest[len] = '\0';
 	if (len >= n)
 		len = n;
 	return (len + ft_strlen(src));

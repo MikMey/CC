@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 20:07:02 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/11/28 21:40:05 by mimeyer          ###   ########.fr       */
+/*   Updated: 2025/11/30 22:18:23 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,14 @@
 # include <fcntl.h>
 # include <stdio.h>
 
+typedef struct s_list
+{
+	int 			fd;
+	char*			cache;
+	struct s_list	*next;
+	struct s_list	*prev;
+}					t_list;
+
 char	*get_next_line(int fd);
 char	*malloc_buffer(char **buf, size_t i);
 char	*read_until(int fd, char **buf);
@@ -32,5 +40,7 @@ char	*malloc_res(size_t size, char **buf);
 size_t	ft_strlen(const char *s);
 void	*ft_calloc(size_t nmemb, size_t size);
 size_t	ft_strlcat(char *dest, const char *src, size_t n);
+void	init_find_fd(t_list *lst, int fd);
+char	*ft_strchr(const char *s, int c)
 
 #endif
