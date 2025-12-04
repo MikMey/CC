@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 20:10:39 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/12/02 16:57:38 by mimeyer          ###   ########.fr       */
+/*   Updated: 2025/12/04 18:20:07 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,38 +16,40 @@ size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
+	if (s == NULL)
+		return(0);
 	i = 0;
 	while (s[i])
 		i++;
 	return (i);
 }
 
-void	init_find_fd(t_list *lst, int fd)
+void	init_find_fd(t_list **lst, int fd)
 {
 	t_list	*new_node;
 
-	if (lst == NULL)
+	if ((*lst) == NULL)
 	{
-		lst = ft_calloc(sizeof(t_list), 1);
-		if (lst == NULL)
+		(*lst) = ft_calloc(sizeof(t_list), 1);
+		if ((*lst) == NULL)
 			return ;
-		lst->next = NULL;
-		lst->prev = NULL;
-		lst->fd = fd;
+		(*lst)->next = NULL;
+		(*lst)->prev = NULL;
+		(*lst)->fd = fd;
 		return ;
 	}
-	while (lst->fd != fd && lst->next != NULL)
-		lst = lst->next;
-	if (lst->fd != fd)
+	while ((*lst)->fd != fd && (*lst)->next != NULL)
+		(*lst) = (*lst)->next;
+	if ((*lst)->fd != fd)
 	{
 		new_node = ft_calloc(sizeof(t_list), 1);
 		if (new_node == NULL)
 			return ;
-		new_node->prev = lst->prev;
-		new_node->next = lst;
-		lst->prev = new_node;
+		new_node->prev = (*lst)->prev;
+		new_node->next = (*lst);
+		(*lst)->prev = new_node;
 		new_node->fd = fd;
-		lst = new_node;
+		(*lst) = new_node;
 	}
 }
 
@@ -70,7 +72,6 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 
 void	free_node(t_list *node)
 {
-	free(node->fd);
 	free(node->cache);
 	if (node->prev)
 		node->prev->next = node->next;
