@@ -6,24 +6,11 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 20:10:39 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/11/30 22:10:43 by mimeyer          ###   ########.fr       */
+/*   Updated: 2025/12/02 16:57:38 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-size_t	ft_strlcpy(char *dest, const char **src, size_t n)
-{
-	int i;
-
-	i = 0;
-	while(ft_strlen(dest) != n - 1 && src[i])
-	{
-		ft_strlcat(dest, src[i], ft_strlen(dest) + n);
-		i++;
-	}
-	return(i);
-}
 
 size_t	ft_strlen(const char *s)
 {
@@ -35,35 +22,9 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-char *malloc_res(size_t size, char **buf)
-{
-	char *res;
-
-	res = ft_calloc(sizeof(char), (size + 2));
-	if (!res)
-	{
-		free_arr(buf);
-		free(res);
-		return(NULL);
-	}
-	return(res);
-}
-
-
-char *malloc_buffer(char **buf, size_t i)
-{
-	buf[i] = ft_calloc(sizeof(char), BUFFER_SIZE + 1);
-	if (!buf)
-	{
-		free_arr(buf);
-		return (NULL);
-	}
-	return (*buf);
-}
-
 void	init_find_fd(t_list *lst, int fd)
 {
-	t_list *new_node;
+	t_list	*new_node;
 
 	if (lst == NULL)
 	{
@@ -88,4 +49,53 @@ void	init_find_fd(t_list *lst, int fd)
 		new_node->fd = fd;
 		lst = new_node;
 	}
+}
+
+void	*ft_memcpy(void *dest, const void *src, size_t n)
+{
+	unsigned int	i;
+	unsigned char	*destt;
+	unsigned char	*srcc;
+
+	destt = (unsigned char *)dest;
+	srcc = (unsigned char *)src;
+	i = 0;
+	while (n > i && (destt != 0 || srcc != 0))
+	{
+		destt[i] = srcc[i];
+		i++;
+	}
+	return (dest);
+}
+
+void	free_node(t_list *node)
+{
+	free(node->fd);
+	free(node->cache);
+	if (node->prev)
+		node->prev->next = node->next;
+	if (node->next)
+		node->next->prev = node->prev;
+	if (node->prev)
+		free(node->prev);
+	if (node->next)
+		free(node->next);
+	free(node);
+}
+
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	unsigned char	*ptr;
+	size_t			i;
+
+	i = 0;
+	ptr = malloc(nmemb * size);
+	if (ptr == 0)
+		return (NULL);
+	while (i < (size * nmemb))
+	{
+		ptr[i] = 0;
+		i++;
+	}
+	return (ptr);
 }

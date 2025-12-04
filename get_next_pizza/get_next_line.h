@@ -6,41 +6,40 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 20:07:02 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/11/30 22:18:23 by mimeyer          ###   ########.fr       */
+/*   Updated: 2025/12/02 16:58:40 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BUFFER_SIZE
-#define BUFFER_SIZE 42
-#endif
-
 #ifndef GET_NEXT_LINE_H
-#define GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+# include <fcntl.h>
+# include <stddef.h>
+# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <stddef.h>
-# include <fcntl.h>
-# include <stdio.h>
 
 typedef struct s_list
 {
-	int 			fd;
-	char*			cache;
+	int				fd;
+	char			*cache;
 	struct s_list	*next;
 	struct s_list	*prev;
 }					t_list;
 
-char	*get_next_line(int fd);
-char	*malloc_buffer(char **buf, size_t i);
-char	*read_until(int fd, char **buf);
-void	free_arr(char **buf);
-size_t	ft_strlcpy(char *dest, const char **src, size_t n);
-char	*malloc_res(size_t size, char **buf);
-size_t	ft_strlen(const char *s);
-void	*ft_calloc(size_t nmemb, size_t size);
-size_t	ft_strlcat(char *dest, const char *src, size_t n);
-void	init_find_fd(t_list *lst, int fd);
-char	*ft_strchr(const char *s, int c)
+char				*get_next_line(int fd);
+char				*read_until(int fd, t_list **lst);
+size_t				ft_strlen(const char *s);
+void				*ft_calloc(size_t nmemb, size_t size);
+char				*split_first(t_list *lst, size_t size);
+void				ft_strlcpy_swap(char *dest, char *src, size_t n);
+void				*ft_memcpy(void *dest, const void *src, size_t n);
+void				*ft_memchr(const void *s, int c, size_t n);
+void				free_node(t_list *node);
+void				init_find_fd(t_list *lst, int fd);
 
 #endif
