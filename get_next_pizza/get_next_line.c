@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 20:06:48 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/12/04 18:25:17 by mimeyer          ###   ########.fr       */
+/*   Updated: 2025/12/04 22:39:30 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char	*split_first(t_list *lst, size_t size)
 	{
 		ft_strlcpy_swap(&temp, lst->cache + i, ft_strlen(lst->cache) - i + 1);
 		free(lst->cache);
-		ft_strlcpy_swap(&(lst->cache) + i, temp, ft_strlen(temp) + 1);
+		ft_strlcpy_swap(&(lst->cache), temp, ft_strlen(temp) + 1);
 		free(temp);
 	}
 	else
@@ -76,7 +76,7 @@ char	*read_until(int fd, t_list *lst)
 
 char *ft_strlcpy_swap(char **dest, char *src, size_t n)
 {
-	*dest = ft_calloc(sizeof(char), n);
+	*dest = ft_calloc(sizeof(char), n + 1);
 	if (*dest == 0 || src == 0)
 		return (*dest);
 	if (*src == '\0')
@@ -89,7 +89,7 @@ char *ft_strlcpy_swap(char **dest, char *src, size_t n)
 	if (n > ft_strlen(src))
 		n = ft_strlen(src) + 1;
 	*dest = ft_memcpy(*dest, src, n);
-	*dest[n - 1] = '\0';
+	(*dest)[n] = '\0';
 	return (*dest);
 }
 

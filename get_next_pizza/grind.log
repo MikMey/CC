@@ -1,131 +1,28 @@
-==2430435== Memcheck, a memory error detector
-==2430435== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==2430435== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==2430435== Command: ./a.out
-==2430435== Parent PID: 2405955
-==2430435== 
-==2430435== Invalid write of size 8
-==2430435==    at 0x1095B0: ft_strlcpy_swap (get_next_line.c:79)
-==2430435==    by 0x10939A: split_first (get_next_line.c:40)
-==2430435==    by 0x109579: read_until (get_next_line.c:74)
-==2430435==    by 0x10926B: get_next_line (get_next_line.c:20)
-==2430435==  Address 0x4aa1068 is 8 bytes after a block of size 32 alloc'd
-==2430435==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2430435==    by 0x109A2A: ft_calloc (get_next_line_utils.c:93)
-==2430435==    by 0x109800: init_find_fd (get_next_line_utils.c:33)
-==2430435==    by 0x109409: read_until (get_next_line.c:55)
-==2430435==    by 0x10926B: get_next_line (get_next_line.c:20)
-==2430435==    by 0x10972C: main (get_next_line.c:127)
-==2430435== 
-==2430435== Invalid write of size 8
-==2430435==    at 0x1095CC: ft_strlcpy_swap (get_next_line.c:80)
-==2430435==    by 0x10939A: split_first (get_next_line.c:40)
-==2430435==    by 0x109579: read_until (get_next_line.c:74)
-==2430435==    by 0x10926B: get_next_line (get_next_line.c:20)
-==2430435==  Address 0x4aa1068 is 8 bytes after a block of size 32 alloc'd
-==2430435==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2430435==    by 0x109A2A: ft_calloc (get_next_line_utils.c:93)
-==2430435==    by 0x109800: init_find_fd (get_next_line_utils.c:33)
-==2430435==    by 0x109409: read_until (get_next_line.c:55)
-==2430435==    by 0x10926B: get_next_line (get_next_line.c:20)
-==2430435==    by 0x10972C: main (get_next_line.c:127)
-==2430435== 
-==2430435== Invalid read of size 8
-==2430435==    at 0x1095D3: ft_strlcpy_swap (get_next_line.c:81)
-==2430435==    by 0x10939A: split_first (get_next_line.c:40)
-==2430435==    by 0x109579: read_until (get_next_line.c:74)
-==2430435==    by 0x10926B: get_next_line (get_next_line.c:20)
-==2430435==  Address 0x4aa1068 is 8 bytes after a block of size 32 alloc'd
-==2430435==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2430435==    by 0x109A2A: ft_calloc (get_next_line_utils.c:93)
-==2430435==    by 0x109800: init_find_fd (get_next_line_utils.c:33)
-==2430435==    by 0x109409: read_until (get_next_line.c:55)
-==2430435==    by 0x10926B: get_next_line (get_next_line.c:20)
-==2430435==    by 0x10972C: main (get_next_line.c:127)
-==2430435== 
-==2430435== Invalid read of size 8
-==2430435==    at 0x109646: ft_strlcpy_swap (get_next_line.c:92)
-==2430435==    by 0x10939A: split_first (get_next_line.c:40)
-==2430435==    by 0x109579: read_until (get_next_line.c:74)
-==2430435==    by 0x10926B: get_next_line (get_next_line.c:20)
-==2430435==  Address 0x4aa1068 is 8 bytes after a block of size 32 alloc'd
-==2430435==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2430435==    by 0x109A2A: ft_calloc (get_next_line_utils.c:93)
-==2430435==    by 0x109800: init_find_fd (get_next_line_utils.c:33)
-==2430435==    by 0x109409: read_until (get_next_line.c:55)
-==2430435==    by 0x10926B: get_next_line (get_next_line.c:20)
-==2430435==    by 0x10972C: main (get_next_line.c:127)
-==2430435== 
-==2430435== Invalid write of size 8
-==2430435==    at 0x109660: ft_strlcpy_swap (get_next_line.c:92)
-==2430435==    by 0x10939A: split_first (get_next_line.c:40)
-==2430435==    by 0x109579: read_until (get_next_line.c:74)
-==2430435==    by 0x10926B: get_next_line (get_next_line.c:20)
-==2430435==  Address 0x4aa1068 is 8 bytes after a block of size 32 alloc'd
-==2430435==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2430435==    by 0x109A2A: ft_calloc (get_next_line_utils.c:93)
-==2430435==    by 0x109800: init_find_fd (get_next_line_utils.c:33)
-==2430435==    by 0x109409: read_until (get_next_line.c:55)
-==2430435==    by 0x10926B: get_next_line (get_next_line.c:20)
-==2430435==    by 0x10972C: main (get_next_line.c:127)
-==2430435== 
-==2430435== Invalid read of size 8
-==2430435==    at 0x109676: ft_strlcpy_swap (get_next_line.c:93)
-==2430435==    by 0x10939A: split_first (get_next_line.c:40)
-==2430435==    by 0x109579: read_until (get_next_line.c:74)
-==2430435==    by 0x10926B: get_next_line (get_next_line.c:20)
-==2430435==  Address 0x4aa1090 is 16 bytes before a block of size 43 free'd
-==2430435==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2430435==    by 0x109368: split_first (get_next_line.c:39)
-==2430435==    by 0x109579: read_until (get_next_line.c:74)
-==2430435==    by 0x10926B: get_next_line (get_next_line.c:20)
-==2430435==  Block was alloc'd at
-==2430435==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2430435==    by 0x109A2A: ft_calloc (get_next_line_utils.c:93)
-==2430435==    by 0x109439: read_until (get_next_line.c:59)
-==2430435==    by 0x10926B: get_next_line (get_next_line.c:20)
-==2430435==    by 0x10972C: main (get_next_line.c:127)
-==2430435== 
-==2430435== Invalid write of size 1
-==2430435==    at 0x109679: ft_strlcpy_swap (get_next_line.c:93)
-==2430435==    by 0x10939A: split_first (get_next_line.c:40)
-==2430435==    by 0x109579: read_until (get_next_line.c:74)
-==2430435==    by 0x10926B: get_next_line (get_next_line.c:20)
-==2430435==  Address 0x0 is not stack'd, malloc'd or (recently) free'd
-==2430435== 
-==2430435== 
-==2430435== Process terminating with default action of signal 11 (SIGSEGV)
-==2430435==  Access not within mapped region at address 0x0
-==2430435==    at 0x109679: ft_strlcpy_swap (get_next_line.c:93)
-==2430435==    by 0x10939A: split_first (get_next_line.c:40)
-==2430435==    by 0x109579: read_until (get_next_line.c:74)
-==2430435==    by 0x10926B: get_next_line (get_next_line.c:20)
-==2430435==  If you believe this happened as a result of a stack
-==2430435==  overflow in your program's main thread (unlikely but
-==2430435==  possible), you can try to increase the size of the
-==2430435==  main thread stack using the --main-stacksize= flag.
-==2430435==  The main thread stack size used in this run was 8388608.
-==2430435== 
-==2430435== HEAP SUMMARY:
-==2430435==     in use at exit: 49 bytes in 4 blocks
-==2430435==   total heap usage: 5 allocs, 1 frees, 92 bytes allocated
-==2430435== 
-==2430435== 6 bytes in 1 blocks are definitely lost in loss record 3 of 4
-==2430435==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
-==2430435==    by 0x109A2A: ft_calloc (get_next_line_utils.c:93)
-==2430435==    by 0x1095C7: ft_strlcpy_swap (get_next_line.c:80)
-==2430435==    by 0x10939A: split_first (get_next_line.c:40)
-==2430435==    by 0x109579: read_until (get_next_line.c:74)
-==2430435==    by 0x10926B: get_next_line (get_next_line.c:20)
-==2430435== 
-==2430435== LEAK SUMMARY:
-==2430435==    definitely lost: 6 bytes in 1 blocks
-==2430435==    indirectly lost: 0 bytes in 0 blocks
-==2430435==      possibly lost: 0 bytes in 0 blocks
-==2430435==    still reachable: 43 bytes in 3 blocks
-==2430435==         suppressed: 0 bytes in 0 blocks
-==2430435== Reachable blocks (those to which a pointer was found) are not shown.
-==2430435== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==2430435== 
-==2430435== For lists of detected and suppressed errors, rerun with: -s
-==2430435== ERROR SUMMARY: 8 errors from 8 contexts (suppressed: 0 from 0)
+==2149730== Memcheck, a memory error detector
+==2149730== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2149730== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==2149730== Command: ./a.out
+==2149730== Parent PID: 2140352
+==2149730== 
+==2149730== 
+==2149730== HEAP SUMMARY:
+==2149730==     in use at exit: 39 bytes in 2 blocks
+==2149730==   total heap usage: 6 allocs, 4 frees, 1,119 bytes allocated
+==2149730== 
+==2149730== 39 (32 direct, 7 indirect) bytes in 1 blocks are definitely lost in loss record 2 of 2
+==2149730==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2149730==    by 0x109A0C: ft_calloc (get_next_line_utils.c:93)
+==2149730==    by 0x1097E2: init_find_fd (get_next_line_utils.c:33)
+==2149730==    by 0x1093FA: read_until (get_next_line.c:55)
+==2149730==    by 0x10926B: get_next_line (get_next_line.c:20)
+==2149730==    by 0x10970E: main (get_next_line.c:126)
+==2149730== 
+==2149730== LEAK SUMMARY:
+==2149730==    definitely lost: 32 bytes in 1 blocks
+==2149730==    indirectly lost: 7 bytes in 1 blocks
+==2149730==      possibly lost: 0 bytes in 0 blocks
+==2149730==    still reachable: 0 bytes in 0 blocks
+==2149730==         suppressed: 0 bytes in 0 blocks
+==2149730== 
+==2149730== For lists of detected and suppressed errors, rerun with: -s
+==2149730== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
