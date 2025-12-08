@@ -6,23 +6,12 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 20:10:39 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/12/04 18:20:07 by mimeyer          ###   ########.fr       */
+/*   Updated: 2025/12/06 21:05:37 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(const char *s)
-{
-	size_t	i;
-
-	if (s == NULL)
-		return(0);
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
-}
 
 void	init_find_fd(t_list **lst, int fd)
 {
@@ -53,22 +42,6 @@ void	init_find_fd(t_list **lst, int fd)
 	}
 }
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
-{
-	unsigned int	i;
-	unsigned char	*destt;
-	unsigned char	*srcc;
-
-	destt = (unsigned char *)dest;
-	srcc = (unsigned char *)src;
-	i = 0;
-	while (n > i && (destt != 0 || srcc != 0))
-	{
-		destt[i] = srcc[i];
-		i++;
-	}
-	return (dest);
-}
 
 void	free_node(t_list *node)
 {
