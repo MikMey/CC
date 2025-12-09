@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 20:07:02 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/12/06 21:05:33 by mimeyer          ###   ########.fr       */
+/*   Updated: 2025/12/09 16:34:12 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+# define BS BUFFER_SIZE
+
 typedef struct s_list
 {
 	int				fd;
@@ -30,6 +32,11 @@ typedef struct s_list
 	struct s_list	*next;
 	struct s_list	*prev;
 }					t_list;
+
+typedef struct s_lst_ptr
+{
+	struct s_list	**start;
+}					t_lst_ptr;
 
 char				*get_next_line(int fd);
 char				*read_until(int fd, t_list *lst);

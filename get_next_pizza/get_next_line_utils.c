@@ -6,12 +6,11 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 20:10:39 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/12/06 21:05:37 by mimeyer          ###   ########.fr       */
+/*   Updated: 2025/12/08 16:26:04 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
 
 void	init_find_fd(t_list **lst, int fd)
 {
@@ -41,7 +40,6 @@ void	init_find_fd(t_list **lst, int fd)
 		(*lst) = new_node;
 	}
 }
-
 
 void	free_node(t_list *node)
 {
