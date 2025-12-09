@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 20:07:02 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/12/09 16:34:12 by mimeyer          ###   ########.fr       */
+/*   Updated: 2025/12/09 18:42:13 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,8 @@ typedef struct s_list
 	struct s_list	*prev;
 }					t_list;
 
-typedef struct s_lst_ptr
-{
-	struct s_list	**start;
-}					t_lst_ptr;
-
 char				*get_next_line(int fd);
-char				*read_until(int fd, t_list *lst);
+char				*read_until(int fd, t_list **lst);
 void				*ft_calloc(size_t nmemb, size_t size);
 char				*split_first(t_list *lst, size_t size);
 char				*ft_strlcpy_swap(char **dest, char *src, size_t n);

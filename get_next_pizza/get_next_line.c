@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 20:06:48 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/12/09 16:34:02 by mimeyer          ###   ########.fr       */
+/*   Updated: 2025/12/09 18:43:56 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,10 @@ char	*get_next_line(int fd)
 {
 	static t_list	*lst;
 	char			*res;
-	t_lst_ptr		*lst_ptr;
-	
-	lst_ptr = malloc(sizeof(t_lst_ptr));
-	lst_ptr->start = malloc(sizeof(t_list *));
-	lst_ptr->start = &lst;
+
 	if (fd == -1)
 		return (NULL);
-	res = read_until(fd, lst_ptr->start);
+	res = read_until(fd, &lst);
 	return (res);
 }
 
@@ -52,34 +48,33 @@ char	*split_first(t_list *lst, size_t size)
 	return (res);
 }
 
-
-
-char	*read_until(int fd, t_list *lst)
+char	*read_until(int fd, t_list **lst)
 {
 	int		i;
 	char	*temp;
 	int		start;
 
 	i = 0;
-	init_find_fd(&lst, fd);
-	start = ft_chrxlen(lst->cache, 0, 0, 1);
+	init_find_fd(lst, fd);
+	start = ft_chrxlen((*lst)->cache, 0, 0, 1);
 	if (start == 0)
 	{
-		lst->cache = ft_calloc(sizeof(char), BS + 1);
-		read(lst->fd, lst->cache, BS);
+		(*lst)->cache = ft_calloc(sizeof(char), BS + 1);
+		read((*lst)->fd, (*lst)->cache, BS);
 		i++;
 	}
-	while (!(ft_chrxlen(lst->cache, '\n', start + BS * i, 0))
-		&& !(ft_chrxlen(lst->cache, '\0', start + BS * i, 0)) && lst->cache[0])
+	while (!(ft_chrxlen((*lst)->cache, '\n', start + BS * i, 0))
+		&& !(ft_chrxlen((*lst)->cache, '\0', start + BS * i, 0))
+		&& (*lst)->cache[0])
 	{
-		temp = ft_strlcpy_swap(&temp, lst->cache, start + BS * i + 1);
-		free(lst->cache);
+		temp = ft_strlcpy_swap(&temp, (*lst)->cache, start + BS * i + 1);
+		free((*lst)->cache);
 		i++;
-		ft_strlcpy_swap(&(lst->cache), temp, start + BS * i + 1);
+		ft_strlcpy_swap(&((*lst)->cache), temp, start + BS * i + 1);
 		free(temp);
-		read(lst->fd, lst->cache + (start + BS * (i - 1)), BS);
+		read((*lst)->fd, (*lst)->cache + (start + BS * (i - 1)), BS);
 	}
-	return (split_first(lst, start + BS * i));
+	return (split_first(*lst, start + BS * i));
 }
 
 char	*ft_strlcpy_swap(char **dest, char *src, size_t n)

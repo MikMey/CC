@@ -1,6 +1,3 @@
-get_next_line.c: Error!
-Error: SPACE_EMPTY_LINE     (line:  20, col:   1):	Space on empty line
-Error: CONSECUTIVE_NEWLINES (line:  55, col:   1):	Consecutive newlines
-Error: CONSECUTIVE_NEWLINES (line:  56, col:   1):	Consecutive newlines
+get_next_line.c: OK!
 get_next_line_utils.c: OK!
 get_next_line.h: OK!
