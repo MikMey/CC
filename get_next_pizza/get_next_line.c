@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 20:06:48 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/12/09 18:43:56 by mimeyer          ###   ########.fr       */
+/*   Updated: 2025/12/10 15:23:33 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*get_next_line(int fd)
 	return (res);
 }
 
-char	*split_first(t_list *lst, size_t size)
+char	*split_first(t_list **lst, size_t size)
 {
 	size_t	i;
 	char	*res;
@@ -32,15 +32,15 @@ char	*split_first(t_list *lst, size_t size)
 	i = 0;
 	res = NULL;
 	temp = NULL;
-	while (lst->cache[i] != '\n' && size > i && lst->cache[i])
+	while ((*lst)->cache[i] != '\n' && size > i && (*lst)->cache[i])
 		i++;
-	ft_strlcpy_swap(&res, lst->cache, i + 1);
-	if (res[i] != '\0')
+	ft_strlcpy_swap(&res, (*lst)->cache, i + 1);
+	if (res && res[i] != '\0')
 	{
-		ft_strlcpy_swap(&temp, lst->cache + i, ft_chrxlen(lst->cache, 0, 0, 1)
-			- i + 1);
-		free(lst->cache);
-		ft_strlcpy_swap(&(lst->cache), temp, ft_chrxlen(temp, 0, 0, 1) + 1);
+		ft_strlcpy_swap(&temp, (*lst)->cache + i,
+			ft_chrxlen((*lst)->cache, 0, 0, 1) - i + 1);
+		free((*lst)->cache);
+		ft_strlcpy_swap(&((*lst)->cache), temp, ft_chrxlen(temp, 0, 0, 1) + 1);
 		free(temp);
 	}
 	else
@@ -74,7 +74,7 @@ char	*read_until(int fd, t_list **lst)
 		free(temp);
 		read((*lst)->fd, (*lst)->cache + (start + BS * (i - 1)), BS);
 	}
-	return (split_first(*lst, start + BS * i));
+	return (split_first(&(*lst), start + BS * i));
 }
 
 char	*ft_strlcpy_swap(char **dest, char *src, size_t n)
@@ -83,16 +83,13 @@ char	*ft_strlcpy_swap(char **dest, char *src, size_t n)
 	unsigned char	*destt;
 	unsigned char	*srcc;
 
-	*dest = ft_calloc(sizeof(char), n + 1);
-	if (*dest == 0 || src == 0)
+	if (src == 0 || n == 0)
 		return (*dest);
-	if (*src == '\0')
+	*dest = ft_calloc(sizeof(char), n + 1);
+	if (*src == '\0' || *dest == 0)
 	{
-		**dest = 0;
 		return (*dest);
 	}
-	if (n <= 0)
-		return (*dest);
 	if (n > ft_chrxlen(src, 0, 0, 1))
 		n = ft_chrxlen(src, 0, 0, 1) + 1;
 	destt = (unsigned char *)*dest;

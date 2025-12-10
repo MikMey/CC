@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/28 20:10:39 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/12/08 16:26:04 by mimeyer          ###   ########.fr       */
+/*   Updated: 2025/12/10 13:43:29 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,18 +41,19 @@ void	init_find_fd(t_list **lst, int fd)
 	}
 }
 
-void	free_node(t_list *node)
+void	free_node(t_list **node)
 {
-	free(node->cache);
-	if (node->prev)
-		node->prev->next = node->next;
-	if (node->next)
-		node->next->prev = node->prev;
-	if (node->prev)
-		free(node->prev);
-	if (node->next)
-		free(node->next);
-	free(node);
+	if ((*node)->cache)
+		free((*node)->cache);
+	if ((*node)->prev)
+		(*node)->prev->next = (*node)->next;
+	if ((*node)->next)
+		(*node)->next->prev = (*node)->prev;
+	if ((*node)->prev)
+		free((*node)->prev);
+	if ((*node)->next)
+		free((*node)->next);
+	free(*node);
 }
 
 void	*ft_calloc(size_t nmemb, size_t size)

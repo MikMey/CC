@@ -9,8 +9,12 @@ int empty(void)
 	int fd = open(files[0], O_RDONLY);
 	char *res = get_next_line(fd);
 	close(fd);
-	if (*res)
+	if (res && *res)
+	{
+		free(res);
 		return (0);
+	}
+	free(res);
 	return (1);
 }
 
@@ -18,7 +22,7 @@ int fd(void)
 {
 	int fd = 10;
 	char *res = get_next_line(fd);
-	if (*res)
+	if (res && *res)
 		return (0);
 	return (1);
 }
@@ -27,20 +31,23 @@ int smaller(void)
 {
 	char *files[] = {BIGGER};
 	char *lines[] = {SMALL_LINES};
-	int fd;
+	int* fd = calloc(3, sizeof(int));
 	char *res;
 	for (int i = 0; i < 3; i++)
 	{
-		fd = open(files[i], O_RDONLY);
-		res = get_next_line(fd);
-		if (strncmp(res, lines[i], strlen(lines[i])))
+		fd[i] = open(files[i], O_RDONLY);
+		res = get_next_line(fd[i]);
+		printf("*%s*\n*%s*\n", res, lines[i]);
+		if (memcmp(res, lines[i], strlen(lines[i])))
 		{
 			free(res);
 			return (0);
 		}
 		free(res);
-		close(fd);
 	}
+	for (int i = 0; i < 3; i++)
+		close(fd[i]);
+	free(fd);
 	return (1);
 }
 
@@ -48,20 +55,23 @@ int bigger(void)
 {
 	char *files[] = {SMALLER};
 	char *lines[] = {BIG_LINES};
-	int fd;
+	int* fd = calloc(3, sizeof(int));
 	char *res;
 	for (int i = 0; i < 3; i++)
 	{
-		fd = open(files[i], O_RDONLY);
-		res = get_next_line(fd);
-		if (strncmp(res, lines[i], strlen(lines[i])))
+		fd[i] = open(files[i], O_RDONLY);
+		res = get_next_line(fd[i]);
+		printf("*%s*\n*%s*\n", res, lines[i]);
+		if (memcmp(res, lines[i], strlen(lines[i])))
 		{
 			free(res);
 			return (0);
 		}
 		free(res);
-		close(fd);
 	}
+	for (int i = 0; i < 3; i++)
+		close(fd[i]);
+	free(fd);
 	return (1);
 }
 
@@ -69,20 +79,23 @@ int same(void)
 {
 	char *files[] = {SAME};
 	char *lines[] = {SAME_LINES};
-	int fd;
+	int* fd = calloc(3, sizeof(int));
 	char *res;
 	for (int i = 0; i < 2; i++)
 	{
-		fd = open(files[i], O_RDONLY);
-		res = get_next_line(fd);
-		if (strncmp(res, lines[i], strlen(lines[i])))
+		fd[i] = open(files[i], O_RDONLY);
+		res = get_next_line(fd[i]);
+		printf("*%s*\n*%s*\n", res, lines[i]);
+		if (memcmp(res, lines[i], strlen(lines[i])))
 		{
 			free(res);
 			return (0);
 		}
 		free(res);
-		close(fd);
 	}
+	for (int i = 0; i < 3; i++)
+		close(fd[i]);
+	free(fd);
 	return (1);
 }
 
@@ -91,7 +104,7 @@ int continues(void)
 	char *lines[] = {CONT_LINES};
 	int fd;
 	char *res;
-	fd = open("get_next_pizza/gnl_test/test_files/continues.txt", O_RDONLY);
+	fd = open("/home/mimeyer/Desktop/CC_git/get_next_pizza/gnl_test/test_files/continues.txt", O_RDONLY);
 	for (int i = 0; i < 5; i++)
 	{
 		res = get_next_line(fd);
