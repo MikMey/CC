@@ -10,7 +10,10 @@ compile () {
 }
 
 grind () {
-	valgrind --leak-check=full --log-file=$1 ./a.out $2
+	echo "">>$1
+	echo "$2">>$1
+	echo "">>$1
+	valgrind --leak-check=full --show-leak-kinds=all --log-fd=20 20>>$1 ./a.out $2
 }
 
 check_norm () {
@@ -39,9 +42,11 @@ fail () {
 run_test () {
 	testcase=("Empty" "Fd" "Smaller" "Bigger" "Same" "Continue" "Multiple")
 	buffersize=(1 1 100 1 10 10 10)
-	for i in $(seq 0 5);
+	rm grind.log
+	for i in $(seq 0 6);
 	do
 		compile ${buffersize[$i]}
+		grind grind.log $i
 		./a.out $i
 		if [ $? -eq 1 ] 
 			then

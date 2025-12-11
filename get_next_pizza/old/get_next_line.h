@@ -5,13 +5,17 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/11 18:17:06 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/12/11 20:06:36 by mimeyer          ###   ########.fr       */
+/*   Created: 2025/11/28 20:07:02 by mimeyer           #+#    #+#             */
+/*   Updated: 2025/12/10 13:07:37 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 # include <fcntl.h>
 # include <stddef.h>
@@ -19,32 +23,23 @@
 # include <stdlib.h>
 # include <unistd.h>
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
-# endif
-
 # define BS BUFFER_SIZE
-# define N node
-# define C cache
-# define F fd
-# define MC ft_memchr
-# define ST start
 
-typedef struct s_lst
+typedef struct s_list
 {
-	char			*cache;
 	int				fd;
-	struct s_lst	*next;
-}					t_lst;
+	char			*cache;
+	struct s_list	*next;
+	struct s_list	*prev;
+}					t_list;
 
-size_t				ft_strlen(const char *s);
-void				*ft_memchr(const void *s, int c, size_t n);
-char				*ft_strlcpy_swap(char *dest, char *src, size_t n);
-void				*ft_calloc(size_t nmemb, size_t size);
-void				update_node(t_lst **node, t_lst *lst);
-char				*get_res(char *CH);
-char				*read_fd(t_lst **node);
-t_lst				*init_lst_fd(t_lst **head, t_lst *lst, int fd);
 char				*get_next_line(int fd);
+char				*read_until(int fd, t_list **lst);
+void				*ft_calloc(size_t nmemb, size_t size);
+char				*split_first(t_list **lst, size_t size);
+char				*ft_strlcpy_swap(char **dest, char *src, size_t n);
+size_t				ft_chrxlen(const char *s, int c, size_t n, int choose);
+void				free_node(t_list **node);
+void				init_find_fd(t_list **lst, int fd);
 
 #endif

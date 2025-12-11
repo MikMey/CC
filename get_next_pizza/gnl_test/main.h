@@ -4,6 +4,10 @@
 #include <string.h>
 #include "../get_next_line.h"
 
+#define FR_CUR {free(fd);free(res);return (0);}
+#define FR_MULT_RET return(free(line),free(lines), 0);
+
+
 #define EMPTY	"/home/mimeyer/Desktop/CC_git/get_next_pizza/gnl_test/test_files/empty.txt"
 
 #define SMALLER	"/home/mimeyer/Desktop/CC_git/get_next_pizza/gnl_test/test_files/big1.txt", \
@@ -34,12 +38,9 @@
 					"is\n", \
 					"\n", \
 					"a a a a a a a a a a a a a a a a a a \n", \
-					"test    \0"
+					"test    \n", \
+					""
 
-#define MULTIPLE	"/home/mimeyer/Desktop/CC_git/get_next_pizza/gnl_test/test_files/big1.txt", \
-					"/home/mimeyer/Desktop/CC_git/get_next_pizza/gnl_test/test_files/big2.txt", \
-					"/home/mimeyer/Desktop/CC_git/get_next_pizza/gnl_test/test_files/empty.txt", \
-					"/home/mimeyer/Desktop/CC_git/get_next_pizza/gnl_test/test_files/small2.txt" 
 
 typedef int (*f_arr)(void);
 
@@ -49,6 +50,45 @@ int smaller(void);
 int bigger(void);
 int same(void);
 int continues(void);
-int mutiple(void);
+int multiple(void);
+
+#define CAT 	"CAT\n",\
+				"CAT CAT \n",\
+				"CAT CAT CAT \n",\
+				"CAT CAT CAT CAT \n",\
+				"CAT CAT CAT CAT CAT \n",\
+				"CAT CAT CAT CAT CAT CAT \n",\
+				"CAT CAT CAT CAT CAT CAT \n",\
+				"CAT CAT CAT CAT CAT CAT \n",\
+				"CAT CAT CAT CAT CAT CAT \n",\
+				"CAT CAT CAT CAT CAT CAT \n",\
+				"CAT CAT CAT CAT CAT CAT \n",\
+				"CAT CAT CAT CAT CAT CAT \n",\
+				"CAT CAT CAT CAT CAT CAT \n",\
+				"CAT CAT CAT CAT CAT CAT \n",\
+				"CAT CAT CAT CAT CAT CAT \n",\
+				"CAT CAT CAT CAT CAT CAT \n",\
+				"CAT CAT CAT CAT CAT CAT \n",\
+				"CAT CAT CAT CAT CAT CAT \n",\
+				"\0"
+
+#define DOG 	"DOG DOG DOG\n",\
+				"DOG DOG DOG DOG\n",\
+				"DOG DOG \n",\
+				"DOG DOG DOG DOG\n",\
+				"DOG DOG DOG DOG\n",\
+				"DOG DOG DOG DOG\n",\
+				"DOG DOG DOG DOG\n",\
+				"DOG DOG DOG DOG DOG DOG DOG DOG DOG DOG DOG DOG\n",\
+				"DOG DOG DOG DOG DOG DOG DOG DOG\n",\
+				"DOG DOG DOG DOG DOG DOG DOG DOG DOG DOG DOG DOG\n",\
+				"\0"
+
+#define FISH	"FISH fish \n",\
+				"FISH FISH FISH \n",\
+				"FISH fish FISH FISH \0"
+#define TEXT "This\n",\
+			"is a\n",\
+			"file I want to read\0"
 
 #endif 

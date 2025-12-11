@@ -5,56 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/28 20:10:39 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/12/10 13:43:29 by mimeyer          ###   ########.fr       */
+/*   Created: 2025/12/11 18:17:00 by mimeyer           #+#    #+#             */
+/*   Updated: 2025/12/11 19:52:07 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-void	init_find_fd(t_list **lst, int fd)
-{
-	t_list	*new_node;
-
-	if ((*lst) == NULL)
-	{
-		(*lst) = ft_calloc(sizeof(t_list), 1);
-		if ((*lst) == NULL)
-			return ;
-		(*lst)->next = NULL;
-		(*lst)->prev = NULL;
-		(*lst)->fd = fd;
-		return ;
-	}
-	while ((*lst)->fd != fd && (*lst)->next != NULL)
-		(*lst) = (*lst)->next;
-	if ((*lst)->fd != fd)
-	{
-		new_node = ft_calloc(sizeof(t_list), 1);
-		if (new_node == NULL)
-			return ;
-		new_node->prev = (*lst)->prev;
-		new_node->next = (*lst);
-		(*lst)->prev = new_node;
-		new_node->fd = fd;
-		(*lst) = new_node;
-	}
-}
-
-void	free_node(t_list **node)
-{
-	if ((*node)->cache)
-		free((*node)->cache);
-	if ((*node)->prev)
-		(*node)->prev->next = (*node)->next;
-	if ((*node)->next)
-		(*node)->next->prev = (*node)->prev;
-	if ((*node)->prev)
-		free((*node)->prev);
-	if ((*node)->next)
-		free((*node)->next);
-	free(*node);
-}
 
 void	*ft_calloc(size_t nmemb, size_t size)
 {
@@ -71,4 +27,59 @@ void	*ft_calloc(size_t nmemb, size_t size)
 		i++;
 	}
 	return (ptr);
+}
+
+char	*ft_strlcpy_swap(char *dest, char *src, size_t n)
+{
+	unsigned int	i;
+	unsigned char	*destt;
+	unsigned char	*srcc;
+
+	if (src == 0 || n == 0)
+		return (dest);
+	dest = ft_calloc(sizeof(char), n + 1);
+	if (*src == '\0' || dest == 0)
+	{
+		return (dest);
+	}
+	if (n > ft_strlen(src))
+		n = ft_strlen(src) + 1;
+	destt = (unsigned char *)dest;
+	srcc = (unsigned char *)src;
+	i = 0;
+	while (n > i && (destt != 0 || srcc != 0))
+	{
+		destt[i] = srcc[i];
+		i++;
+	}
+	return (dest);
+}
+
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	unsigned int	i;
+	unsigned char	*ss;
+
+	ss = (unsigned char *)s;
+	i = 0;
+	while (i < n)
+	{
+		if (ss[i] == (unsigned char)c)
+		{
+			s = ss;
+			return (&ss[i]);
+		}
+		i++;
+	}
+	return (NULL);
+}
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
 }

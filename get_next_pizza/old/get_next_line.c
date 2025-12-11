@@ -1,0 +1,131 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/28 20:06:48 by mimeyer           #+#    #+#             */
+/*   Updated: 2025/12/11 19:18:14 by mimeyer          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "get_next_line.h"
+
+char	*get_next_line(int fd)
+{
+	static t_list	*lst;
+	char			*res;
+
+	if (fd == -1)
+		return (NULL);
+	res = read_until(fd, &lst);
+	return (res);
+}
+
+char	*split_first(t_list **lst, size_t size)
+{
+	size_t	i;
+	char	*res;
+	char	*temp;
+	t_list	*lst_temp;
+
+	i = 0;
+	res = NULL;
+	temp = NULL;
+	while ((*lst)->cache[i] != '\n' && size > i && (*lst)->cache[i])
+		i++;
+	ft_strlcpy_swap(&res, (*lst)->cache, i + 1);
+	if (res)
+	{
+		ft_strlcpy_swap(&temp, (*lst)->cache + i + 1, ft_chrxlen((*lst)->cache,
+				0, 0, 1) - i + 1);
+		free((*lst)->cache);
+		ft_strlcpy_swap(&((*lst)->cache), temp, ft_chrxlen(temp, 0, 0, 1) + 1);
+		free(temp);
+	}
+	lst_temp = *lst;
+	while ((*lst)->prev)
+		(*lst) = (*lst)->prev;
+	if (lst_temp->cache[0] == '\0')
+		free_node(&lst_temp);
+	return (res);
+}
+
+char	*read_until(int fd, t_list **lst)
+{
+	int		i;
+	char	*temp;
+	int		start;
+
+	i = 0;
+	init_find_fd(lst, fd);
+	start = ft_chrxlen((*lst)->cache, 0, 0, 1);
+	if (start == 0)
+	{
+		(*lst)->cache = ft_calloc(sizeof(char), BS + 1);
+		read((*lst)->fd, (*lst)->cache, BS);
+		i++;
+	}
+	while (!(ft_chrxlen((*lst)->cache, '\n', start + BS * i, 0))
+		&& !(ft_chrxlen((*lst)->cache, '\0', start + BS * i, 0))
+		&& (*lst)->cache[0])
+	{
+		temp = ft_strlcpy_swap(&temp, (*lst)->cache, start + BS * i + 1);
+		free((*lst)->cache);
+		i++;
+		ft_strlcpy_swap(&((*lst)->cache), temp, start + BS * i + 1);
+		free(temp);
+		read((*lst)->fd, (*lst)->cache + (start + BS * (i - 1)), BS);
+	}
+	return (split_first(&(*lst), start + BS * i));
+}
+
+char	*ft_strlcpy_swap(char **dest, char *src, size_t n)
+{
+	unsigned int	i;
+	unsigned char	*destt;
+	unsigned char	*srcc;
+
+	if (src == 0 || n == 0)
+		return (*dest);
+	*dest = ft_calloc(sizeof(char), n + 1);
+	if (*src == '\0' || *dest == 0)
+	{
+		return (*dest);
+	}
+	if (n > ft_chrxlen(src, 0, 0, 1))
+		n = ft_chrxlen(src, 0, 0, 1) + 1;
+	destt = (unsigned char *)*dest;
+	srcc = (unsigned char *)src;
+	i = 0;
+	while (n > i && (destt != 0 || srcc != 0))
+	{
+		destt[i] = srcc[i];
+		i++;
+	}
+	return (*dest);
+}
+
+size_t	ft_chrxlen(const char *s, int c, size_t n, int choose)
+{
+	size_t	i;
+
+	if (choose == 0)
+	{
+		i = 0;
+		while (i < n)
+		{
+			if (s[i] == (char)c)
+				return (i);
+			i++;
+		}
+		return (0);
+	}
+	if (s == NULL)
+		return (0);
+	i = 0;
+	while (s[i])
+		i++;
+	return (i);
+}

@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/28 20:06:48 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/12/10 15:23:33 by mimeyer          ###   ########.fr       */
+/*   Created: 2025/12/11 18:17:04 by mimeyer           #+#    #+#             */
+/*   Updated: 2025/12/11 20:08:48 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,114 +14,101 @@
 
 char	*get_next_line(int fd)
 {
-	static t_list	*lst;
+	static t_lst	*head;
+	t_lst			*node;
 	char			*res;
 
-	if (fd == -1)
+	node = init_lst_fd(&head, head, fd);
+	if (!node)
 		return (NULL);
-	res = read_until(fd, &lst);
+	res = read_fd(&node);
+	update_node(&node, head);
 	return (res);
 }
 
-char	*split_first(t_list **lst, size_t size)
+t_lst	*init_lst_fd(t_lst **head, t_lst *lst, int fd)
 {
-	size_t	i;
-	char	*res;
-	char	*temp;
+	t_lst	*node;
 
-	i = 0;
-	res = NULL;
-	temp = NULL;
-	while ((*lst)->cache[i] != '\n' && size > i && (*lst)->cache[i])
-		i++;
-	ft_strlcpy_swap(&res, (*lst)->cache, i + 1);
-	if (res && res[i] != '\0')
+	while (lst && lst->next && lst->fd != fd)
+		lst = lst->next;
+	if (!lst || lst->fd != fd)
 	{
-		ft_strlcpy_swap(&temp, (*lst)->cache + i,
-			ft_chrxlen((*lst)->cache, 0, 0, 1) - i + 1);
-		free((*lst)->cache);
-		ft_strlcpy_swap(&((*lst)->cache), temp, ft_chrxlen(temp, 0, 0, 1) + 1);
-		free(temp);
+		node = ft_calloc(sizeof(t_lst), 1);
+		node->fd = fd;
+		node->next = *head;
 	}
 	else
-		free_node(lst);
+		node = lst;
+	if (!head || !(*head))
+		head = &node;
+	return (node);
+}
+
+char	*read_fd(t_lst **node)
+{
+	char	*temp;
+	int		i;
+	int		start;
+	int		rd;
+
+	if (!(*N)->C)
+		(*N)->C = ft_calloc(sizeof(char), BUFFER_SIZE);
+	i = 0;
+	rd = 0;
+	start = ft_strlen((*N)->C) + 1;
+	while (rd != -1 && !MC((*N)->C, '\n', (BS * i) + ST) && !MC((*N)->C, '\0',
+			(BS * i) + ST))
+	{
+		temp = ft_strlcpy_swap(temp, (*N)->C, ft_strlen((*N)->C) + 1);
+		free((*N)->C);
+		(*N)->C = ft_strlcpy_swap((*N)->C, temp, ft_strlen(temp) + BS + 1);
+		free(temp);
+		rd = read((*N)->F, (*N)->C + (BS * i) + ST, BS);
+		i++;
+	}
+	return (get_res((*N)->C));
+}
+
+char	*get_res(char *CH)
+{
+	char	*temp;
+	int		offset;
+	char	*res;
+
+	res = NULL;
+	if (MC(CH, '\n', ft_strlen(CH) + 1))
+	{
+		temp = ft_memchr(CH, '\n', ft_strlen(CH) + 1);
+		offset = CH - temp;
+		res = ft_strlcpy_swap(res, CH, offset + 1);
+		return (res);
+	}
+	res = ft_strlcpy_swap(res, CH, ft_strlen(CH) + 1);
 	return (res);
 }
 
-char	*read_until(int fd, t_list **lst)
+void	update_node(t_lst **node, t_lst *lst)
 {
 	int		i;
 	char	*temp;
-	int		start;
 
+	temp = NULL;
 	i = 0;
-	init_find_fd(lst, fd);
-	start = ft_chrxlen((*lst)->cache, 0, 0, 1);
-	if (start == 0)
-	{
-		(*lst)->cache = ft_calloc(sizeof(char), BS + 1);
-		read((*lst)->fd, (*lst)->cache, BS);
+	while ((*N)->C[i] && (*N)->C[i] != '\n')
 		i++;
-	}
-	while (!(ft_chrxlen((*lst)->cache, '\n', start + BS * i, 0))
-		&& !(ft_chrxlen((*lst)->cache, '\0', start + BS * i, 0))
-		&& (*lst)->cache[0])
+	if ((*N)->C[i] != '\n')
 	{
-		temp = ft_strlcpy_swap(&temp, (*lst)->cache, start + BS * i + 1);
-		free((*lst)->cache);
-		i++;
-		ft_strlcpy_swap(&((*lst)->cache), temp, start + BS * i + 1);
-		free(temp);
-		read((*lst)->fd, (*lst)->cache + (start + BS * (i - 1)), BS);
+		free((*N)->C);
+		while (lst && lst->next != *node)
+			lst = lst->next;
+		if (lst)
+			lst->next = (*node)->next;
+		free(*node);
+		return ;
 	}
-	return (split_first(&(*lst), start + BS * i));
-}
-
-char	*ft_strlcpy_swap(char **dest, char *src, size_t n)
-{
-	unsigned int	i;
-	unsigned char	*destt;
-	unsigned char	*srcc;
-
-	if (src == 0 || n == 0)
-		return (*dest);
-	*dest = ft_calloc(sizeof(char), n + 1);
-	if (*src == '\0' || *dest == 0)
-	{
-		return (*dest);
-	}
-	if (n > ft_chrxlen(src, 0, 0, 1))
-		n = ft_chrxlen(src, 0, 0, 1) + 1;
-	destt = (unsigned char *)*dest;
-	srcc = (unsigned char *)src;
-	i = 0;
-	while (n > i && (destt != 0 || srcc != 0))
-	{
-		destt[i] = srcc[i];
-		i++;
-	}
-	return (*dest);
-}
-
-size_t	ft_chrxlen(const char *s, int c, size_t n, int choose)
-{
-	size_t	i;
-
-	if (choose == 0)
-	{
-		i = 0;
-		while (i < n)
-		{
-			if (s[i] == (char)c)
-				return (i);
-			i++;
-		}
-		return (0);
-	}
-	if (s == NULL)
-		return (0);
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	temp = ft_strlcpy_swap(temp, (*N)->C + i + 1, ft_strlen((*N)->C) - i);
+	free((*N)->C);
+	(*N)->C = ft_strlcpy_swap((*N)->C, temp, ft_strlen(temp) + 1);
+	free(temp);
 }
