@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 18:17:00 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/12/11 19:52:07 by mimeyer          ###   ########.fr       */
+/*   Updated: 2025/12/13 12:14:15 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,9 +35,9 @@ char	*ft_strlcpy_swap(char *dest, char *src, size_t n)
 	unsigned char	*destt;
 	unsigned char	*srcc;
 
-	if (src == 0 || n == 0)
+	if (src == 0)
 		return (dest);
-	dest = ft_calloc(sizeof(char), n + 1);
+	dest = ft_calloc(sizeof(char), n);
 	if (*src == '\0' || dest == 0)
 	{
 		return (dest);
@@ -79,6 +79,8 @@ size_t	ft_strlen(const char *s)
 	size_t	i;
 
 	i = 0;
+	if (!s)
+		return (0);
 	while (s[i])
 		i++;
 	return (i);

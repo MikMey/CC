@@ -1,119 +1,1837 @@
 
 0
 
-==1794398== Memcheck, a memory error detector
-==1794398== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1794398== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1794398== Command: ./a.out 0
-==1794398== 
-==1794398== 
-==1794398== HEAP SUMMARY:
-==1794398==     in use at exit: 0 bytes in 0 blocks
-==1794398==   total heap usage: 3 allocs, 3 frees, 27 bytes allocated
-==1794398== 
-==1794398== All heap blocks were freed -- no leaks are possible
-==1794398== 
-==1794398== For lists of detected and suppressed errors, rerun with: -s
-==1794398== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==2324813== Memcheck, a memory error detector
+==2324813== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2324813== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==2324813== Command: ./a.out 0
+==2324813== 
+==2324813== 
+==2324813== HEAP SUMMARY:
+==2324813==     in use at exit: 26 bytes in 2 blocks
+==2324813==   total heap usage: 5 allocs, 3 frees, 29 bytes allocated
+==2324813== 
+==2324813== 2 bytes in 1 blocks are still reachable in loss record 1 of 2
+==2324813==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324813==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324813==    by 0x10A614: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324813==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324813==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324813==    by 0x1092D1: empty (main.c:10)
+==2324813==    by 0x10A0B7: main (main.c:179)
+==2324813== 
+==2324813== 24 bytes in 1 blocks are still reachable in loss record 2 of 2
+==2324813==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324813==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324813==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324813==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324813==    by 0x1092D1: empty (main.c:10)
+==2324813==    by 0x10A0B7: main (main.c:179)
+==2324813== 
+==2324813== LEAK SUMMARY:
+==2324813==    definitely lost: 0 bytes in 0 blocks
+==2324813==    indirectly lost: 0 bytes in 0 blocks
+==2324813==      possibly lost: 0 bytes in 0 blocks
+==2324813==    still reachable: 26 bytes in 2 blocks
+==2324813==         suppressed: 0 bytes in 0 blocks
+==2324813== 
+==2324813== For lists of detected and suppressed errors, rerun with: -s
+==2324813== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 
 1
 
-==1794411== Memcheck, a memory error detector
-==1794411== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1794411== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1794411== Command: ./a.out 1
-==1794411== 
-==1794411== 
-==1794411== HEAP SUMMARY:
-==1794411==     in use at exit: 0 bytes in 0 blocks
-==1794411==   total heap usage: 3 allocs, 3 frees, 27 bytes allocated
-==1794411== 
-==1794411== All heap blocks were freed -- no leaks are possible
-==1794411== 
-==1794411== For lists of detected and suppressed errors, rerun with: -s
-==1794411== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==2324835== Memcheck, a memory error detector
+==2324835== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2324835== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==2324835== Command: ./a.out 1
+==2324835== 
+==2324835== 
+==2324835== HEAP SUMMARY:
+==2324835==     in use at exit: 26 bytes in 2 blocks
+==2324835==   total heap usage: 5 allocs, 3 frees, 29 bytes allocated
+==2324835== 
+==2324835== 2 bytes in 1 blocks are still reachable in loss record 1 of 2
+==2324835==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324835==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324835==    by 0x10A614: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324835==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324835==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324835==    by 0x109348: fd (main.c:24)
+==2324835==    by 0x10A0B7: main (main.c:179)
+==2324835== 
+==2324835== 24 bytes in 1 blocks are still reachable in loss record 2 of 2
+==2324835==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324835==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324835==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324835==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324835==    by 0x109348: fd (main.c:24)
+==2324835==    by 0x10A0B7: main (main.c:179)
+==2324835== 
+==2324835== LEAK SUMMARY:
+==2324835==    definitely lost: 0 bytes in 0 blocks
+==2324835==    indirectly lost: 0 bytes in 0 blocks
+==2324835==      possibly lost: 0 bytes in 0 blocks
+==2324835==    still reachable: 26 bytes in 2 blocks
+==2324835==         suppressed: 0 bytes in 0 blocks
+==2324835== 
+==2324835== For lists of detected and suppressed errors, rerun with: -s
+==2324835== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 
 2
 
-==1794447== Memcheck, a memory error detector
-==1794447== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1794447== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1794447== Command: ./a.out 2
-==1794447== 
-==1794447== 
-==1794447== HEAP SUMMARY:
-==1794447==     in use at exit: 0 bytes in 0 blocks
-==1794447==   total heap usage: 4 allocs, 4 frees, 138 bytes allocated
-==1794447== 
-==1794447== All heap blocks were freed -- no leaks are possible
-==1794447== 
-==1794447== For lists of detected and suppressed errors, rerun with: -s
-==1794447== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==2324860== Memcheck, a memory error detector
+==2324860== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2324860== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==2324860== Command: ./a.out 2
+==2324860== 
+==2324860== Invalid read of size 8
+==2324860==    at 0x10A176: init_lst (get_next_line.c:35)
+==2324860==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Address 0x4aa1370 is 16 bytes inside a block of size 24 free'd
+==2324860==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A4DA: update_lst (get_next_line.c:119)
+==2324860==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324860==    by 0x1094D3: smaller (main.c:47)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Block was alloc'd at
+==2324860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A5A7: ft_calloc (get_next_line_utils.c:21)
+==2324860==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324860==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860== 
+==2324860== Invalid read of size 4
+==2324860==    at 0x10A1A1: init_lst (get_next_line.c:37)
+==2324860==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Address 0x4aa1368 is 8 bytes inside a block of size 24 free'd
+==2324860==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A4DA: update_lst (get_next_line.c:119)
+==2324860==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324860==    by 0x1094D3: smaller (main.c:47)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Block was alloc'd at
+==2324860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A5A7: ft_calloc (get_next_line_utils.c:21)
+==2324860==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324860==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860== 
+==2324860== Invalid read of size 8
+==2324860==    at 0x10A44F: update_lst (get_next_line.c:110)
+==2324860==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Address 0x4aa1370 is 16 bytes inside a block of size 24 free'd
+==2324860==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A4DA: update_lst (get_next_line.c:119)
+==2324860==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324860==    by 0x1094D3: smaller (main.c:47)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Block was alloc'd at
+==2324860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A5A7: ft_calloc (get_next_line_utils.c:21)
+==2324860==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324860==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860== 
+==2324860== Invalid read of size 8
+==2324860==    at 0x10A176: init_lst (get_next_line.c:35)
+==2324860==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324860==    by 0x1094D3: smaller (main.c:47)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Address 0x4aa2510 is 16 bytes inside a block of size 24 free'd
+==2324860==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A4DA: update_lst (get_next_line.c:119)
+==2324860==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Block was alloc'd at
+==2324860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A5A7: ft_calloc (get_next_line_utils.c:21)
+==2324860==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324860==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860== 
+==2324860== Invalid read of size 4
+==2324860==    at 0x10A1A1: init_lst (get_next_line.c:37)
+==2324860==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324860==    by 0x1094D3: smaller (main.c:47)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Address 0x4aa2508 is 8 bytes inside a block of size 24 free'd
+==2324860==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A4DA: update_lst (get_next_line.c:119)
+==2324860==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Block was alloc'd at
+==2324860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A5A7: ft_calloc (get_next_line_utils.c:21)
+==2324860==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324860==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860== 
+==2324860== Invalid read of size 8
+==2324860==    at 0x10A207: read_fd (get_next_line.c:65)
+==2324860==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324860==    by 0x1094D3: smaller (main.c:47)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Address 0x4aa2500 is 0 bytes inside a block of size 24 free'd
+==2324860==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A4DA: update_lst (get_next_line.c:119)
+==2324860==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Block was alloc'd at
+==2324860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A5A7: ft_calloc (get_next_line_utils.c:21)
+==2324860==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324860==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860== 
+==2324860== Invalid read of size 8
+==2324860==    at 0x10A23D: read_fd (get_next_line.c:69)
+==2324860==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324860==    by 0x1094D3: smaller (main.c:47)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Address 0x4aa2500 is 0 bytes inside a block of size 24 free'd
+==2324860==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A4DA: update_lst (get_next_line.c:119)
+==2324860==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Block was alloc'd at
+==2324860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A5A7: ft_calloc (get_next_line_utils.c:21)
+==2324860==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324860==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860== 
+==2324860== Invalid read of size 1
+==2324860==    at 0x10A742: ft_strlen (get_next_line_utils.c:84)
+==2324860==    by 0x10A247: read_fd (get_next_line.c:69)
+==2324860==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324860==    by 0x1094D3: smaller (main.c:47)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Address 0x4aa2660 is 0 bytes inside a block of size 101 free'd
+==2324860==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A4C2: update_lst (get_next_line.c:117)
+==2324860==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Block was alloc'd at
+==2324860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A5A7: ft_calloc (get_next_line_utils.c:21)
+==2324860==    by 0x10A61A: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324860==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324860==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860== 
+==2324860== Invalid read of size 8
+==2324860==    at 0x10A32E: read_fd (get_next_line.c:70)
+==2324860==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324860==    by 0x1094D3: smaller (main.c:47)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Address 0x4aa2500 is 0 bytes inside a block of size 24 free'd
+==2324860==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A4DA: update_lst (get_next_line.c:119)
+==2324860==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Block was alloc'd at
+==2324860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A5A7: ft_calloc (get_next_line_utils.c:21)
+==2324860==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324860==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860== 
+==2324860== Invalid read of size 1
+==2324860==    at 0x10A6DE: ft_memchr (get_next_line_utils.c:67)
+==2324860==    by 0x10A33D: read_fd (get_next_line.c:70)
+==2324860==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324860==    by 0x1094D3: smaller (main.c:47)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Address 0x4aa2660 is 0 bytes inside a block of size 101 free'd
+==2324860==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A4C2: update_lst (get_next_line.c:117)
+==2324860==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Block was alloc'd at
+==2324860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A5A7: ft_calloc (get_next_line_utils.c:21)
+==2324860==    by 0x10A61A: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324860==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324860==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860== 
+==2324860== Invalid read of size 8
+==2324860==    at 0x10A257: read_fd (get_next_line.c:72)
+==2324860==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324860==    by 0x1094D3: smaller (main.c:47)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Address 0x4aa2500 is 0 bytes inside a block of size 24 free'd
+==2324860==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A4DA: update_lst (get_next_line.c:119)
+==2324860==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Block was alloc'd at
+==2324860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A5A7: ft_calloc (get_next_line_utils.c:21)
+==2324860==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324860==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860== 
+==2324860== Invalid read of size 1
+==2324860==    at 0x10A742: ft_strlen (get_next_line_utils.c:84)
+==2324860==    by 0x10A261: read_fd (get_next_line.c:72)
+==2324860==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324860==    by 0x1094D3: smaller (main.c:47)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Address 0x4aa2660 is 0 bytes inside a block of size 101 free'd
+==2324860==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A4C2: update_lst (get_next_line.c:117)
+==2324860==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Block was alloc'd at
+==2324860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A5A7: ft_calloc (get_next_line_utils.c:21)
+==2324860==    by 0x10A61A: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324860==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324860==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860== 
+==2324860== Invalid read of size 8
+==2324860==    at 0x10A26D: read_fd (get_next_line.c:72)
+==2324860==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324860==    by 0x1094D3: smaller (main.c:47)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Address 0x4aa2500 is 0 bytes inside a block of size 24 free'd
+==2324860==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A4DA: update_lst (get_next_line.c:119)
+==2324860==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Block was alloc'd at
+==2324860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A5A7: ft_calloc (get_next_line_utils.c:21)
+==2324860==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324860==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860== 
+==2324860== Invalid read of size 1
+==2324860==    at 0x10A623: ft_strlcpy_swap (get_next_line_utils.c:41)
+==2324860==    by 0x10A27E: read_fd (get_next_line.c:72)
+==2324860==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324860==    by 0x1094D3: smaller (main.c:47)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Address 0x4aa2660 is 0 bytes inside a block of size 101 free'd
+==2324860==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A4C2: update_lst (get_next_line.c:117)
+==2324860==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Block was alloc'd at
+==2324860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A5A7: ft_calloc (get_next_line_utils.c:21)
+==2324860==    by 0x10A61A: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324860==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324860==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860== 
+==2324860== Invalid read of size 1
+==2324860==    at 0x10A742: ft_strlen (get_next_line_utils.c:84)
+==2324860==    by 0x10A642: ft_strlcpy_swap (get_next_line_utils.c:45)
+==2324860==    by 0x10A27E: read_fd (get_next_line.c:72)
+==2324860==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324860==    by 0x1094D3: smaller (main.c:47)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Address 0x4aa2660 is 0 bytes inside a block of size 101 free'd
+==2324860==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A4C2: update_lst (get_next_line.c:117)
+==2324860==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Block was alloc'd at
+==2324860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A5A7: ft_calloc (get_next_line_utils.c:21)
+==2324860==    by 0x10A61A: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324860==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324860==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860== 
+==2324860== Invalid read of size 1
+==2324860==    at 0x10A742: ft_strlen (get_next_line_utils.c:84)
+==2324860==    by 0x10A654: ft_strlcpy_swap (get_next_line_utils.c:46)
+==2324860==    by 0x10A27E: read_fd (get_next_line.c:72)
+==2324860==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324860==    by 0x1094D3: smaller (main.c:47)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Address 0x4aa2660 is 0 bytes inside a block of size 101 free'd
+==2324860==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A4C2: update_lst (get_next_line.c:117)
+==2324860==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Block was alloc'd at
+==2324860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A5A7: ft_calloc (get_next_line_utils.c:21)
+==2324860==    by 0x10A61A: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324860==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324860==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860== 
+==2324860== Invalid read of size 1
+==2324860==    at 0x10A68A: ft_strlcpy_swap (get_next_line_utils.c:52)
+==2324860==    by 0x10A27E: read_fd (get_next_line.c:72)
+==2324860==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324860==    by 0x1094D3: smaller (main.c:47)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Address 0x4aa2660 is 0 bytes inside a block of size 101 free'd
+==2324860==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A4C2: update_lst (get_next_line.c:117)
+==2324860==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Block was alloc'd at
+==2324860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A5A7: ft_calloc (get_next_line_utils.c:21)
+==2324860==    by 0x10A61A: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324860==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324860==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860== 
+==2324860== Invalid read of size 8
+==2324860==    at 0x10A28A: read_fd (get_next_line.c:73)
+==2324860==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324860==    by 0x1094D3: smaller (main.c:47)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Address 0x4aa2500 is 0 bytes inside a block of size 24 free'd
+==2324860==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A4DA: update_lst (get_next_line.c:119)
+==2324860==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Block was alloc'd at
+==2324860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A5A7: ft_calloc (get_next_line_utils.c:21)
+==2324860==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324860==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860== 
+==2324860== Invalid free() / delete / delete[] / realloc()
+==2324860==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A294: read_fd (get_next_line.c:73)
+==2324860==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324860==    by 0x1094D3: smaller (main.c:47)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Address 0x4aa2660 is 0 bytes inside a block of size 101 free'd
+==2324860==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A4C2: update_lst (get_next_line.c:117)
+==2324860==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Block was alloc'd at
+==2324860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A5A7: ft_calloc (get_next_line_utils.c:21)
+==2324860==    by 0x10A61A: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324860==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324860==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860== 
+==2324860== Invalid read of size 8
+==2324860==    at 0x10A2AC: read_fd (get_next_line.c:74)
+==2324860==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324860==    by 0x1094D3: smaller (main.c:47)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Address 0x4aa2500 is 0 bytes inside a block of size 24 free'd
+==2324860==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A4DA: update_lst (get_next_line.c:119)
+==2324860==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Block was alloc'd at
+==2324860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A5A7: ft_calloc (get_next_line_utils.c:21)
+==2324860==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324860==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860== 
+==2324860== Invalid write of size 8
+==2324860==    at 0x10A2C5: read_fd (get_next_line.c:74)
+==2324860==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324860==    by 0x1094D3: smaller (main.c:47)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Address 0x4aa2500 is 0 bytes inside a block of size 24 free'd
+==2324860==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A4DA: update_lst (get_next_line.c:119)
+==2324860==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Block was alloc'd at
+==2324860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A5A7: ft_calloc (get_next_line_utils.c:21)
+==2324860==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324860==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860== 
+==2324860== Invalid read of size 8
+==2324860==    at 0x10A2DB: read_fd (get_next_line.c:76)
+==2324860==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324860==    by 0x1094D3: smaller (main.c:47)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Address 0x4aa2500 is 0 bytes inside a block of size 24 free'd
+==2324860==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A4DA: update_lst (get_next_line.c:119)
+==2324860==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Block was alloc'd at
+==2324860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A5A7: ft_calloc (get_next_line_utils.c:21)
+==2324860==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324860==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860== 
+==2324860== Invalid read of size 4
+==2324860==    at 0x10A2FA: read_fd (get_next_line.c:76)
+==2324860==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324860==    by 0x1094D3: smaller (main.c:47)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Address 0x4aa2508 is 8 bytes inside a block of size 24 free'd
+==2324860==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A4DA: update_lst (get_next_line.c:119)
+==2324860==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Block was alloc'd at
+==2324860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A5A7: ft_calloc (get_next_line_utils.c:21)
+==2324860==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324860==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860== 
+==2324860== Invalid read of size 8
+==2324860==    at 0x10A354: read_fd (get_next_line.c:79)
+==2324860==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324860==    by 0x1094D3: smaller (main.c:47)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Address 0x4aa2500 is 0 bytes inside a block of size 24 free'd
+==2324860==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A4DA: update_lst (get_next_line.c:119)
+==2324860==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Block was alloc'd at
+==2324860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A5A7: ft_calloc (get_next_line_utils.c:21)
+==2324860==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324860==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860== 
+==2324860== Invalid read of size 8
+==2324860==    at 0x10A44F: update_lst (get_next_line.c:110)
+==2324860==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324860==    by 0x1094D3: smaller (main.c:47)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Address 0x4aa2510 is 16 bytes inside a block of size 24 free'd
+==2324860==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A4DA: update_lst (get_next_line.c:119)
+==2324860==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860==  Block was alloc'd at
+==2324860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A5A7: ft_calloc (get_next_line_utils.c:21)
+==2324860==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324860==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860== 
+==2324860== 
+==2324860== HEAP SUMMARY:
+==2324860==     in use at exit: 242 bytes in 3 blocks
+==2324860==   total heap usage: 33 allocs, 31 frees, 3,848 bytes allocated
+==2324860== 
+==2324860== 101 bytes in 1 blocks are indirectly lost in loss record 1 of 3
+==2324860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A5A7: ft_calloc (get_next_line_utils.c:21)
+==2324860==    by 0x10A61A: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324860==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324860==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860== 
+==2324860== 117 bytes in 1 blocks are definitely lost in loss record 2 of 3
+==2324860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A5A7: ft_calloc (get_next_line_utils.c:21)
+==2324860==    by 0x10A61A: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324860==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324860==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324860==    by 0x1094D3: smaller (main.c:47)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860== 
+==2324860== 125 (24 direct, 101 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
+==2324860==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324860==    by 0x10A5A7: ft_calloc (get_next_line_utils.c:21)
+==2324860==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324860==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324860==    by 0x109452: smaller (main.c:43)
+==2324860==    by 0x10A0B7: main (main.c:179)
+==2324860== 
+==2324860== LEAK SUMMARY:
+==2324860==    definitely lost: 141 bytes in 2 blocks
+==2324860==    indirectly lost: 101 bytes in 1 blocks
+==2324860==      possibly lost: 0 bytes in 0 blocks
+==2324860==    still reachable: 0 bytes in 0 blocks
+==2324860==         suppressed: 0 bytes in 0 blocks
+==2324860== 
+==2324860== For lists of detected and suppressed errors, rerun with: -s
+==2324860== ERROR SUMMARY: 123 errors from 27 contexts (suppressed: 0 from 0)
 
 3
 
-==1794458== Memcheck, a memory error detector
-==1794458== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1794458== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1794458== Command: ./a.out 3
-==1794458== 
-==1794458== 
-==1794458== HEAP SUMMARY:
-==1794458==     in use at exit: 0 bytes in 0 blocks
-==1794458==   total heap usage: 4 allocs, 4 frees, 39 bytes allocated
-==1794458== 
-==1794458== All heap blocks were freed -- no leaks are possible
-==1794458== 
-==1794458== For lists of detected and suppressed errors, rerun with: -s
-==1794458== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==2324872== Memcheck, a memory error detector
+==2324872== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2324872== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==2324872== Command: ./a.out 3
+==2324872== 
+==2324872== Invalid read of size 8
+==2324872==    at 0x10A176: init_lst (get_next_line.c:35)
+==2324872==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Address 0x4aa1330 is 16 bytes inside a block of size 24 free'd
+==2324872==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A4D4: update_lst (get_next_line.c:119)
+==2324872==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324872==    by 0x10969B: bigger (main.c:69)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Block was alloc'd at
+==2324872==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324872==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324872==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872== 
+==2324872== Invalid read of size 4
+==2324872==    at 0x10A1A1: init_lst (get_next_line.c:37)
+==2324872==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Address 0x4aa1328 is 8 bytes inside a block of size 24 free'd
+==2324872==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A4D4: update_lst (get_next_line.c:119)
+==2324872==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324872==    by 0x10969B: bigger (main.c:69)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Block was alloc'd at
+==2324872==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324872==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324872==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872== 
+==2324872== Invalid read of size 8
+==2324872==    at 0x10A449: update_lst (get_next_line.c:110)
+==2324872==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Address 0x4aa1330 is 16 bytes inside a block of size 24 free'd
+==2324872==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A4D4: update_lst (get_next_line.c:119)
+==2324872==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324872==    by 0x10969B: bigger (main.c:69)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Block was alloc'd at
+==2324872==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324872==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324872==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872== 
+==2324872== Invalid read of size 8
+==2324872==    at 0x10A176: init_lst (get_next_line.c:35)
+==2324872==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324872==    by 0x10969B: bigger (main.c:69)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Address 0x4aa1660 is 16 bytes inside a block of size 24 free'd
+==2324872==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A4D4: update_lst (get_next_line.c:119)
+==2324872==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Block was alloc'd at
+==2324872==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324872==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324872==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872== 
+==2324872== Invalid read of size 4
+==2324872==    at 0x10A1A1: init_lst (get_next_line.c:37)
+==2324872==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324872==    by 0x10969B: bigger (main.c:69)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Address 0x4aa1658 is 8 bytes inside a block of size 24 free'd
+==2324872==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A4D4: update_lst (get_next_line.c:119)
+==2324872==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Block was alloc'd at
+==2324872==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324872==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324872==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872== 
+==2324872== Invalid read of size 8
+==2324872==    at 0x10A207: read_fd (get_next_line.c:65)
+==2324872==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324872==    by 0x10969B: bigger (main.c:69)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Address 0x4aa1650 is 0 bytes inside a block of size 24 free'd
+==2324872==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A4D4: update_lst (get_next_line.c:119)
+==2324872==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Block was alloc'd at
+==2324872==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324872==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324872==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872== 
+==2324872== Invalid read of size 8
+==2324872==    at 0x10A23D: read_fd (get_next_line.c:69)
+==2324872==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324872==    by 0x10969B: bigger (main.c:69)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Address 0x4aa1650 is 0 bytes inside a block of size 24 free'd
+==2324872==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A4D4: update_lst (get_next_line.c:119)
+==2324872==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Block was alloc'd at
+==2324872==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324872==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324872==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872== 
+==2324872== Invalid read of size 1
+==2324872==    at 0x10A73C: ft_strlen (get_next_line_utils.c:84)
+==2324872==    by 0x10A247: read_fd (get_next_line.c:69)
+==2324872==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324872==    by 0x10969B: bigger (main.c:69)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Address 0x4aa17f0 is 0 bytes inside a block of size 3 free'd
+==2324872==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A4BC: update_lst (get_next_line.c:117)
+==2324872==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Block was alloc'd at
+==2324872==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324872==    by 0x10A614: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324872==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324872==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872== 
+==2324872== Invalid read of size 8
+==2324872==    at 0x10A328: read_fd (get_next_line.c:70)
+==2324872==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324872==    by 0x10969B: bigger (main.c:69)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Address 0x4aa1650 is 0 bytes inside a block of size 24 free'd
+==2324872==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A4D4: update_lst (get_next_line.c:119)
+==2324872==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Block was alloc'd at
+==2324872==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324872==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324872==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872== 
+==2324872== Invalid read of size 1
+==2324872==    at 0x10A6D8: ft_memchr (get_next_line_utils.c:67)
+==2324872==    by 0x10A337: read_fd (get_next_line.c:70)
+==2324872==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324872==    by 0x10969B: bigger (main.c:69)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Address 0x4aa17f0 is 0 bytes inside a block of size 3 free'd
+==2324872==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A4BC: update_lst (get_next_line.c:117)
+==2324872==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Block was alloc'd at
+==2324872==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324872==    by 0x10A614: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324872==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324872==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872== 
+==2324872== Invalid read of size 8
+==2324872==    at 0x10A257: read_fd (get_next_line.c:72)
+==2324872==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324872==    by 0x10969B: bigger (main.c:69)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Address 0x4aa1650 is 0 bytes inside a block of size 24 free'd
+==2324872==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A4D4: update_lst (get_next_line.c:119)
+==2324872==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Block was alloc'd at
+==2324872==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324872==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324872==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872== 
+==2324872== Invalid read of size 1
+==2324872==    at 0x10A73C: ft_strlen (get_next_line_utils.c:84)
+==2324872==    by 0x10A261: read_fd (get_next_line.c:72)
+==2324872==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324872==    by 0x10969B: bigger (main.c:69)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Address 0x4aa17f0 is 0 bytes inside a block of size 3 free'd
+==2324872==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A4BC: update_lst (get_next_line.c:117)
+==2324872==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Block was alloc'd at
+==2324872==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324872==    by 0x10A614: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324872==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324872==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872== 
+==2324872== Invalid read of size 8
+==2324872==    at 0x10A26D: read_fd (get_next_line.c:72)
+==2324872==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324872==    by 0x10969B: bigger (main.c:69)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Address 0x4aa1650 is 0 bytes inside a block of size 24 free'd
+==2324872==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A4D4: update_lst (get_next_line.c:119)
+==2324872==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Block was alloc'd at
+==2324872==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324872==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324872==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872== 
+==2324872== Invalid read of size 1
+==2324872==    at 0x10A61D: ft_strlcpy_swap (get_next_line_utils.c:41)
+==2324872==    by 0x10A27E: read_fd (get_next_line.c:72)
+==2324872==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324872==    by 0x10969B: bigger (main.c:69)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Address 0x4aa17f0 is 0 bytes inside a block of size 3 free'd
+==2324872==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A4BC: update_lst (get_next_line.c:117)
+==2324872==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Block was alloc'd at
+==2324872==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324872==    by 0x10A614: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324872==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324872==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872== 
+==2324872== Invalid read of size 1
+==2324872==    at 0x10A73C: ft_strlen (get_next_line_utils.c:84)
+==2324872==    by 0x10A63C: ft_strlcpy_swap (get_next_line_utils.c:45)
+==2324872==    by 0x10A27E: read_fd (get_next_line.c:72)
+==2324872==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324872==    by 0x10969B: bigger (main.c:69)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Address 0x4aa17f0 is 0 bytes inside a block of size 3 free'd
+==2324872==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A4BC: update_lst (get_next_line.c:117)
+==2324872==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Block was alloc'd at
+==2324872==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324872==    by 0x10A614: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324872==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324872==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872== 
+==2324872== Invalid read of size 1
+==2324872==    at 0x10A73C: ft_strlen (get_next_line_utils.c:84)
+==2324872==    by 0x10A64E: ft_strlcpy_swap (get_next_line_utils.c:46)
+==2324872==    by 0x10A27E: read_fd (get_next_line.c:72)
+==2324872==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324872==    by 0x10969B: bigger (main.c:69)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Address 0x4aa17f0 is 0 bytes inside a block of size 3 free'd
+==2324872==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A4BC: update_lst (get_next_line.c:117)
+==2324872==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Block was alloc'd at
+==2324872==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324872==    by 0x10A614: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324872==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324872==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872== 
+==2324872== Invalid read of size 1
+==2324872==    at 0x10A684: ft_strlcpy_swap (get_next_line_utils.c:52)
+==2324872==    by 0x10A27E: read_fd (get_next_line.c:72)
+==2324872==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324872==    by 0x10969B: bigger (main.c:69)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Address 0x4aa17f0 is 0 bytes inside a block of size 3 free'd
+==2324872==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A4BC: update_lst (get_next_line.c:117)
+==2324872==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Block was alloc'd at
+==2324872==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324872==    by 0x10A614: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324872==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324872==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872== 
+==2324872== Invalid read of size 8
+==2324872==    at 0x10A28A: read_fd (get_next_line.c:73)
+==2324872==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324872==    by 0x10969B: bigger (main.c:69)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Address 0x4aa1650 is 0 bytes inside a block of size 24 free'd
+==2324872==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A4D4: update_lst (get_next_line.c:119)
+==2324872==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Block was alloc'd at
+==2324872==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324872==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324872==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872== 
+==2324872== Invalid free() / delete / delete[] / realloc()
+==2324872==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A294: read_fd (get_next_line.c:73)
+==2324872==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324872==    by 0x10969B: bigger (main.c:69)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Address 0x4aa17f0 is 0 bytes inside a block of size 3 free'd
+==2324872==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A4BC: update_lst (get_next_line.c:117)
+==2324872==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Block was alloc'd at
+==2324872==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324872==    by 0x10A614: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324872==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324872==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872== 
+==2324872== Invalid read of size 8
+==2324872==    at 0x10A2AC: read_fd (get_next_line.c:74)
+==2324872==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324872==    by 0x10969B: bigger (main.c:69)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Address 0x4aa1650 is 0 bytes inside a block of size 24 free'd
+==2324872==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A4D4: update_lst (get_next_line.c:119)
+==2324872==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Block was alloc'd at
+==2324872==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324872==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324872==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872== 
+==2324872== Invalid write of size 8
+==2324872==    at 0x10A2C5: read_fd (get_next_line.c:74)
+==2324872==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324872==    by 0x10969B: bigger (main.c:69)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Address 0x4aa1650 is 0 bytes inside a block of size 24 free'd
+==2324872==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A4D4: update_lst (get_next_line.c:119)
+==2324872==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Block was alloc'd at
+==2324872==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324872==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324872==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872== 
+==2324872== Invalid read of size 8
+==2324872==    at 0x10A2DB: read_fd (get_next_line.c:76)
+==2324872==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324872==    by 0x10969B: bigger (main.c:69)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Address 0x4aa1650 is 0 bytes inside a block of size 24 free'd
+==2324872==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A4D4: update_lst (get_next_line.c:119)
+==2324872==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Block was alloc'd at
+==2324872==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324872==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324872==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872== 
+==2324872== Invalid read of size 4
+==2324872==    at 0x10A2F7: read_fd (get_next_line.c:76)
+==2324872==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324872==    by 0x10969B: bigger (main.c:69)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Address 0x4aa1658 is 8 bytes inside a block of size 24 free'd
+==2324872==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A4D4: update_lst (get_next_line.c:119)
+==2324872==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Block was alloc'd at
+==2324872==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324872==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324872==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872== 
+==2324872== Invalid read of size 8
+==2324872==    at 0x10A34E: read_fd (get_next_line.c:79)
+==2324872==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324872==    by 0x10969B: bigger (main.c:69)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Address 0x4aa1650 is 0 bytes inside a block of size 24 free'd
+==2324872==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A4D4: update_lst (get_next_line.c:119)
+==2324872==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Block was alloc'd at
+==2324872==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324872==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324872==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872== 
+==2324872== Invalid read of size 8
+==2324872==    at 0x10A449: update_lst (get_next_line.c:110)
+==2324872==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324872==    by 0x10969B: bigger (main.c:69)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Address 0x4aa1660 is 16 bytes inside a block of size 24 free'd
+==2324872==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A4D4: update_lst (get_next_line.c:119)
+==2324872==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872==  Block was alloc'd at
+==2324872==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324872==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324872==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872== 
+==2324872== 
+==2324872== HEAP SUMMARY:
+==2324872==     in use at exit: 30 bytes in 3 blocks
+==2324872==   total heap usage: 29 allocs, 27 frees, 129 bytes allocated
+==2324872== 
+==2324872== 3 bytes in 1 blocks are indirectly lost in loss record 1 of 3
+==2324872==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324872==    by 0x10A614: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324872==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324872==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872== 
+==2324872== 3 bytes in 1 blocks are definitely lost in loss record 2 of 3
+==2324872==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324872==    by 0x10A614: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324872==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324872==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324872==    by 0x10969B: bigger (main.c:69)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872== 
+==2324872== 27 (24 direct, 3 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
+==2324872==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324872==    by 0x10A5A1: ft_calloc (get_next_line_utils.c:21)
+==2324872==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324872==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324872==    by 0x10961A: bigger (main.c:65)
+==2324872==    by 0x10A0B7: main (main.c:179)
+==2324872== 
+==2324872== LEAK SUMMARY:
+==2324872==    definitely lost: 27 bytes in 2 blocks
+==2324872==    indirectly lost: 3 bytes in 1 blocks
+==2324872==      possibly lost: 0 bytes in 0 blocks
+==2324872==    still reachable: 0 bytes in 0 blocks
+==2324872==         suppressed: 0 bytes in 0 blocks
+==2324872== 
+==2324872== For lists of detected and suppressed errors, rerun with: -s
+==2324872== ERROR SUMMARY: 33 errors from 27 contexts (suppressed: 0 from 0)
 
 4
 
-==1794475== Memcheck, a memory error detector
-==1794475== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1794475== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1794475== Command: ./a.out 4
-==1794475== 
-==1794475== 
-==1794475== HEAP SUMMARY:
-==1794475==     in use at exit: 0 bytes in 0 blocks
-==1794475==   total heap usage: 4 allocs, 4 frees, 48 bytes allocated
-==1794475== 
-==1794475== All heap blocks were freed -- no leaks are possible
-==1794475== 
-==1794475== For lists of detected and suppressed errors, rerun with: -s
-==1794475== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==2324891== Memcheck, a memory error detector
+==2324891== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2324891== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==2324891== Command: ./a.out 4
+==2324891== 
+==2324891== Invalid read of size 8
+==2324891==    at 0x10A176: init_lst (get_next_line.c:35)
+==2324891==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324891==    by 0x10984D: same (main.c:91)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Address 0x4aa1290 is 16 bytes inside a block of size 24 free'd
+==2324891==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A4E7: update_lst (get_next_line.c:119)
+==2324891==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Block was alloc'd at
+==2324891==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324891==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324891==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891== 
+==2324891== Invalid read of size 4
+==2324891==    at 0x10A1A1: init_lst (get_next_line.c:37)
+==2324891==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324891==    by 0x10984D: same (main.c:91)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Address 0x4aa1288 is 8 bytes inside a block of size 24 free'd
+==2324891==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A4E7: update_lst (get_next_line.c:119)
+==2324891==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Block was alloc'd at
+==2324891==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324891==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324891==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891== 
+==2324891== Invalid read of size 8
+==2324891==    at 0x10A207: read_fd (get_next_line.c:65)
+==2324891==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324891==    by 0x10984D: same (main.c:91)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Address 0x4aa1280 is 0 bytes inside a block of size 24 free'd
+==2324891==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A4E7: update_lst (get_next_line.c:119)
+==2324891==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Block was alloc'd at
+==2324891==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324891==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324891==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891== 
+==2324891== Invalid read of size 8
+==2324891==    at 0x10A23D: read_fd (get_next_line.c:69)
+==2324891==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324891==    by 0x10984D: same (main.c:91)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Address 0x4aa1280 is 0 bytes inside a block of size 24 free'd
+==2324891==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A4E7: update_lst (get_next_line.c:119)
+==2324891==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Block was alloc'd at
+==2324891==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324891==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324891==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891== 
+==2324891== Invalid read of size 1
+==2324891==    at 0x10A74F: ft_strlen (get_next_line_utils.c:84)
+==2324891==    by 0x10A247: read_fd (get_next_line.c:69)
+==2324891==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324891==    by 0x10984D: same (main.c:91)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Address 0x4aa1380 is 0 bytes inside a block of size 11 free'd
+==2324891==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A4CF: update_lst (get_next_line.c:117)
+==2324891==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Block was alloc'd at
+==2324891==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324891==    by 0x10A627: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324891==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324891==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891== 
+==2324891== Invalid read of size 8
+==2324891==    at 0x10A33B: read_fd (get_next_line.c:70)
+==2324891==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324891==    by 0x10984D: same (main.c:91)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Address 0x4aa1280 is 0 bytes inside a block of size 24 free'd
+==2324891==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A4E7: update_lst (get_next_line.c:119)
+==2324891==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Block was alloc'd at
+==2324891==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324891==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324891==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891== 
+==2324891== Invalid read of size 1
+==2324891==    at 0x10A6EB: ft_memchr (get_next_line_utils.c:67)
+==2324891==    by 0x10A34A: read_fd (get_next_line.c:70)
+==2324891==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324891==    by 0x10984D: same (main.c:91)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Address 0x4aa1380 is 0 bytes inside a block of size 11 free'd
+==2324891==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A4CF: update_lst (get_next_line.c:117)
+==2324891==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Block was alloc'd at
+==2324891==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324891==    by 0x10A627: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324891==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324891==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891== 
+==2324891== Invalid read of size 8
+==2324891==    at 0x10A257: read_fd (get_next_line.c:72)
+==2324891==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324891==    by 0x10984D: same (main.c:91)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Address 0x4aa1280 is 0 bytes inside a block of size 24 free'd
+==2324891==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A4E7: update_lst (get_next_line.c:119)
+==2324891==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Block was alloc'd at
+==2324891==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324891==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324891==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891== 
+==2324891== Invalid read of size 1
+==2324891==    at 0x10A74F: ft_strlen (get_next_line_utils.c:84)
+==2324891==    by 0x10A261: read_fd (get_next_line.c:72)
+==2324891==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324891==    by 0x10984D: same (main.c:91)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Address 0x4aa1380 is 0 bytes inside a block of size 11 free'd
+==2324891==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A4CF: update_lst (get_next_line.c:117)
+==2324891==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Block was alloc'd at
+==2324891==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324891==    by 0x10A627: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324891==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324891==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891== 
+==2324891== Invalid read of size 8
+==2324891==    at 0x10A26D: read_fd (get_next_line.c:72)
+==2324891==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324891==    by 0x10984D: same (main.c:91)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Address 0x4aa1280 is 0 bytes inside a block of size 24 free'd
+==2324891==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A4E7: update_lst (get_next_line.c:119)
+==2324891==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Block was alloc'd at
+==2324891==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324891==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324891==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891== 
+==2324891== Invalid read of size 1
+==2324891==    at 0x10A630: ft_strlcpy_swap (get_next_line_utils.c:41)
+==2324891==    by 0x10A27E: read_fd (get_next_line.c:72)
+==2324891==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324891==    by 0x10984D: same (main.c:91)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Address 0x4aa1380 is 0 bytes inside a block of size 11 free'd
+==2324891==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A4CF: update_lst (get_next_line.c:117)
+==2324891==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Block was alloc'd at
+==2324891==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324891==    by 0x10A627: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324891==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324891==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891== 
+==2324891== Invalid read of size 1
+==2324891==    at 0x10A74F: ft_strlen (get_next_line_utils.c:84)
+==2324891==    by 0x10A64F: ft_strlcpy_swap (get_next_line_utils.c:45)
+==2324891==    by 0x10A27E: read_fd (get_next_line.c:72)
+==2324891==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324891==    by 0x10984D: same (main.c:91)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Address 0x4aa1380 is 0 bytes inside a block of size 11 free'd
+==2324891==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A4CF: update_lst (get_next_line.c:117)
+==2324891==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Block was alloc'd at
+==2324891==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324891==    by 0x10A627: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324891==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324891==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891== 
+==2324891== Invalid read of size 1
+==2324891==    at 0x10A74F: ft_strlen (get_next_line_utils.c:84)
+==2324891==    by 0x10A661: ft_strlcpy_swap (get_next_line_utils.c:46)
+==2324891==    by 0x10A27E: read_fd (get_next_line.c:72)
+==2324891==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324891==    by 0x10984D: same (main.c:91)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Address 0x4aa1380 is 0 bytes inside a block of size 11 free'd
+==2324891==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A4CF: update_lst (get_next_line.c:117)
+==2324891==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Block was alloc'd at
+==2324891==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324891==    by 0x10A627: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324891==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324891==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891== 
+==2324891== Invalid read of size 1
+==2324891==    at 0x10A697: ft_strlcpy_swap (get_next_line_utils.c:52)
+==2324891==    by 0x10A27E: read_fd (get_next_line.c:72)
+==2324891==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324891==    by 0x10984D: same (main.c:91)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Address 0x4aa1380 is 0 bytes inside a block of size 11 free'd
+==2324891==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A4CF: update_lst (get_next_line.c:117)
+==2324891==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Block was alloc'd at
+==2324891==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324891==    by 0x10A627: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324891==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324891==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891== 
+==2324891== Invalid read of size 8
+==2324891==    at 0x10A28A: read_fd (get_next_line.c:73)
+==2324891==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324891==    by 0x10984D: same (main.c:91)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Address 0x4aa1280 is 0 bytes inside a block of size 24 free'd
+==2324891==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A4E7: update_lst (get_next_line.c:119)
+==2324891==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Block was alloc'd at
+==2324891==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324891==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324891==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891== 
+==2324891== Invalid free() / delete / delete[] / realloc()
+==2324891==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A294: read_fd (get_next_line.c:73)
+==2324891==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324891==    by 0x10984D: same (main.c:91)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Address 0x4aa1380 is 0 bytes inside a block of size 11 free'd
+==2324891==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A4CF: update_lst (get_next_line.c:117)
+==2324891==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Block was alloc'd at
+==2324891==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324891==    by 0x10A627: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324891==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324891==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891== 
+==2324891== Invalid read of size 8
+==2324891==    at 0x10A2AC: read_fd (get_next_line.c:74)
+==2324891==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324891==    by 0x10984D: same (main.c:91)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Address 0x4aa1280 is 0 bytes inside a block of size 24 free'd
+==2324891==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A4E7: update_lst (get_next_line.c:119)
+==2324891==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Block was alloc'd at
+==2324891==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324891==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324891==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891== 
+==2324891== Invalid write of size 8
+==2324891==    at 0x10A2C5: read_fd (get_next_line.c:74)
+==2324891==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324891==    by 0x10984D: same (main.c:91)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Address 0x4aa1280 is 0 bytes inside a block of size 24 free'd
+==2324891==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A4E7: update_lst (get_next_line.c:119)
+==2324891==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Block was alloc'd at
+==2324891==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324891==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324891==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891== 
+==2324891== Invalid read of size 8
+==2324891==    at 0x10A2DB: read_fd (get_next_line.c:76)
+==2324891==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324891==    by 0x10984D: same (main.c:91)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Address 0x4aa1280 is 0 bytes inside a block of size 24 free'd
+==2324891==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A4E7: update_lst (get_next_line.c:119)
+==2324891==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Block was alloc'd at
+==2324891==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324891==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324891==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891== 
+==2324891== Invalid read of size 4
+==2324891==    at 0x10A2FF: read_fd (get_next_line.c:76)
+==2324891==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324891==    by 0x10984D: same (main.c:91)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Address 0x4aa1288 is 8 bytes inside a block of size 24 free'd
+==2324891==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A4E7: update_lst (get_next_line.c:119)
+==2324891==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Block was alloc'd at
+==2324891==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324891==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324891==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891== 
+==2324891== Invalid read of size 8
+==2324891==    at 0x10A361: read_fd (get_next_line.c:79)
+==2324891==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324891==    by 0x10984D: same (main.c:91)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Address 0x4aa1280 is 0 bytes inside a block of size 24 free'd
+==2324891==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A4E7: update_lst (get_next_line.c:119)
+==2324891==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Block was alloc'd at
+==2324891==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324891==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324891==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891== 
+==2324891== Invalid read of size 8
+==2324891==    at 0x10A45C: update_lst (get_next_line.c:110)
+==2324891==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324891==    by 0x10984D: same (main.c:91)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Address 0x4aa1290 is 16 bytes inside a block of size 24 free'd
+==2324891==    at 0x484B27F: free (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A4E7: update_lst (get_next_line.c:119)
+==2324891==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891==  Block was alloc'd at
+==2324891==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324891==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324891==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891== 
+==2324891== 
+==2324891== HEAP SUMMARY:
+==2324891==     in use at exit: 49 bytes in 3 blocks
+==2324891==   total heap usage: 15 allocs, 13 frees, 140 bytes allocated
+==2324891== 
+==2324891== 11 bytes in 1 blocks are indirectly lost in loss record 1 of 3
+==2324891==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324891==    by 0x10A627: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324891==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324891==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891== 
+==2324891== 14 bytes in 1 blocks are definitely lost in loss record 2 of 3
+==2324891==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324891==    by 0x10A627: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324891==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324891==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324891==    by 0x10984D: same (main.c:91)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891== 
+==2324891== 35 (24 direct, 11 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
+==2324891==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324891==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324891==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324891==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324891==    by 0x1097CC: same (main.c:87)
+==2324891==    by 0x10A0B7: main (main.c:179)
+==2324891== 
+==2324891== LEAK SUMMARY:
+==2324891==    definitely lost: 38 bytes in 2 blocks
+==2324891==    indirectly lost: 11 bytes in 1 blocks
+==2324891==      possibly lost: 0 bytes in 0 blocks
+==2324891==    still reachable: 0 bytes in 0 blocks
+==2324891==         suppressed: 0 bytes in 0 blocks
+==2324891== 
+==2324891== For lists of detected and suppressed errors, rerun with: -s
+==2324891== ERROR SUMMARY: 42 errors from 24 contexts (suppressed: 0 from 0)
 
 5
 
-==1794489== Memcheck, a memory error detector
-==1794489== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1794489== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1794489== Command: ./a.out 5
-==1794489== 
-==1794489== 
-==1794489== HEAP SUMMARY:
-==1794489==     in use at exit: 0 bytes in 0 blocks
-==1794489==   total heap usage: 3 allocs, 3 frees, 36 bytes allocated
-==1794489== 
-==1794489== All heap blocks were freed -- no leaks are possible
-==1794489== 
-==1794489== For lists of detected and suppressed errors, rerun with: -s
-==1794489== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==2324913== Memcheck, a memory error detector
+==2324913== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2324913== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==2324913== Command: ./a.out 5
+==2324913== 
+==2324913== 
+==2324913== HEAP SUMMARY:
+==2324913==     in use at exit: 35 bytes in 2 blocks
+==2324913==   total heap usage: 6 allocs, 4 frees, 58 bytes allocated
+==2324913== 
+==2324913== 11 bytes in 1 blocks are still reachable in loss record 1 of 2
+==2324913==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324913==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324913==    by 0x10A627: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324913==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324913==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324913==    by 0x10994F: continues (main.c:108)
+==2324913==    by 0x10A0B7: main (main.c:179)
+==2324913== 
+==2324913== 24 bytes in 1 blocks are still reachable in loss record 2 of 2
+==2324913==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324913==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324913==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324913==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324913==    by 0x10994F: continues (main.c:108)
+==2324913==    by 0x10A0B7: main (main.c:179)
+==2324913== 
+==2324913== LEAK SUMMARY:
+==2324913==    definitely lost: 0 bytes in 0 blocks
+==2324913==    indirectly lost: 0 bytes in 0 blocks
+==2324913==      possibly lost: 0 bytes in 0 blocks
+==2324913==    still reachable: 35 bytes in 2 blocks
+==2324913==         suppressed: 0 bytes in 0 blocks
+==2324913== 
+==2324913== For lists of detected and suppressed errors, rerun with: -s
+==2324913== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 
 6
 
-==1794510== Memcheck, a memory error detector
-==1794510== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1794510== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1794510== Command: ./a.out 6
-==1794510== 
-==1794510== 
-==1794510== HEAP SUMMARY:
-==1794510==     in use at exit: 0 bytes in 0 blocks
-==1794510==   total heap usage: 4 allocs, 4 frees, 68 bytes allocated
-==1794510== 
-==1794510== All heap blocks were freed -- no leaks are possible
-==1794510== 
-==1794510== For lists of detected and suppressed errors, rerun with: -s
-==1794510== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==2324928== Memcheck, a memory error detector
+==2324928== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2324928== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==2324928== Command: ./a.out 6
+==2324928== 
+==2324928== Invalid read of size 1
+==2324928==    at 0x484ED24: strlen (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324928==    by 0x48EBD30: __vfprintf_internal (vfprintf-internal.c:1517)
+==2324928==    by 0x48D579E: printf (printf.c:33)
+==2324928==    by 0x109D8D: multiple (main.c:149)
+==2324928==    by 0x10A0B7: main (main.c:179)
+==2324928==  Address 0x4aa11f6 is 0 bytes after a block of size 6 alloc'd
+==2324928==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324928==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324928==    by 0x10A627: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324928==    by 0x10A3FB: get_res (get_next_line.c:93)
+==2324928==    by 0x10A36B: read_fd (get_next_line.c:79)
+==2324928==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324928==    by 0x109CEA: multiple (main.c:146)
+==2324928==    by 0x10A0B7: main (main.c:179)
+==2324928== 
+==2324928== Invalid read of size 1
+==2324928==    at 0x484ED24: strlen (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324928==    by 0x48EBD30: __vfprintf_internal (vfprintf-internal.c:1517)
+==2324928==    by 0x48D579E: printf (printf.c:33)
+==2324928==    by 0x109E54: multiple (main.c:154)
+==2324928==    by 0x10A0B7: main (main.c:179)
+==2324928==  Address 0x4aa17d5 is 0 bytes after a block of size 5 alloc'd
+==2324928==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324928==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324928==    by 0x10A627: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324928==    by 0x10A3FB: get_res (get_next_line.c:93)
+==2324928==    by 0x10A36B: read_fd (get_next_line.c:79)
+==2324928==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324928==    by 0x109DA9: multiple (main.c:151)
+==2324928==    by 0x10A0B7: main (main.c:179)
+==2324928== 
+==2324928== Invalid read of size 1
+==2324928==    at 0x484ED24: strlen (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324928==    by 0x48EBD30: __vfprintf_internal (vfprintf-internal.c:1517)
+==2324928==    by 0x48D579E: printf (printf.c:33)
+==2324928==    by 0x109F1B: multiple (main.c:159)
+==2324928==    by 0x10A0B7: main (main.c:179)
+==2324928==  Address 0x4aa1acd is 0 bytes after a block of size 13 alloc'd
+==2324928==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324928==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324928==    by 0x10A627: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324928==    by 0x10A3FB: get_res (get_next_line.c:93)
+==2324928==    by 0x10A36B: read_fd (get_next_line.c:79)
+==2324928==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324928==    by 0x109E70: multiple (main.c:156)
+==2324928==    by 0x10A0B7: main (main.c:179)
+==2324928== 
+==2324928== Invalid read of size 1
+==2324928==    at 0x484ED24: strlen (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324928==    by 0x48EBD30: __vfprintf_internal (vfprintf-internal.c:1517)
+==2324928==    by 0x48D579E: printf (printf.c:33)
+==2324928==    by 0x109FE2: multiple (main.c:164)
+==2324928==    by 0x10A0B7: main (main.c:179)
+==2324928==  Address 0x4aa1dbc is 0 bytes after a block of size 12 alloc'd
+==2324928==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324928==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324928==    by 0x10A627: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324928==    by 0x10A3FB: get_res (get_next_line.c:93)
+==2324928==    by 0x10A36B: read_fd (get_next_line.c:79)
+==2324928==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324928==    by 0x109F37: multiple (main.c:161)
+==2324928==    by 0x10A0B7: main (main.c:179)
+==2324928== 
+==2324928== 
+==2324928== HEAP SUMMARY:
+==2324928==     in use at exit: 133 bytes in 8 blocks
+==2324928==   total heap usage: 33 allocs, 25 frees, 1,398 bytes allocated
+==2324928== 
+==2324928== 7 bytes in 1 blocks are indirectly lost in loss record 1 of 8
+==2324928==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324928==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324928==    by 0x10A627: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324928==    by 0x10A55C: update_lst (get_next_line.c:125)
+==2324928==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324928==    by 0x109DA9: multiple (main.c:151)
+==2324928==    by 0x10A0B7: main (main.c:179)
+==2324928== 
+==2324928== 9 bytes in 1 blocks are indirectly lost in loss record 2 of 8
+==2324928==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324928==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324928==    by 0x10A627: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324928==    by 0x10A55C: update_lst (get_next_line.c:125)
+==2324928==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324928==    by 0x109E70: multiple (main.c:156)
+==2324928==    by 0x10A0B7: main (main.c:179)
+==2324928== 
+==2324928== 10 bytes in 1 blocks are indirectly lost in loss record 3 of 8
+==2324928==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324928==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324928==    by 0x10A627: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324928==    by 0x10A55C: update_lst (get_next_line.c:125)
+==2324928==    by 0x10A121: get_next_line (get_next_line.c:27)
+==2324928==    by 0x109F37: multiple (main.c:161)
+==2324928==    by 0x10A0B7: main (main.c:179)
+==2324928== 
+==2324928== 11 bytes in 1 blocks are still reachable in loss record 4 of 8
+==2324928==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324928==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324928==    by 0x10A627: ft_strlcpy_swap (get_next_line_utils.c:40)
+==2324928==    by 0x10A2C4: read_fd (get_next_line.c:74)
+==2324928==    by 0x10A10E: get_next_line (get_next_line.c:26)
+==2324928==    by 0x109CEA: multiple (main.c:146)
+==2324928==    by 0x10A0B7: main (main.c:179)
+==2324928== 
+==2324928== 24 bytes in 1 blocks are still reachable in loss record 5 of 8
+==2324928==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324928==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324928==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324928==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324928==    by 0x109CEA: multiple (main.c:146)
+==2324928==    by 0x10A0B7: main (main.c:179)
+==2324928== 
+==2324928== 31 (24 direct, 7 indirect) bytes in 1 blocks are definitely lost in loss record 6 of 8
+==2324928==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324928==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324928==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324928==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324928==    by 0x109DA9: multiple (main.c:151)
+==2324928==    by 0x10A0B7: main (main.c:179)
+==2324928== 
+==2324928== 33 (24 direct, 9 indirect) bytes in 1 blocks are definitely lost in loss record 7 of 8
+==2324928==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324928==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324928==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324928==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324928==    by 0x109E70: multiple (main.c:156)
+==2324928==    by 0x10A0B7: main (main.c:179)
+==2324928== 
+==2324928== 34 (24 direct, 10 indirect) bytes in 1 blocks are definitely lost in loss record 8 of 8
+==2324928==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==2324928==    by 0x10A5B4: ft_calloc (get_next_line_utils.c:21)
+==2324928==    by 0x10A1B7: init_lst (get_next_line.c:39)
+==2324928==    by 0x10A0EE: get_next_line (get_next_line.c:23)
+==2324928==    by 0x109F37: multiple (main.c:161)
+==2324928==    by 0x10A0B7: main (main.c:179)
+==2324928== 
+==2324928== LEAK SUMMARY:
+==2324928==    definitely lost: 72 bytes in 3 blocks
+==2324928==    indirectly lost: 26 bytes in 3 blocks
+==2324928==      possibly lost: 0 bytes in 0 blocks
+==2324928==    still reachable: 35 bytes in 2 blocks
+==2324928==         suppressed: 0 bytes in 0 blocks
+==2324928== 
+==2324928== For lists of detected and suppressed errors, rerun with: -s
+==2324928== ERROR SUMMARY: 7 errors from 7 contexts (suppressed: 0 from 0)

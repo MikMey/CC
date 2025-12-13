@@ -4,7 +4,12 @@
 #include <string.h>
 #include "../get_next_line.h"
 
-#define FR_CUR {free(fd);free(res);return (0);}
+#define FR_CUR	{ \
+				free(fd); \
+				free(res); \
+				return (0); \
+				}
+
 #define FR_MULT_RET return(free(line),free(lines), 0);
 
 

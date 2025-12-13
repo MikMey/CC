@@ -44,8 +44,8 @@ int smaller(void)
 		if (memcmp(res, lines[i], strlen(lines[i])))
 			FR_CUR;
 		free(res);
-		// res = get_next_line(fd[i]);
-		// free(res);
+		res = get_next_line(fd[i]);
+		free(res);
 	}
 	for (int i = 0; i < 3; i++)
 		close(fd[i]);
@@ -65,6 +65,8 @@ int bigger(void)
 		res = get_next_line(fd[i]);
 		if (memcmp(res, lines[i], strlen(lines[i])))
 			FR_CUR;
+		free(res);
+		res = get_next_line(fd[i]);
 		free(res);
 	}
 	for (int i = 0; i < 3; i++)
@@ -86,6 +88,8 @@ int same(void)
 		if (memcmp(res, lines[i], strlen(lines[i])))
 			FR_CUR;
 		free(res);
+		res = get_next_line(fd[i]);
+		free(res);
 	}
 	for (int i = 0; i < 3; i++)
 		close(fd[i]);
@@ -99,7 +103,7 @@ int continues(void)
 	int fd;
 	char *res;
 	fd = open("/home/mimeyer/Desktop/CC_git/get_next_pizza/gnl_test/test_files/continues.txt", O_RDONLY);
-	for (int i = 0; i < 5; i++)
+	for (int i = 0; i < 6; i++)
 	{
 		res = get_next_line(fd);
 		if (res == NULL)
@@ -109,7 +113,6 @@ int continues(void)
 			free(res);
 			return (0);
 		}
-
 		free(res);
 	}
 	close(fd);
