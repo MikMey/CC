@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 18:17:00 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/12/13 12:14:15 by mimeyer          ###   ########.fr       */
+/*   Updated: 2025/12/14 21:27:59 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,12 @@ char	*ft_strlcpy_swap(char *dest, char *src, size_t n)
 	destt = (unsigned char *)dest;
 	srcc = (unsigned char *)src;
 	i = 0;
-	while (n > i && (destt != 0 || srcc != 0))
+	while (i < n - 1 && (destt != 0 || srcc != 0))
 	{
 		destt[i] = srcc[i];
 		i++;
 	}
+	destt[i] = '\0';
 	return (dest);
 }
 

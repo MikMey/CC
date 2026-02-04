@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 18:17:06 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/12/13 19:14:36 by mimeyer          ###   ########.fr       */
+/*   Updated: 2025/12/14 21:34:57 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ char				*get_next_line(int fd);
 t_lst				*init_lst(t_lst **lst, int fd);
 char				*read_fd(t_lst **node);
 char				*get_res(char *CH);
-void				update_lst(t_lst *lst);
+void				update_single_node(t_lst *node);
 
 void				*ft_calloc(size_t nmemb, size_t size);
 size_t				ft_strlen(const char *s);

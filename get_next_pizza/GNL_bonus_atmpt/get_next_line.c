@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/11 18:17:04 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/12/13 19:26:28 by mimeyer          ###   ########.fr       */
+/*   Updated: 2025/12/14 21:36:04 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,23 +18,47 @@ char	*get_next_line(int fd)
 	t_lst			*node;
 	char			*res;
 
-	// if (fd < 0 || BS <= 0 || read(fd, &res, 0) < 0)
-	// clear_list(node);
 	node = init_lst(&head, fd);
 	if (!node)
 		return (NULL);
 	res = read_fd(&node);
-	update_lst(head);
+	update_single_node(node); // ← FIXED: Only update THIS node, not all nodes
 	return (res);
+}
+void	update_single_node(t_lst *node) // ← Takes SINGLE node, not list head
+{
+	size_t i;
+	char *tmp;
+	if (!node || !node->cache) // Safety check
+		return ;
+	i = 0;
+	while (node->cache[i] && node->cache[i] != '\n')
+		i++;
+	/* If no '\n' in cache, clear it */
+	if (node->cache[i] != '\n')
+	{
+		free(node->cache);
+		node->cache = NULL;
+		return ;
+	}
+	/* Keep only what is after '\n' */
+	tmp = NULL;
+	tmp = ft_strlcpy_swap(tmp, node->cache + i + 1, ft_strlen(node->cache + i
+				+ 1) + 1);
+	free(node->cache);
+	node->cache = tmp;
+	// ← NO LOOP! Only processes this one node
 }
 
 t_lst	*init_lst(t_lst **lst, int fd)
 {
 	t_lst	*node;
+	t_lst	*temp;
 
-	while ((*lst) && (*lst)->next && (*lst)->fd != fd)
-		(*lst) = (*lst)->next;
-	if (!(*lst) || (*lst)->fd != fd)
+	temp = *lst;
+	while (temp && temp->next && temp->fd != fd)
+		temp = temp->next;
+	if (!temp || temp->fd != fd)
 	{
 		node = ft_calloc(sizeof(t_lst), 1);
 		node->fd = fd;
@@ -43,7 +67,7 @@ t_lst	*init_lst(t_lst **lst, int fd)
 		return (node);
 	}
 	else
-		return (*lst);
+		return (temp);
 }
 
 /**
@@ -58,25 +82,58 @@ t_lst	*init_lst(t_lst **lst, int fd)
 char	*read_fd(t_lst **node)
 {
 	char	*temp;
-	int		i;
 	int		start;
 	int		rd;
+	size_t	total_size;
 
-	if (!(*N)->C)
-		(*N)->C = ft_calloc(sizeof(char), BS);
-	i = 0;
-	rd = BS;
-	start = ft_strlen((*N)->C);
-	while (rd != -1 && !MC((*N)->C, '\n', (BS * i) + ST) && rd == BS)
+	if (!(*node)->cache)
+		(*node)->cache = ft_calloc(BS + 1, sizeof(char));
+	if (!(*node)->cache)
+		return (NULL);
+	start = ft_strlen((*node)->cache);
+	if (start > 0 && ft_memchr((*node)->cache, '\n', start))
+		return (get_res((*node)->cache));
+	temp = ft_strlcpy_swap(NULL, (*node)->cache, start + BS + 1);
+	if (!temp)
 	{
-		temp = ft_strlcpy_swap(temp, (*N)->C, ft_strlen((*N)->C) + 1);
-		free((*N)->C);
-		(*N)->C = ft_strlcpy_swap((*N)->C, temp, ft_strlen(temp) + BS + 1);
-		free(temp);
-		rd = read((*N)->F, (*N)->C + (BS * i) + ST, BS);
-		i++;
+		free((*node)->cache);
+		(*node)->cache = NULL;
+		return (NULL);
 	}
-	return (get_res((*N)->C));
+	free((*node)->cache);
+	(*node)->cache = temp;
+	total_size = start + BS + 1;
+	rd = 1;
+	while (rd > 0)
+	{
+		if ((size_t)start >= total_size - BS)
+		{
+			temp = ft_strlcpy_swap(NULL, (*node)->cache, start + BS + 1);
+			if (!temp)
+			{
+				free((*node)->cache);
+				(*node)->cache = NULL;
+				return (NULL);
+			}
+			free((*node)->cache);
+			(*node)->cache = temp;
+			total_size = start + BS + 1;
+		}
+		rd = read((*node)->fd, (*node)->cache + start, BS);
+		if (rd == -1)
+		{
+			free((*node)->cache);
+			(*node)->cache = NULL;
+			return (NULL);
+		}
+		if (rd == 0)
+			break ;
+		(*node)->cache[start + rd] = '\0';
+		if (ft_memchr((*node)->cache + start, '\n', rd))
+			break ;
+		start += rd;
+	}
+	return (get_res((*node)->cache));
 }
 
 char	*get_res(char *cache)
@@ -86,6 +143,8 @@ char	*get_res(char *cache)
 	char	*res;
 
 	res = NULL;
+	if (!cache || !*cache)
+		return (NULL);
 	if (MC(C, '\n', ft_strlen(C) + 1))
 	{
 		temp = ft_memchr(C, '\n', ft_strlen(C) + 1);
@@ -108,8 +167,8 @@ void	update_lst(t_lst *lst)
 	{
 		i = 0;
 		lst_temp = lst->next;
-		if (!lst_temp)
-			return;
+		// if (!lst_temp)
+		// 	return ;
 		while (lst->C && lst->C[i] && lst->C[i] != '\n')
 			i++;
 		if (lst->C[i] != '\n')

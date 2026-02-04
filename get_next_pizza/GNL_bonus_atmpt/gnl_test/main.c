@@ -99,7 +99,7 @@ int same(void)
 
 int continues(void)
 {
-	char *lines[] = {CONT_LINES};
+	char *lines[6] = {CONT_LINES};
 	int fd;
 	char *res;
 	fd = open("/home/mimeyer/Desktop/CC_git/get_next_pizza/gnl_test/test_files/continues.txt", O_RDONLY);

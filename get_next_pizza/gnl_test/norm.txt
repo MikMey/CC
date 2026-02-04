@@ -1,7 +1,0 @@
-get_next_line.c: Error!
-Error: WRONG_SCOPE_COMMENT  (line:  21, col:   5):	[95mComment is invalid in this scope[0m
-Error: WRONG_SCOPE_COMMENT  (line:  22, col:   5):	[95mComment is invalid in this scope[0m
-Error: SPACE_AFTER_KW       (line: 112, col:  13):	Missing space after keyword
-Error: TOO_MANY_LINES       (line: 130, col:   1):	Function has more than 25 lines
-get_next_line_utils.c: OK!
-get_next_line.h: OK!

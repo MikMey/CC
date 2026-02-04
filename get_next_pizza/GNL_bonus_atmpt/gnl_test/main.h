@@ -43,8 +43,8 @@
 					"is\n", \
 					"\n", \
 					"a a a a a a a a a a a a a a a a a a \n", \
-					"test    \n", \
-					""
+					"test    \n"
+					
 
 
 typedef int (*f_arr)(void);

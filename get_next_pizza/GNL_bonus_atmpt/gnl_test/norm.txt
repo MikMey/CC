@@ -1,0 +1,20 @@
+get_next_line.c: Error!
+Error: WRONG_SCOPE_COMMENT  (line:  25, col:  31):	[95mComment is invalid in this scope[0m
+Error: WRONG_SCOPE_COMMENT  (line:  25, col:  31):	[95mComment is invalid in this scope[0m
+Error: NEWLINE_PRECEDES_FUNC (line:  28, col:   1):	Functions must be separated by a newline
+Error: SPACE_REPLACE_TAB    (line:  30, col:  11):	Found space when expecting tab
+Error: SPACE_REPLACE_TAB    (line:  31, col:   9):	Found space when expecting tab
+Error: MISALIGNED_VAR_DECL  (line:  31, col:  10):	Misaligned variable declaration
+Error: NL_AFTER_VAR_DECL    (line:  32, col:   1):	Variable declarations must be followed by a newline
+Error: WRONG_SCOPE_COMMENT  (line:  32, col:  32):	[95mComment is invalid in this scope[0m
+Error: WRONG_SCOPE_COMMENT  (line:  32, col:  32):	[95mComment is invalid in this scope[0m
+Error: WRONG_SCOPE_COMMENT  (line:  37, col:   5):	[95mComment is invalid in this scope[0m
+Error: WRONG_SCOPE_COMMENT  (line:  44, col:   5):	[95mComment is invalid in this scope[0m
+Error: WRONG_SCOPE_COMMENT  (line:  50, col:   5):	[95mComment is invalid in this scope[0m
+Error: TOO_MANY_LINES       (line: 137, col:   1):	Function has more than 25 lines
+Error: TOO_MANY_FUNCS       (line: 159, col:   1):	[92mToo many functions in file[0m
+Error: WRONG_SCOPE_COMMENT  (line: 170, col:   9):	[95mComment is invalid in this scope[0m
+Error: WRONG_SCOPE_COMMENT  (line: 171, col:   9):	[95mComment is invalid in this scope[0m
+Error: TOO_MANY_LINES       (line: 189, col:   1):	Function has more than 25 lines
+get_next_line_utils.c: OK!
+get_next_line.h: OK!
