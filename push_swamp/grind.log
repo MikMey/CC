@@ -1,23 +1,30 @@
-==1214770== Memcheck, a memory error detector
-==1214770== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1214770== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1214770== Command: ./swap.a
-==1214770== Parent PID: 1214769
-==1214770== 
-==1214770== Syscall param write(buf) points to uninitialised byte(s)
-==1214770==    at 0x49898F7: write (write.c:26)
-==1214770==    by 0x401331: throw_error (push_swap.c:48)
-==1214770==    by 0x401273: main (push_swap.c:37)
-==1214770==  Address 0x1ffefffca0 is on thread 1's stack
-==1214770==  in frame #2, created by main (push_swap.c:16)
-==1214770== 
-==1214770== 
-==1214770== HEAP SUMMARY:
-==1214770==     in use at exit: 0 bytes in 0 blocks
-==1214770==   total heap usage: 0 allocs, 0 frees, 0 bytes allocated
-==1214770== 
-==1214770== All heap blocks were freed -- no leaks are possible
-==1214770== 
-==1214770== Use --track-origins=yes to see where uninitialised values come from
-==1214770== For lists of detected and suppressed errors, rerun with: -s
-==1214770== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==1336137== Memcheck, a memory error detector
+==1336137== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1336137== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1336137== Command: ./swap.a test\ test test test test\ test\ test
+==1336137== Parent PID: 1286028
+==1336137== 
+==1336137== 
+==1336137== HEAP SUMMARY:
+==1336137==     in use at exit: 127 bytes in 9 blocks
+==1336137==   total heap usage: 17 allocs, 8 frees, 1,282 bytes allocated
+==1336137== 
+==1336137== 28 bytes in 1 blocks are definitely lost in loss record 1 of 3
+==1336137==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1336137==    by 0x4017A5: ft_calloc (ft_calloc.c:21)
+==1336137==    by 0x4011E8: main (push_swap.c:25)
+==1336137== 
+==1336137== 99 (64 direct, 35 indirect) bytes in 1 blocks are definitely lost in loss record 3 of 3
+==1336137==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==1336137==    by 0x402C2A: ft_split (ft_split.c:36)
+==1336137==    by 0x4011AE: main (push_swap.c:21)
+==1336137== 
+==1336137== LEAK SUMMARY:
+==1336137==    definitely lost: 92 bytes in 2 blocks
+==1336137==    indirectly lost: 35 bytes in 7 blocks
+==1336137==      possibly lost: 0 bytes in 0 blocks
+==1336137==    still reachable: 0 bytes in 0 blocks
+==1336137==         suppressed: 0 bytes in 0 blocks
+==1336137== 
+==1336137== For lists of detected and suppressed errors, rerun with: -s
+==1336137== ERROR SUMMARY: 2 errors from 2 contexts (suppressed: 0 from 0)

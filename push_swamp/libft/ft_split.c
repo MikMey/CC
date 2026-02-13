@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/14 15:50:02 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/11/19 16:55:50 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/13 12:40:15 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static size_t	check_strns(char *ss, char c, size_t strns);
 static char		**assign_str(char **splitstr, char c, char *ss);
 
-char	**ft_split(char const *s, char c)
+char	**ft_split(char *s, char c)
 {
 	char	*ss;
 	char	**splitstr;
@@ -29,6 +29,7 @@ char	**ft_split(char const *s, char c)
 	cc[1] = 0;
 	strns = 0;
 	ss = ft_strtrim(s, cc);
+	free(s);
 	if (ss == 0)
 		return (NULL);
 	strns = check_strns(ss, c, strns);

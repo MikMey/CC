@@ -6,13 +6,13 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 20:38:23 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/04 18:45:26 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/13 12:24:15 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strjoin(char **s1, char const *s2, char* buffer)
+char	*ft_strjoin_free(char **s1, char const *s2, char *buffer)
 {
 	char	*newstr;
 	size_t	len_s1;
@@ -31,7 +31,7 @@ char	*ft_strjoin(char **s1, char const *s2, char* buffer)
 	{
 		ft_strlcpy(newstr, *s1, len_s1 + 1);
 		ft_strlcat(newstr, buffer, len_s1 + 2);
-		ft_strlcat(newstr, s2, len_s1 + len_s2 + 1);
+		ft_strlcat(newstr, s2, len_s1 + len_s2 + 2);
 	}
 	free(*s1);
 	return (newstr);

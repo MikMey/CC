@@ -1,0 +1,36 @@
+get input
+-	unify input
+	.	combine multiple args
+	.	split to have array of strings
+-	push to circular linked list
+	.	check for duplicate values
+	.	convert to int
+-	create copy for later use
+
+
+
+run algorithm
+-	always denote operation and size of stack a and b at operation
+-	check if list is lower/equal than 7
+	.	sort for 7
+	.	sort for 5
+	.	sort for 3
+-	LIS sort
+	.	make ** with each index containing LL of Higher numbers in sequence
+	.	after all lists done, look for longest list, use as LIS
+-	push everything else to b (add operation to char **arr)
+	.	while pushing if number is smaller or greater than but smaller than 5th numb in LIS insert to LIS and keep
+	.	if pushed value is bigger than b, keep, if pushed value is smaller than b rotate backwards until value is bigger than top of b
+-	if greater than 100 start chunking without K sort
+	.	rotate to order within chunk while rotation operations cost less than 10 else start new chunk
+# we should now be at a large number in a
+-	insert chunks top up
+-	insert K sort top up
+
+check if sorted
+-	go through entire stack a to confirm all things present and in order
+
+optimize operations
+-	if rb/ra or rra/rrb found and only own operations of first called rotate, switch to rr/rrr
+-	if sa/sb found and only own operations of first called switch, switch to ss
+-	rerun operations on copied stack to confirm correct functionality

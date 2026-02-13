@@ -25,9 +25,10 @@ fclean: clean
 re:	fclean all
 
 val:
-	valgrind --leak-check=full --log-file=grind.log ./$(NAME)
+	valgrind --leak-check=full --log-file=grind.log ./$(NAME) $(ARGS)
 
-test: all val
+test: 
+	$(CC) *.c */*.c -o $(NAME)
 
 full: re val
 
