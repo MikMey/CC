@@ -1,0 +1,92 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   cdll_utils.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/15 17:32:15 by mimeyer           #+#    #+#             */
+/*   Updated: 2026/02/15 18:29:21 by mimeyer          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../push_swap.h"
+
+/**
+ * @brief add note to list
+ *
+ * @param head
+ * @param node
+ */
+void	add_int_cdll(t_int_cdll **head, t_int_cdll *node)
+{
+	if (!(*head))
+		*head = node;
+	else
+	{
+		node->prev = (*head)->prev;
+		node->nxt = *head;
+		(*head)->prev = node;
+	}
+}
+
+/**
+ * @brief create a new node
+ *
+ * @param data
+ * @return node*
+ */
+t_int_cdll	*new_int_cdll_node(int data)
+{
+	t_int_cdll	*node;
+
+	node = malloc(sizeof(t_int_cdll));
+	if (!node)
+		throw_error(MALLOC_ERROR);
+	node->nxt = node;
+	node->prev = node;
+	node->data = data;
+	return (node);
+}
+
+size_t	len_int_cdll(t_int_cdll **head)
+{
+	t_int_cdll	*node;
+	size_t		len;
+
+	if (!(*head))
+		return (0);
+	else if ((*head)->nxt == *head)
+		return (1);
+	len = 1;
+	node = (*head)->nxt;
+	while (node != *head)
+	{
+		node = node->nxt;
+		len++;
+	}
+	return (len);
+}
+
+void	free_int_cdll(t_int_cdll **head)
+{
+	size_t		len;
+	t_int_cdll	*temp;
+	t_int_cdll	*node;
+
+	if (!head)
+	{
+		free(head);
+		return ;
+	}
+	len = LST_LEN(head);
+	node = *head;
+	while (len > 0)
+	{
+		temp = node->nxt;
+		free(node);
+		node = temp;
+		len--;
+	}
+	return (free(head));
+}

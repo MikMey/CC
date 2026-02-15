@@ -1,22 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   errors.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/04 11:27:32 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/15 18:45:42 by mimeyer          ###   ########.fr       */
+/*   Created: 2026/02/15 17:34:43 by mimeyer           #+#    #+#             */
+/*   Updated: 2026/02/15 18:39:10 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	main(int argc, char **argv)
+/**
+ * @brief error to standard error and exit
+ *
+ * @param s message
+ */
+void	throw_error(char *s)
 {
-	t_int_cdll	*lst_nums;
-	t_int_cdll	*dupl_lst;
+	ft_printf(BOLD_RED);
+	write(2, s, ft_strlen(s) + 1);
+	ft_printf(RESET_COLOR);
+	exit(0);
+}
 
-	lst_nums = input_dealer(argc, argv);
-	dupl_lst = COPY_LST(&lst_nums);
+void	free_arr(char **arr)
+{
+	size_t i;
+	
+	i = 0;
+	if (arr)
+	{
+		while(arr[i])
+			free(arr[i++]);
+	}
+	free(arr);
+	return;
 }

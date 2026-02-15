@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/24 14:48:02 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/04 17:38:33 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/15 18:31:44 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,5 +20,6 @@
 # include <stdlib.h>
 # include <sys/wait.h>
 # include <unistd.h>
+# include <stdbool.h>
 
 #endif
