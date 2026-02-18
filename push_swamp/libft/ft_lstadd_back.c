@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 18:23:14 by mimeyer           #+#    #+#             */
-/*   Updated: 2025/11/18 23:00:23 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/18 16:55:22 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,11 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	}
 	else
 		*lst = new;
+}
+
+void	lstnew_add(t_list **head, void *content)
+{
+	ft_lstadd_back(head, ft_lstnew(content));
 }
 
 // int	main(void)

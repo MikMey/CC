@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 13:08:01 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/13 12:29:50 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/18 16:55:27 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,6 +89,7 @@ int					ft_lstsize(t_list *lst);
 t_list				*ft_lstlast(t_list *lst);
 
 void				ft_lstadd_back(t_list **lst, t_list *new);
+void				lstnew_add(t_list **head, void *content);
 
 void				ft_lstdelone(t_list *lst, void (*del)(void *));
 

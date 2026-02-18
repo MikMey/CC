@@ -6,44 +6,46 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 16:46:26 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/16 17:12:11 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/18 17:45:25 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-char	**algo_dealer(t_int_cdll **head)
+t_list	**algo_dealer(t_int_cdll **head_a)
 {
 	size_t	len;
+	t_list *ops;
+	t_int_cdll *head_b;
 
-	len = LST_LEN(head);
+	len = LST_LEN(head_a);
 	if (len <= 3)
-		return (sort_three(head));
+		return(sort_three(head_a, &head_b, &ops), ops);
 	else if (len <= 5)
-		return (sort_five(head));
-	else if (len <= 7)
-		return (sort_seven(head));
+		return (sort_five(head_a, &head_b, &ops), ops);
 	else
-		return (sort_grand(head));
+		return (sort_grand(head_a, &head_b, &ops), ops);
 }
 
-char	**sort_three(t_int_cdll **head)
+void	sort_three(t_int_cdll **head_a, t_int_cdll **head_b, t_list **ops)
 {
-	char	**ops;
-
-	if ((*head)->data < (*head)->nxt->data < (*head)->prev->data)
-		return (NULL);
-	ops
+	if (IDX_ONE < IDX_TWO > IDX_LAST && IDX_LAST > IDX_ONE)
+	{
+		add_apply(head_a, head_b, ops, "rra");
+		add_apply(head_a, head_b, ops, "sa");
+		add_apply(head_a, head_b, ops, "ra");
+	}
+	else if (IDX_ONE > IDX_TWO > IDX_LAST)
+	{
+		add_apply(head_a, head_b, ops, "ra");
+		add_apply(head_a, head_b, ops, "ra");
+	}
 }
 
-char	**sort_five(t_int_cdll **head)
+void	sort_five(t_int_cdll **head_a, t_int_cdll **head_b, t_list **ops)
 {
 }
 
-char	**sort_seven(t_int_cdll **head)
-{
-}
-
-char	**sort_grand(t_int_cdll **head)
+void	sort_grand(t_int_cdll **head_a, t_int_cdll **head_b, t_list **ops)
 {
 }

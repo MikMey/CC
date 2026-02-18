@@ -1,24 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   push.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/04 11:27:32 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/18 17:01:10 by mimeyer          ###   ########.fr       */
+/*   Created: 2026/02/18 17:54:17 by mimeyer           #+#    #+#             */
+/*   Updated: 2026/02/18 17:55:25 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../../push_swap.h"
 
-int	main(int argc, char **argv)
-{
-	t_int_cdll	*lst_nums;
-	t_int_cdll	*dupl_lst;
-	t_list **ops;
-
-	lst_nums = input_dealer(argc, argv);
-	dupl_lst = COPY_LST(&lst_nums);
-	ops = algo_dealer(&lst_nums);
-}
+void	p_any(t_int_cdll **head_from, t_int_cdll **head_to)
+{}

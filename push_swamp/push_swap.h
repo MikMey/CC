@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 11:27:29 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/16 17:00:07 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/18 17:53:04 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,10 @@
 # define ADD_NODE add_int_cdll
 # define LST_LEN len_int_cdll
 # define LST_FREE free_int_cdll
+
+# define IDX_ONE (*head_a)->data
+# define IDX_TWO (*head_a)->nxt->data
+# define IDX_LAST (*head_a)->prev->data
 
 typedef struct s_int_cdll
 {
@@ -41,18 +45,26 @@ typedef struct s_int_cdll
 // main
 int						main(int argc, char **argv);
 
-
 // input
 t_int_cdll				*input_dealer(int argc, char *argv);
 char					*unify_input(int argc, char **argv);
 bool					check_input(t_int_cdll **head);
 
 // algo
-char					**algo_dealer(t_int_cdll **head);
-char					**sort_three(t_int_cdll **head);
-char					**sort_five(t_int_cdll **head);
-char					**sort_seven(t_int_cdll **head);
-char					**sort_grand(t_int_cdll **head);
+t_list					**algo_dealer(t_int_cdll **head);
+void					sort_three(t_int_cdll **head_a, t_int_cdll **head_b, t_list **ops);
+void					sort_five(t_int_cdll **head_a, t_int_cdll **head_b, t_list **ops);
+void					sort_grand(t_int_cdll **head_a, t_int_cdll **head_b, t_list **ops);
+void					add_apply(t_int_cdll **int_head_a, t_int_cdll **int_head_b, t_list **lst_head, char *ops);
+
+// // ops
+void	s_any(t_int_cdll **head);
+void	ss(t_int_cdll **head_a, t_int_cdll **head_b);
+void	p_any(t_int_cdll **head_from, t_int_cdll **head_to);
+void	r_any(t_int_cdll **head);
+void	rr(t_int_cdll **head_a, t_int_cdll **head_b);
+void	rr_any(t_int_cdll **head);
+void	rrr(t_int_cdll **head_a, t_int_cdll **head_b);
 
 // improve
 
@@ -67,3 +79,16 @@ t_int_cdll*				copy_int_cdll(t_int_cdll **head);
 
 
 #endif
+
+sa
+sb 
+ss 
+pa 
+pb 
+ra 
+rb 
+rr 
+rra 
+rrb 
+rrr
+
