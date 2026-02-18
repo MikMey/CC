@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 17:02:44 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/18 17:49:42 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/18 20:30:01 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ void	add_apply(t_int_cdll **int_head_a, t_int_cdll **int_head_b,
 		s_any(int_head_b);
 	else if (ops == "ss")
 		ss(int_head_a, int_head_b);
-	else if (ops == "pa")
-		p_any(int_head_a, int_head_b);
 	else if (ops == "pb")
 		p_any(int_head_a, int_head_b);
+	else if (ops == "pa")
+		p_any(int_head_b, int_head_a);
 	else if (ops == "ra")
 		r_any(int_head_a);
 	else if (ops == "rb")

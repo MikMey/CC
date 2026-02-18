@@ -6,16 +6,16 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 16:46:26 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/18 17:58:47 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/18 20:41:45 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_list	**algo_dealer(t_int_cdll **head_a)
+t_ops	*algo_dealer(t_int_cdll **head_a)
 {
 	size_t		len;
-	t_list		*ops;
+	t_ops		*ops;
 	t_int_cdll	*head_b;
 
 	len = LST_LEN(head_a);
@@ -27,25 +27,46 @@ t_list	**algo_dealer(t_int_cdll **head_a)
 		return (sort_grand(head_a, &head_b, &ops), ops);
 }
 
-void	sort_three(t_int_cdll **head_a, t_int_cdll **head_b, t_list **ops)
+void	sort_three(t_int_cdll **head_a, t_int_cdll **head_b, t_ops **ops)
 {
-	if (IDX_ONE < IDX_TWO > IDX_LAST && IDX_LAST > IDX_ONE)
+	if (IDX_ONE < IDX_TWO > IDX_LAST && IDX_LAST > IDX_ONE) // 1 3 2
 	{
 		add_apply(head_a, head_b, ops, "rra");
 		add_apply(head_a, head_b, ops, "sa");
 		add_apply(head_a, head_b, ops, "ra");
 	}
-	else if (IDX_ONE > IDX_TWO > IDX_LAST)
+	else if (IDX_ONE > IDX_TWO > IDX_LAST) // 3 2 1
 	{
 		add_apply(head_a, head_b, ops, "ra");
 		add_apply(head_a, head_b, ops, "ra");
 	}
+	else if (IDX_ONE < IDX_TWO > IDX_LAST && IDX_LAST < IDX_ONE) // 2 3 1
+		add_apply(head_a, head_b, ops, "ra");
+	else if (IDX_ONE > IDX_TWO < IDX_LAST && IDX_LAST < IDX_ONE) // 3 1 2
+		add_apply(head_a, head_b, ops, "rra");
+	else if (IDX_ONE > IDX_TWO < IDX_LAST && IDX_LAST > IDX_ONE) // 2 1 3
+		add_apply(head_a, head_b, ops, "sa");
 }
 
-void	sort_five(t_int_cdll **head_a, t_int_cdll **head_b, t_list **ops)
+void	sort_five(t_int_cdll **head_a, t_int_cdll **head_b, t_ops **ops)
 {
+	if (check_sorted(*head_a));
+		return;
+	add_apply(head_a, head_b, ops, "pb");
+	add_apply(head_a, head_b, ops, "pb");
+	if ((*head_b)->data > (*head_b)->nxt->data)
+		add_apply(head_a, head_b, ops, "sb");
+	sort_three(head_a, head_b, ops);
+	while(!check_sorted(*head_b))
+	{
+		if((*head_a)->data > (*head_b)->data)
+			add_apply(head_a, head_b, ops, "pa");
+		else
+			add_apply(head_a, head_b, ops, "ra");
+	}
+	
 }
 
-void	sort_grand(t_int_cdll **head_a, t_int_cdll **head_b, t_list **ops)
+void	sort_grand(t_int_cdll **head_a, t_int_cdll **head_b, t_ops **ops)
 {
 }

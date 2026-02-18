@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 11:27:29 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/18 18:17:54 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/18 20:48:22 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,13 @@ typedef struct s_int_cdll
 	struct s_int_cdll	*prev;
 }						t_int_cdll;
 
+typedef struct s_ops
+{
+	char				*op;
+	int					ln_a;
+	int					ln_b;
+}						t_ops;
+
 # define BOLD_RED "\e[1;31m"
 # define RESET_COLOR "\e[0m"
 # define BOLD_WHITE "\e[1;37m"
@@ -51,15 +58,15 @@ char					*unify_input(int argc, char **argv);
 bool					check_input(t_int_cdll **head);
 
 // algo
-t_list					**algo_dealer(t_int_cdll **head);
+t_ops					*algo_dealer(t_int_cdll **head);
 void					sort_three(t_int_cdll **head_a, t_int_cdll **head_b,
-							t_list **ops);
+							t_ops **ops);
 void					sort_five(t_int_cdll **head_a, t_int_cdll **head_b,
-							t_list **ops);
+							t_ops **ops);
 void					sort_grand(t_int_cdll **head_a, t_int_cdll **head_b,
-							t_list **ops);
+							t_ops **ops);
 void					add_apply(t_int_cdll **int_head_a,
-							t_int_cdll **int_head_b, t_list **lst_head,
+							t_int_cdll **int_head_b, t_ops **lst_head,
 							char *ops);
 
 // // ops
@@ -74,11 +81,12 @@ void					rrr(t_int_cdll **head_a, t_int_cdll **head_b);
 // improve
 
 // utils
+bool					check_sorted(t_int_cdll *head);
 void					throw_error(char *s);
 void					free_arr(char **arr);
 t_int_cdll				*new_int_cdll_node(int data);
 void					add_int_cdll(t_int_cdll **head, t_int_cdll *node);
-size_t					len_int_cdll(t_int_cdll **head);
+size_t					len_int_cdll(t_int_cdll *head);
 void					free_int_cdll(t_int_cdll **head);
 t_int_cdll				*copy_int_cdll(t_int_cdll **head);
 void					addfront_int_cdll(t_int_cdll **head, t_int_cdll *node);
