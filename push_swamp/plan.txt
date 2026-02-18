@@ -14,8 +14,7 @@ check if above int limit
 
 run algorithm
 -	always denote operation and size of stack a and b at operation
--	check if list is lower/equal than 7
-	.	sort for 7
+-	check if list is lower/equal than 5
 	.	sort for 5
 	.	sort for 3
 -	LIS sort
