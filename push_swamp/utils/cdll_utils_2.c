@@ -1,28 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   cdll_utils_2.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/18 17:54:24 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/18 18:13:55 by mimeyer          ###   ########.fr       */
+/*   Created: 2026/02/18 18:23:24 by mimeyer           #+#    #+#             */
+/*   Updated: 2026/02/18 18:25:23 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../push_swap.h"
+#include "../push_swap.h"
 
-void	s_any(t_int_cdll **head)
+void	addfront_int_cdll(t_int_cdll **head, t_int_cdll *node)
 {
-	int temp;
-
-	temp = (*head)->data;
-	(*head)->data = (*head)->nxt->data;
-	(*head)->nxt->data = temp;
-}
-
-void	ss(t_int_cdll **head_a, t_int_cdll **head_b)
-{
-	s_any(head_a);
-	s_any(head_b);
+	node->nxt = (*head);
+	node->prev = (*head)->prev;
+	*head = node;
 }
