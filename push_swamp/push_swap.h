@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 11:27:29 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/18 17:53:04 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/18 17:57:21 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,19 +52,24 @@ bool					check_input(t_int_cdll **head);
 
 // algo
 t_list					**algo_dealer(t_int_cdll **head);
-void					sort_three(t_int_cdll **head_a, t_int_cdll **head_b, t_list **ops);
-void					sort_five(t_int_cdll **head_a, t_int_cdll **head_b, t_list **ops);
-void					sort_grand(t_int_cdll **head_a, t_int_cdll **head_b, t_list **ops);
-void					add_apply(t_int_cdll **int_head_a, t_int_cdll **int_head_b, t_list **lst_head, char *ops);
+void					sort_three(t_int_cdll **head_a, t_int_cdll **head_b,
+							t_list **ops);
+void					sort_five(t_int_cdll **head_a, t_int_cdll **head_b,
+							t_list **ops);
+void					sort_grand(t_int_cdll **head_a, t_int_cdll **head_b,
+							t_list **ops);
+void					add_apply(t_int_cdll **int_head_a,
+							t_int_cdll **int_head_b, t_list **lst_head,
+							char *ops);
 
 // // ops
-void	s_any(t_int_cdll **head);
-void	ss(t_int_cdll **head_a, t_int_cdll **head_b);
-void	p_any(t_int_cdll **head_from, t_int_cdll **head_to);
-void	r_any(t_int_cdll **head);
-void	rr(t_int_cdll **head_a, t_int_cdll **head_b);
-void	rr_any(t_int_cdll **head);
-void	rrr(t_int_cdll **head_a, t_int_cdll **head_b);
+void					s_any(t_int_cdll **head);
+void					ss(t_int_cdll **head_a, t_int_cdll **head_b);
+void					p_any(t_int_cdll **head_from, t_int_cdll **head_to);
+void					r_any(t_int_cdll **head);
+void					rr(t_int_cdll **head_a, t_int_cdll **head_b);
+void					rr_any(t_int_cdll **head);
+void					rrr(t_int_cdll **head_a, t_int_cdll **head_b);
 
 // improve
 
@@ -75,20 +80,6 @@ t_int_cdll				*new_int_cdll_node(int data);
 void					add_int_cdll(t_int_cdll **head, t_int_cdll *node);
 size_t					len_int_cdll(t_int_cdll **head);
 void					free_int_cdll(t_int_cdll **head);
-t_int_cdll*				copy_int_cdll(t_int_cdll **head);
-
+t_int_cdll				*copy_int_cdll(t_int_cdll **head);
 
 #endif
-
-sa
-sb 
-ss 
-pa 
-pb 
-ra 
-rb 
-rr 
-rra 
-rrb 
-rrr
-

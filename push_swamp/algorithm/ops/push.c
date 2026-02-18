@@ -13,4 +13,5 @@
 #include "../../push_swap.h"
 
 void	p_any(t_int_cdll **head_from, t_int_cdll **head_to)
-{}
+{
+}

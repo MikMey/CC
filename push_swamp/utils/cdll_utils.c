@@ -93,17 +93,17 @@ void	free_int_cdll(t_int_cdll **head)
 
 t_int_cdll	*copy_int_cdll(t_int_cdll **head)
 {
-	t_int_cdll *new_lst;
-	size_t len;
-	t_int_cdll *node;
-	
+	t_int_cdll	*new_lst;
+	size_t		len;
+	t_int_cdll	*node;
+
 	len = LST_LEN(head);
 	node = (*head);
-	while(len > 0)
+	while (len > 0)
 	{
 		ADD_NODE(&new_lst, NEW_NODE(node->data));
 		node = node->nxt;
-		len --;
+		len--;
 	}
 	return (new_lst);
 }

@@ -12,7 +12,8 @@
 
 #include "../push_swap.h"
 
-void	add_apply(t_int_cdll **int_head_a, t_int_cdll **int_head_b, t_list **lst_head, char *ops)
+void	add_apply(t_int_cdll **int_head_a, t_int_cdll **int_head_b,
+		t_list **lst_head, char *ops)
 {
 	lstnew_add(lst_head, ops);
 	if (ops == "sa")

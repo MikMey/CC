@@ -6,14 +6,14 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 17:30:50 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/15 18:30:45 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/18 17:58:03 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
 /**
-* @brief unify input from multiple arguments to one; also check for empty inputs
+ * @brief unify input from multiple arguments to one; also check for empty inputs
  *
  * @param argc
  * @param argv

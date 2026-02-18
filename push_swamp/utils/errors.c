@@ -27,14 +27,14 @@ void	throw_error(char *s)
 
 void	free_arr(char **arr)
 {
-	size_t i;
-	
+	size_t	i;
+
 	i = 0;
 	if (arr)
 	{
-		while(arr[i])
+		while (arr[i])
 			free(arr[i++]);
 	}
 	free(arr);
-	return;
+	return ;
 }

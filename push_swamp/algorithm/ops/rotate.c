@@ -6,13 +6,16 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 17:54:22 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/18 17:56:03 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/18 17:58:53 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../push_swap.h"
 
 void	r_any(t_int_cdll **head)
-{}
+{
+}
+
 void	rr(t_int_cdll **head_a, t_int_cdll **head_b)
-{}
+{
+}

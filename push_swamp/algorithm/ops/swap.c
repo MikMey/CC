@@ -13,7 +13,9 @@
 #include "../../push_swap.h"
 
 void	s_any(t_int_cdll **head)
-{}
+{
+}
 
 void	ss(t_int_cdll **head_a, t_int_cdll **head_b)
-{}
+{
+}

@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 16:46:26 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/18 17:45:25 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/18 17:58:47 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 t_list	**algo_dealer(t_int_cdll **head_a)
 {
-	size_t	len;
-	t_list *ops;
-	t_int_cdll *head_b;
+	size_t		len;
+	t_list		*ops;
+	t_int_cdll	*head_b;
 
 	len = LST_LEN(head_a);
 	if (len <= 3)
-		return(sort_three(head_a, &head_b, &ops), ops);
+		return (sort_three(head_a, &head_b, &ops), ops);
 	else if (len <= 5)
 		return (sort_five(head_a, &head_b, &ops), ops);
 	else

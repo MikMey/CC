@@ -16,7 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_int_cdll	*lst_nums;
 	t_int_cdll	*dupl_lst;
-	t_list **ops;
+	t_list		**ops;
 
 	lst_nums = input_dealer(argc, argv);
 	dupl_lst = COPY_LST(&lst_nums);
