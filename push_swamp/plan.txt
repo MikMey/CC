@@ -6,6 +6,9 @@ get input
 	.	check for duplicate values
 	.	convert to int
 -	create copy for later use
+TODO
+check if actuall int
+check if above int limit
 
 
 

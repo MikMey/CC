@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 11:27:29 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/15 18:46:21 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/16 17:00:07 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@
 # define ADD_NODE add_int_cdll
 # define LST_LEN len_int_cdll
 # define LST_FREE free_int_cdll
-
 
 typedef struct s_int_cdll
 {
@@ -41,7 +40,7 @@ typedef struct s_int_cdll
 
 // main
 int						main(int argc, char **argv);
-t_int_cdll				copy_int_cdll(t_int_cdll **head);
+
 
 // input
 t_int_cdll				*input_dealer(int argc, char *argv);
@@ -49,6 +48,11 @@ char					*unify_input(int argc, char **argv);
 bool					check_input(t_int_cdll **head);
 
 // algo
+char					**algo_dealer(t_int_cdll **head);
+char					**sort_three(t_int_cdll **head);
+char					**sort_five(t_int_cdll **head);
+char					**sort_seven(t_int_cdll **head);
+char					**sort_grand(t_int_cdll **head);
 
 // improve
 
@@ -59,6 +63,7 @@ t_int_cdll				*new_int_cdll_node(int data);
 void					add_int_cdll(t_int_cdll **head, t_int_cdll *node);
 size_t					len_int_cdll(t_int_cdll **head);
 void					free_int_cdll(t_int_cdll **head);
+t_int_cdll*				copy_int_cdll(t_int_cdll **head);
 
 
 #endif
