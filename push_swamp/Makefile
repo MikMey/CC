@@ -1,6 +1,20 @@
 CC := cc -Wall -Werror -Wextra -g
 NAME := swap.a
-SRC := push_swap.c
+SRC := push_swap.c \
+algorithm/ops/push.c \
+algorithm/ops/reverse_rotate.c \
+algorithm/ops/rotate.c \
+algorithm/ops/swap.c \
+algorithm/algo_dealer.c \
+algorithm/modify.c \
+input/check_input \
+input/input_dealer.c \
+input/unify_input.c \
+utils/algo_utils.c \
+utils/cdll_utils.c \
+utils/cdll_utils_2.c \
+utils/errors.c \
+utils/ops_utils.c
 
 LIB_SRC := libft
 LIB_A := $(LIB_SRC)/libft.a
@@ -28,7 +42,8 @@ val:
 	valgrind --leak-check=full --log-file=grind.log ./$(NAME) $(ARGS)
 
 test: 
-	$(CC) *.c */*.c -o $(NAME)
+	clear
+	$(CC) *.c */*.c */*/*.c -o $(NAME)
 
 full: re val
 

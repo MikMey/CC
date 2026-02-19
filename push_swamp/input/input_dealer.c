@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 17:31:40 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/18 21:15:59 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/19 18:18:48 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
  * @param argv
  * @return head
  */
-t_int_cdll	*input_dealer(int argc, char *argv)
+t_int_cdll	*input_dealer(int argc, char **argv)
 {
 	char		**arr_input;
 	t_int_cdll	*lst_nums;

@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 17:32:15 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/18 20:44:18 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/19 19:02:35 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void	free_int_cdll(t_int_cdll **head)
 		free(head);
 		return ;
 	}
-	len = LST_LEN(head);
+	len = LST_LEN(*head);
 	node = *head;
 	while (len > 0)
 	{
@@ -97,7 +97,7 @@ t_int_cdll	*copy_int_cdll(t_int_cdll **head)
 	size_t		len;
 	t_int_cdll	*node;
 
-	len = LST_LEN(head);
+	len = LST_LEN(*head);
 	node = (*head);
 	while (len > 0)
 	{

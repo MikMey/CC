@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 16:46:26 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/18 20:41:45 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/19 18:22:26 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_ops	*algo_dealer(t_int_cdll **head_a)
 	t_ops		*ops;
 	t_int_cdll	*head_b;
 
-	len = LST_LEN(head_a);
+	len = LST_LEN(*head_a);
 	if (len <= 3)
 		return (sort_three(head_a, &head_b, &ops), ops);
 	else if (len <= 5)
@@ -50,7 +50,7 @@ void	sort_three(t_int_cdll **head_a, t_int_cdll **head_b, t_ops **ops)
 
 void	sort_five(t_int_cdll **head_a, t_int_cdll **head_b, t_ops **ops)
 {
-	if (check_sorted(*head_a));
+	if (check_sorted(*head_a))
 		return;
 	add_apply(head_a, head_b, ops, "pb");
 	add_apply(head_a, head_b, ops, "pb");
@@ -69,4 +69,6 @@ void	sort_five(t_int_cdll **head_a, t_int_cdll **head_b, t_ops **ops)
 
 void	sort_grand(t_int_cdll **head_a, t_int_cdll **head_b, t_ops **ops)
 {
+	head_a = head_b;
+	(*ops)->op = "hi";
 }

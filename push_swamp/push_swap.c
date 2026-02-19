@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 11:27:32 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/18 20:27:47 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/19 18:19:55 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,10 @@
 int	main(int argc, char **argv)
 {
 	t_int_cdll	*lst_nums;
-	t_int_cdll	*dupl_lst;
+	// t_int_cdll	*dupl_lst;
 	t_ops		*ops;
 
 	lst_nums = input_dealer(argc, argv);
-	dupl_lst = COPY_LST(&lst_nums);
+	// dupl_lst = COPY_LST(&lst_nums);
 	ops = algo_dealer(&lst_nums);
 }

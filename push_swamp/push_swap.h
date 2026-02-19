@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 11:27:29 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/18 20:48:22 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/19 18:58:13 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ typedef struct s_ops
 	char				*op;
 	int					ln_a;
 	int					ln_b;
+	struct s_ops		*nxt;
 }						t_ops;
 
 # define BOLD_RED "\e[1;31m"
@@ -53,7 +54,7 @@ typedef struct s_ops
 int						main(int argc, char **argv);
 
 // input
-t_int_cdll				*input_dealer(int argc, char *argv);
+t_int_cdll				*input_dealer(int argc, char **argv);
 char					*unify_input(int argc, char **argv);
 bool					check_input(t_int_cdll **head);
 
@@ -90,5 +91,8 @@ size_t					len_int_cdll(t_int_cdll *head);
 void					free_int_cdll(t_int_cdll **head);
 t_int_cdll				*copy_int_cdll(t_int_cdll **head);
 void					addfront_int_cdll(t_int_cdll **head, t_int_cdll *node);
+void					opsnew_add(t_ops **head, char *op, int len_a, int len_b);
+void					ops_addback(t_ops **head, t_ops *node);
+t_ops					*ops_newnode(char *op, int len_a, int len_b);
 
 #endif
