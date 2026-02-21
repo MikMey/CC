@@ -36,3 +36,7 @@ optimize operations
 -	if rb/ra or rra/rrb found and only own operations of first called rotate, switch to rr/rrr
 -	if sa/sb found and only own operations of first called switch, switch to ss
 -	rerun operations on copied stack to confirm correct functionality
+
+[0] - [1, 3 , 5]
+[1] - [2 , 7]
+[2] - [4]

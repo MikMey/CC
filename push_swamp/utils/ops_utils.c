@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 20:25:00 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/19 18:57:27 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/20 18:17:18 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,24 @@ void	opsnew_add(t_ops **head, char *op, int len_a, int len_b)
 
 void	ops_addback(t_ops **head, t_ops *node)
 {
+	t_ops	*last;
+
 	if (!(*head))
 	{
 		(*head) = node;
 		return;
 	}
-	while((*head)->nxt != NULL)
-		*head = (*head)->nxt;
-	(*head)->nxt = node;
+	last = ops_last(*head);
+	last->nxt = node;
+}
+
+t_ops	*ops_last(t_ops *head)
+{
+	while (head->nxt)
+	{
+		head = head->nxt;
+	}
+	return (head);
 }
 
 t_ops	*ops_newnode(char *op, int len_a, int len_b)

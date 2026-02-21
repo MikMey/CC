@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 17:32:15 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/19 19:02:35 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/20 17:52:58 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,15 @@ void	add_int_cdll(t_int_cdll **head, t_int_cdll *node)
 		*head = node;
 	else
 	{
-		node->prev = (*head)->prev;
+		if (!((*head)->nxt))
+			(*head)->nxt = node;
+		if ((*head)->prev)
+		{
+			node->prev = (*head)->prev;
+			(*head)->prev->nxt = node;
+		}
+		else
+		node->prev = (*head);
 		node->nxt = *head;
 		(*head)->prev = node;
 	}
@@ -43,8 +51,8 @@ t_int_cdll	*new_int_cdll_node(int data)
 	node = malloc(sizeof(t_int_cdll));
 	if (!node)
 		throw_error(MALLOC_ERROR);
-	node->nxt = node;
-	node->prev = node;
+	node->nxt = NULL;
+	node->prev = NULL;
 	node->data = data;
 	return (node);
 }
