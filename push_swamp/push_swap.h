@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 11:27:29 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/20 20:38:03 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/23 18:55:36 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,5 +97,6 @@ void					opsnew_add(t_ops **head, char *op, int len_a, int len_b);
 void					ops_addback(t_ops **head, t_ops *node);
 t_ops					*ops_newnode(char *op, int len_a, int len_b);
 t_ops	*ops_last(t_ops *head);
+void	mtrx_isdigit(char **arr);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 17:34:43 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/15 18:39:10 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/23 21:18:52 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,19 @@ void	throw_error(char *s)
 	write(2, s, ft_strlen(s) + 1);
 	ft_printf(RESET_COLOR);
 	exit(0);
+}
+
+void	throw_arr(char *s, char **arr)
+{
+	free_arr(arr);
+	throw_error(s);
+}
+
+void	throw_arr_cdll(char *s, char **arr, t_int_cdll **head)
+{
+	free_arr(arr);
+	free_int_cdll(head);
+	throw_error(s);
 }
 
 void	free_arr(char **arr)

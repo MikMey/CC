@@ -1,41 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_input.c                                      :+:      :+:    :+:   */
+/*   input_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/15 17:30:48 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/19 19:13:05 by mimeyer          ###   ########.fr       */
+/*   Created: 2026/02/23 18:54:07 by mimeyer           #+#    #+#             */
+/*   Updated: 2026/02/23 21:08:30 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-
-
-bool	check_input(t_int_cdll **head)
+void	mtrx_isdigit(char **arr)
 {
-	t_int_cdll	*node;
-	int			*arr;
-	size_t		len;
-	size_t		i;
+	int i;
+	int j;
 
 	i = 0;
-	len = LST_LEN(*head);
-	arr = ft_calloc(sizeof(int), len + 1);
-	node = *head;
-	while (len > 0)
+	j = 0;
+	while (arr[i])
 	{
-		while (arr[i] != 0)
+		while (arr[i][j])
 		{
-			if (arr[i] == node->data)
-				return (free(arr), 0);
-			i++;
+			if (j == 0 && (arr[i][j] == '-' || arr[i][j] == '+'))
+				continue;
+			else if (!(ft_isdigit(arr[i][j])))
+			{
+				free_arr(arr);
+				throw_error(INPUT_VALUE_ERROR);
+			}
+			j++;
 		}
-		arr[i] = node->data;
-		node = node->nxt;
-		len--;
+		i++;
 	}
-	return(1);
 }
