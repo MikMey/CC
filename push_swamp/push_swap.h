@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 11:27:29 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/24 17:06:45 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/24 19:56:42 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,25 @@
 # define LST_LEN len_int_cdll
 # define LST_FREE free_int_cdll
 
+// [&sa, &sb, &ss, &pa, &pb, &ra, &rb, &rr, &rra, &rrb, &rrr]
+
+# define SA 0
+# define SB 1
+# define SS 2
+# define PA 3
+# define PB 4
+# define RA 5
+# define RB 6
+# define RR 7
+# define RRA 8
+# define RRB 9
+# define RRR 10
+
 # define IDX_ONE (*head_a)->data
 # define IDX_TWO (*head_a)->nxt->data
 # define IDX_LAST (*head_a)->prev->data
+
+typedef void(*ops_arr)(t_int_cdll **, t_int_cdll**);
 
 typedef struct s_int_cdll
 {
