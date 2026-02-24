@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 11:27:29 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/23 18:55:36 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/24 17:06:45 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,10 @@
 # define IDX_TWO (*head_a)->nxt->data
 # define IDX_LAST (*head_a)->prev->data
 
-typedef
-
 typedef struct s_int_cdll
 {
 	int					data;
+	int 				idx;
 	struct s_int_cdll	*nxt;
 	struct s_int_cdll	*prev;
 }						t_int_cdll;

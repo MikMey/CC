@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 17:31:40 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/23 21:19:48 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/24 17:22:31 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,21 +22,14 @@
 t_int_cdll	*input_dealer(int argc, char **argv)
 {
 	char		**arr_input;
-	t_int_cdll	*lst_nums;
+	t_int_cdll	*stack_a;
 	int			i;
 
+	stack_a = NULL;
 	arr_input = ft_split(unify_input(argc, argv), ' ');
-	lst_nums = NULL;
-	i = 0;
-	while (arr_input[i])
-		ADD_NODE(&lst_nums, NEW_NODE(ft_atoi(arr_input[i++])));
-	free_arr(arr_input);
-	if (!(check_input(&lst_nums)))
-	{
-		LST_FREE(&lst_nums);
-		throw_error(INPUT_VALUE_ERROR);
-	}
-	return (lst_nums);
+	check_input(arr_input, &stack_a);
+	index_input(stack_a);
+	return (stack_a);
 }
 
 /**
@@ -88,29 +81,86 @@ void	check_input(char **arr, t_int_cdll **head)
 		ADD_NODE(head, NEW_NODE(buff));
 		i++;
 	}
-	if(check_sorted(*head))
+	
+	if(has_dup(*head) || check_sorted(*head))
 		throw_arr_cdll(INPUT_VALUE_ERROR, arr, head);
+	free_arr(arr);
+	return;
 }
 
-// 	t_int_cdll	*node;
-// 	int			*arr;
-// 	size_t		len;
-// 	size_t		i;
+/**
+ * @brief check stack for duplicates
+ * 
+ * @details
+ * for every node in stack_a,
+ * go through entire stack,
+ * find possible duplicate,
+ * if found return,
+ * else check next node
+ * 
+ * @param head 
+ * @return true if duplicate detected
+ * @return false if exits normally
+ */
+bool	has_dup(t_int_cdll *head)
+{
+	int	i;
+	int j;
+	int len;
+	int	buff;
 
-// 	i = 0;
-// 	len = LST_LEN(*head);
-// 	arr = ft_calloc(sizeof(int), len + 1);
-// 	node = *head;
-// 	while (len > 0)
-// 	{
-// 		while (arr[i] != 0)
-// 		{
-// 			if (arr[i] == node->data)
-// 				return (free(arr), 0);
-// 			i++;
-// 		}
-// 		arr[i] = node->data;
-// 		node = node->nxt;
-// 		len--;
-// 	}
-// 	return(1);
+	i = 0;
+	j = 0;
+	buff = head->data;
+	head = head->nxt;
+	len = LST_LEN;
+	while (i < len)
+	{
+		while (j < len)
+		{
+			if(head->data == buff)
+				return (1);
+			head = head->nxt;
+			j++;
+		}
+		buff = head->nxt->data;
+		head = head->nxt->nxt;
+		i++;
+	}
+	return (0);
+}
+
+/**
+ * @brief give each node an index
+ * 
+ * @details for every possible index (k),
+ * find next lowest value in stack_a,
+ * assign index
+ * 
+ * @param head 
+ */
+void	index_input(t_int_cdll *head)
+{
+	int idx;
+	int min;
+	int stack_len;
+
+	stack_len = LST_LEN(head);
+	idx = 0;
+	min = head->data;
+	while (idx < stack_len)
+	{
+		head = head->nxt;
+		while (head->data != min)
+		{
+			if (head->data < min)
+				min = head->data;
+			head = head->nxt;
+		}
+		head->idx = idx;
+		while (head->idx != -1)
+			head = head->nxt;
+		min = head->data;
+		idx ++;
+	}
+}
