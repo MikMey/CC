@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 11:27:29 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/24 19:56:42 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/24 20:42:29 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@
 # define IDX_TWO (*head_a)->nxt->data
 # define IDX_LAST (*head_a)->prev->data
 
-typedef void(*ops_arr)(t_int_cdll **, t_int_cdll**);
+typedef void			(*t_ops_arr)(t_int_cdll **, t_int_cdll **);
 
 typedef struct s_int_cdll
 {
 	int					data;
-	int 				idx;
+	int					idx;
 	struct s_int_cdll	*nxt;
 	struct s_int_cdll	*prev;
 }						t_int_cdll;
@@ -78,22 +78,26 @@ bool					check_input(t_int_cdll **head);
 // algo
 t_ops					*algo_dealer(t_int_cdll **head);
 void					sort_three(t_int_cdll **head_a, t_int_cdll **head_b,
-							t_ops **ops);
+							t_ops **ops, t_ops_arr *ops_arr);
 void					sort_five(t_int_cdll **head_a, t_int_cdll **head_b,
-							t_ops **ops);
+							t_ops **ops, t_ops_arr *ops_arr);
 void					sort_grand(t_int_cdll **head_a, t_int_cdll **head_b,
-							t_ops **ops);
+							t_ops **ops, t_ops_arr *ops_arr);
 void					add_apply(t_int_cdll **int_head_a,
 							t_int_cdll **int_head_b, t_ops **lst_head,
 							char *ops);
 
 // // ops
-void					s_any(t_int_cdll **head);
+void					sa(t_int_cdll **head_a, t_int_cdll **head_b);
+void					sb(t_int_cdll **head_a, t_int_cdll **head_b);
 void					ss(t_int_cdll **head_a, t_int_cdll **head_b);
-void					p_any(t_int_cdll **head_from, t_int_cdll **head_to);
-void					r_any(t_int_cdll **head);
+void					pa(t_int_cdll **head_a, t_int_cdll **head_b);
+void					pb(t_int_cdll **head_a, t_int_cdll **head_b);
+void					ra(t_int_cdll **head_a, t_int_cdll **head_b);
+void					rb(t_int_cdll **head_a, t_int_cdll **head_b);
 void					rr(t_int_cdll **head_a, t_int_cdll **head_b);
-void					rr_any(t_int_cdll **head);
+void					rra(t_int_cdll **head_a, t_int_cdll **head_b);
+void					rrb(t_int_cdll **head_a, t_int_cdll **head_b);
 void					rrr(t_int_cdll **head_a, t_int_cdll **head_b);
 
 // improve
@@ -108,10 +112,12 @@ size_t					len_int_cdll(t_int_cdll *head);
 void					free_int_cdll(t_int_cdll **head);
 t_int_cdll				*copy_int_cdll(t_int_cdll **head);
 void					addfront_int_cdll(t_int_cdll **head, t_int_cdll *node);
-void					opsnew_add(t_ops **head, char *op, int len_a, int len_b);
+void					opsnew_add(t_ops **head, char *op, int len_a,
+							int len_b);
 void					ops_addback(t_ops **head, t_ops *node);
 t_ops					*ops_newnode(char *op, int len_a, int len_b);
-t_ops	*ops_last(t_ops *head);
-void	mtrx_isdigit(char **arr);
+t_ops					*ops_last(t_ops *head);
+void					mtrx_isdigit(char **arr);
+t_ops_arr				*init_ops_arr(void);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 20:25:00 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/20 18:17:18 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/24 20:49:26 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,24 @@ t_ops	*ops_newnode(char *op, int len_a, int len_b)
 	node->ln_b = len_b;
 	node->nxt = NULL;
 	return (node);
+}
+
+t_ops_arr	*init_ops_arr(void)
+{
+	t_ops_arr	*ops_arr;
+
+	ops_arr = malloc(sizeof(ops_arr) * 11);
+	ops_arr[SA] = &sa;
+	ops_arr[SB] = &sb;
+	ops_arr[SS] = &ss;
+	ops_arr[PA] = &pa;
+	ops_arr[PB] = &pb;
+	ops_arr[RA] = &ra;
+	ops_arr[RB] = &rb;
+	ops_arr[RR] = &rr;
+	ops_arr[RRA] = &rra;
+	ops_arr[RRB] = &rrb;
+	ops_arr[RRR] = &rrr;
+	ops_arr[11] = NULL;
+	return(ops_arr);
 }
