@@ -1,45 +1,28 @@
-==1182961== Memcheck, a memory error detector
-==1182961== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==1182961== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==1182961== Command: ./swap.a 3 2 1 4 5
-==1182961== Parent PID: 1146313
-==1182961== 
-==1182961== Invalid read of size 8
-==1182961==    at 0x404EA2: addfront_int_cdll (cdll_utils_2.c:18)
-==1182961==    by 0x405503: pb (push.c:56)
-==1182961==    by 0x4017C5: add_apply (modify.c:18)
-==1182961==    by 0x401650: sort_five (algo_dealer.c:94)
-==1182961==    by 0x4012D0: algo_dealer (algo_dealer.c:42)
-==1182961==    by 0x4011AE: main (push_swap.c:22)
-==1182961==  Address 0x10 is not stack'd, malloc'd or (recently) free'd
-==1182961== 
-==1182961== 
-==1182961== Process terminating with default action of signal 11 (SIGSEGV)
-==1182961==  Access not within mapped region at address 0x10
-==1182961==    at 0x404EA2: addfront_int_cdll (cdll_utils_2.c:18)
-==1182961==    by 0x405503: pb (push.c:56)
-==1182961==    by 0x4017C5: add_apply (modify.c:18)
-==1182961==    by 0x401650: sort_five (algo_dealer.c:94)
-==1182961==    by 0x4012D0: algo_dealer (algo_dealer.c:42)
-==1182961==    by 0x4011AE: main (push_swap.c:22)
-==1182961==  If you believe this happened as a result of a stack
-==1182961==  overflow in your program's main thread (unlikely but
-==1182961==  possible), you can try to increase the size of the
-==1182961==  main thread stack using the --main-stacksize= flag.
-==1182961==  The main thread stack size used in this run was 8388608.
-==1182961== 
-==1182961== HEAP SUMMARY:
-==1182961==     in use at exit: 288 bytes in 9 blocks
-==1182961==   total heap usage: 23 allocs, 14 frees, 395 bytes allocated
-==1182961== 
-==1182961== LEAK SUMMARY:
-==1182961==    definitely lost: 0 bytes in 0 blocks
-==1182961==    indirectly lost: 0 bytes in 0 blocks
-==1182961==      possibly lost: 0 bytes in 0 blocks
-==1182961==    still reachable: 288 bytes in 9 blocks
-==1182961==         suppressed: 0 bytes in 0 blocks
-==1182961== Reachable blocks (those to which a pointer was found) are not shown.
-==1182961== To see them, rerun with: --leak-check=full --show-leak-kinds=all
-==1182961== 
-==1182961== For lists of detected and suppressed errors, rerun with: -s
-==1182961== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 0 from 0)
+==1259156== Memcheck, a memory error detector
+==1259156== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==1259156== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==1259156== Command: ./swap.a 567 3 2 1
+==1259156== Parent PID: 1146313
+==1259156== 
+==1259156== 
+==1259156== Process terminating with default action of signal 2 (SIGINT)
+==1259156==    at 0x404DF3: len_int_cdll (cdll_utils.c:74)
+==1259156==    by 0x404E47: free_int_cdll (cdll_utils.c:88)
+==1259156==    by 0x4012FD: algo_dealer (algo_dealer.c:46)
+==1259156==    by 0x4011AE: main (push_swap.c:22)
+==1259156== 
+==1259156== HEAP SUMMARY:
+==1259156==     in use at exit: 240 bytes in 10 blocks
+==1259156==   total heap usage: 23 allocs, 13 frees, 434 bytes allocated
+==1259156== 
+==1259156== LEAK SUMMARY:
+==1259156==    definitely lost: 0 bytes in 0 blocks
+==1259156==    indirectly lost: 0 bytes in 0 blocks
+==1259156==      possibly lost: 0 bytes in 0 blocks
+==1259156==    still reachable: 240 bytes in 10 blocks
+==1259156==         suppressed: 0 bytes in 0 blocks
+==1259156== Reachable blocks (those to which a pointer was found) are not shown.
+==1259156== To see them, rerun with: --leak-check=full --show-leak-kinds=all
+==1259156== 
+==1259156== For lists of detected and suppressed errors, rerun with: -s
+==1259156== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)

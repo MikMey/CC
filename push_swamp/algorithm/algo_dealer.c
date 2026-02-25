@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 16:46:26 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/25 18:16:42 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/25 20:01:52 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -89,16 +89,20 @@ void	sort_three(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr)
  */
 void	sort_five(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr)
 {
+	int len;
+
+	len = LST_LEN(stck[A]);
 	if (check_sorted(stck[A]))
 		return ;
+	if (len == 5)
+		add_apply(stck, ops, "pb", ops_arr[PB]);
 	add_apply(stck, ops, "pb", ops_arr[PB]);
-	add_apply(stck, ops, "pb", ops_arr[PB]);
-	if ((stck[B])->data > (stck[B])->nxt->data)
+	if (stck[B]->nxt && (stck[B])->data > (stck[B])->nxt->data)
 		add_apply(stck, ops, "sb", ops_arr[SB]);
 	sort_three(stck, ops, ops_arr);
-	while (!check_sorted(stck[B]))
+	while (stck[B])
 	{
-		if ((stck[A])->data > (stck[B])->data)
+		if ((stck[A])->prev->idx < (stck[B])->idx && ((stck[A])->idx == 0 || (stck[A])->idx > stck[B]->idx))
 			add_apply(stck, ops, "pa", ops_arr[PA]);
 		else
 			add_apply(stck, ops, "ra", ops_arr[RA]);

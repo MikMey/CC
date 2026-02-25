@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 17:31:40 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/25 16:30:43 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/25 19:24:38 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,15 +73,17 @@ void	check_input(char **arr, t_int_cdll **head)
 
 	i = 0;
 	mtrx_isdigit(arr);
-	while (arr[i] && ft_strlen(arr[i]) < 11)
+	while (arr[i])
 	{
+		if (ft_strlen(arr[i]) > 11)
+			throw_arr_cdll(INPUT_VALUE_ERROR, arr, head);
 		buff = ft_atoll(arr[i]);
 		if (buff > INT_MAX || buff < INT_MIN)
 			throw_arr_cdll(INPUT_VALUE_ERROR, arr, head);
 		ADD_NODE(head, NEW_NODE(buff));
 		i++;
 	}
-	if (has_dup(*head) || check_sorted(*head))
+	if (i < 3 || has_dup(*head) || check_sorted(*head))
 		throw_arr_cdll(INPUT_VALUE_ERROR, arr, head);
 	free_arr(arr);
 	return ;
@@ -153,12 +155,12 @@ void	index_input(t_int_cdll *head)
 		head = head->nxt;
 		while (head->data != min)
 		{
-			if (head->data < min)
+			if (head->data < min && head->idx == -1)
 				min = head->data;
 			head = head->nxt;
 		}
 		head->idx = idx;
-		while (head->idx != -1)
+		while (head->idx != -1 && head->nxt->idx != idx)
 			head = head->nxt;
 		min = head->data;
 		idx++;

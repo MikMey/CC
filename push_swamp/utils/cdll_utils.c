@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 17:32:15 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/25 16:26:58 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/25 19:25:30 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ size_t	len_int_cdll(t_int_cdll *head)
 
 	if (!head)
 		return (0);
-	else if (head->nxt == head)
+	else if (head->nxt == NULL)
 		return (1);
 	len = 1;
 	node = head->nxt;
