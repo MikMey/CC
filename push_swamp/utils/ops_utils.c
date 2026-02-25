@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 20:25:00 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/25 15:48:46 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/25 18:12:01 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	ops_addback(t_ops **head, t_ops *node)
 
 t_ops	*ops_last(t_ops *head)
 {
-	while (head->nxt)
+	while (head && head->nxt)
 	{
 		head = head->nxt;
 	}
@@ -64,7 +64,7 @@ t_ops_arr	*init_ops_arr(void)
 {
 	t_ops_arr	*ops_arr;
 
-	ops_arr = malloc(sizeof(ops_arr) * 11);
+	ops_arr = malloc(sizeof(ops_arr) * 12);
 	ops_arr[SA] = &sa;
 	ops_arr[SB] = &sb;
 	ops_arr[SS] = &ss;
@@ -78,4 +78,16 @@ t_ops_arr	*init_ops_arr(void)
 	ops_arr[RRR] = &rrr;
 	ops_arr[11] = NULL;
 	return (ops_arr);
+}
+
+void	free_ops(t_ops	**ops)
+{
+	t_ops	*tmp;
+
+	while (*ops)
+	{
+		tmp = (*ops)->nxt;
+		free(*ops);
+		*ops = tmp;
+	}
 }

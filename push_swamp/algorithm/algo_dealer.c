@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 16:46:26 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/25 15:19:40 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/25 18:16:42 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,16 @@ t_ops	*algo_dealer(t_int_cdll **head_a)
 	len = LST_LEN(*head_a);
 	opsnew_add(&ops, "", (int)len, 0);
 	if (len <= 3)
-		return (sort_three(stck, &ops, ops_arr), ops);
+		sort_three(stck, &ops, ops_arr);
 	else if (len <= 5)
-		return (sort_five(stck, &ops, ops_arr), ops);
+		sort_five(stck, &ops, ops_arr);
 	else
-		return (sort_grand(stck, &ops, ops_arr), ops);
+		sort_grand(stck, &ops, ops_arr);
+	free(ops_arr);
+	free_int_cdll(&(stck[A]));
+	free_int_cdll(&(stck[B]));
+	free(stck);
+	return(ops);
 }
 
 /**
@@ -61,8 +66,8 @@ void	sort_three(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr)
 	}
 	else if (IDX_ONE > IDX_TWO && IDX_TWO > IDX_LAST) // 3 2 1
 	{
-		add_apply(stck, ops, "ra", ops_arr[RA]);
-		add_apply(stck, ops, "ra", ops_arr[RA]);
+		add_apply(stck, ops, "sa", ops_arr[SA]);
+		add_apply(stck, ops, "rra", ops_arr[RRA]);
 	}
 	else if (IDX_ONE < IDX_TWO && IDX_TWO > IDX_LAST && IDX_LAST < IDX_ONE)
 		// 2 3 1

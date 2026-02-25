@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 17:31:40 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/25 15:52:28 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/25 16:30:43 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,12 +73,11 @@ void	check_input(char **arr, t_int_cdll **head)
 
 	i = 0;
 	mtrx_isdigit(arr);
-	while (ft_strlen(arr[i]) < 11)
+	while (arr[i] && ft_strlen(arr[i]) < 11)
 	{
 		buff = ft_atoll(arr[i]);
 		if (buff > INT_MAX || buff < INT_MIN)
 			throw_arr_cdll(INPUT_VALUE_ERROR, arr, head);
-		check_int_cdll(buff);
 		ADD_NODE(head, NEW_NODE(buff));
 		i++;
 	}
@@ -116,13 +115,14 @@ bool	has_dup(t_int_cdll *head)
 	len = LST_LEN(head);
 	while (i < len)
 	{
-		while (j < len)
+		while ((j + 1) < len)
 		{
 			if (head->data == buff)
 				return (1);
 			head = head->nxt;
 			j++;
 		}
+		j = 0;
 		buff = head->nxt->data;
 		head = head->nxt->nxt;
 		i++;

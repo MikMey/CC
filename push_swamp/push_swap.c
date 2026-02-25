@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 11:27:32 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/25 15:52:06 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/25 18:08:10 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,14 @@ int	main(int argc, char **argv)
 	lst_nums = input_dealer(argc, argv);
 	// dupl_lst = COPY_LST(&lst_nums);
 	ops = algo_dealer(&lst_nums);
+	
+	t_ops *node;
+	node = ops;
+	node = node->nxt;
+	while (node)
+	{
+		printf("%s\n", node->op);
+		node = node->nxt;
+	}
+	free_ops(&ops);
 }
