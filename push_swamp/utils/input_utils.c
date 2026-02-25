@@ -14,8 +14,8 @@
 
 void	mtrx_isdigit(char **arr)
 {
-	int i;
-	int j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -24,7 +24,7 @@ void	mtrx_isdigit(char **arr)
 		while (arr[i][j])
 		{
 			if (j == 0 && (arr[i][j] == '-' || arr[i][j] == '+'))
-				continue;
+				continue ;
 			else if (!(ft_isdigit(arr[i][j])))
 			{
 				free_arr(arr);

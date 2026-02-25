@@ -32,7 +32,7 @@ void	add_int_cdll(t_int_cdll **head, t_int_cdll *node)
 			(*head)->prev->nxt = node;
 		}
 		else
-		node->prev = (*head);
+			node->prev = (*head);
 		node->nxt = *head;
 		(*head)->prev = node;
 	}

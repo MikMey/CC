@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 17:54:24 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/24 20:09:41 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/25 15:49:16 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,26 +21,26 @@
 // 	(*head)->nxt->data = temp;
 // }
 
-void	sa(t_int_cdll **head_a, t_int_cdll **head_b)
+void	sa(t_int_cdll **stck)
 {
-	int temp;
+	int	temp;
 
-	temp = (*head_a)->data;
-	(*head_a)->data = (*head_a)->nxt->data;
-	(*head_a)->nxt->data = temp;
+	temp = stck[A]->data;
+	stck[A]->data = stck[A]->nxt->data;
+	stck[A]->nxt->data = temp;
 }
 
-void	sb(t_int_cdll **head_a, t_int_cdll **head_b)
+void	sb(t_int_cdll **stck)
 {
-	int temp;
+	int	temp;
 
-	temp = (*head_b)->data;
-	(*head_b)->data = (*head_b)->nxt->data;
-	(*head_b)->nxt->data = temp;
+	temp = stck[B]->data;
+	stck[B]->data = stck[B]->nxt->data;
+	stck[B]->nxt->data = temp;
 }
 
-void	ss(t_int_cdll **head_a, t_int_cdll **head_b)
+void	ss(t_int_cdll **stck)
 {
-	s_any(head_a);
-	s_any(head_b);
+	sa(stck);
+	sb(stck);
 }

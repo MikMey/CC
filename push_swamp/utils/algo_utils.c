@@ -14,7 +14,7 @@
 
 bool	check_sorted(t_int_cdll *head)
 {
-	size_t len;
+	size_t	len;
 
 	len = LST_LEN(head);
 	while (len > 0)

@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 17:54:19 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/24 20:09:00 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/25 15:29:46 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,18 @@
 // 	*head = (*head)->prev;
 // }
 
-void	rra(t_int_cdll **head_a, t_int_cdll **head_b)
+void	rra(t_int_cdll **stck)
 {
-	*head_a = (*head_a)->prev;
+	stck[A] = stck[A]->prev;
 }
 
-void	rrb(t_int_cdll **head_a, t_int_cdll **head_b)
+void	rrb(t_int_cdll **stck)
 {
-	*head_b = (*head_b)->prev;
+	stck[B] = stck[B]->prev;
 }
 
-void	rrr(t_int_cdll **head_a, t_int_cdll **head_b)
+void	rrr(t_int_cdll **stck)
 {
-	rra(head_a, head_b);
-	rrb(head_a, head_b);
+	rra(stck);
+	rrb(stck);
 }

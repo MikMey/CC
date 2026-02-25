@@ -14,6 +14,7 @@
 # define STRUCTS_H
 
 # include <fcntl.h>
+# include <limits.h>
 # include <stdarg.h>
 # include <stdbool.h>
 # include <stddef.h>
@@ -21,6 +22,5 @@
 # include <stdlib.h>
 # include <sys/wait.h>
 # include <unistd.h>
-# include <limits.h>
 
 #endif

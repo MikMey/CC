@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/04 13:08:01 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/18 16:55:27 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/25 15:24:45 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ int					ft_toupper(int c);
 int					ft_tolower(int c);
 
 int					ft_atoi(const char *nptr);
+int					ft_atoll(const char *nptr);
 
 size_t				ft_strlen(const char *s);
 

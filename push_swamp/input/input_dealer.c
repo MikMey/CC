@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 17:31:40 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/24 17:22:31 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/25 15:52:28 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ t_int_cdll	*input_dealer(int argc, char **argv)
 {
 	char		**arr_input;
 	t_int_cdll	*stack_a;
-	int			i;
 
 	stack_a = NULL;
 	arr_input = ft_split(unify_input(argc, argv), ' ');
@@ -69,8 +68,10 @@ char	*unify_input(int argc, char **argv)
 
 void	check_input(char **arr, t_int_cdll **head)
 {
-	int i;
-	long long buff;
+	int			i;
+	long long	buff;
+
+	i = 0;
 	mtrx_isdigit(arr);
 	while (ft_strlen(arr[i]) < 11)
 	{
@@ -81,44 +82,43 @@ void	check_input(char **arr, t_int_cdll **head)
 		ADD_NODE(head, NEW_NODE(buff));
 		i++;
 	}
-	
-	if(has_dup(*head) || check_sorted(*head))
+	if (has_dup(*head) || check_sorted(*head))
 		throw_arr_cdll(INPUT_VALUE_ERROR, arr, head);
 	free_arr(arr);
-	return;
+	return ;
 }
 
 /**
  * @brief check stack for duplicates
- * 
+ *
  * @details
- * for every node in stack_a,
+ * for every node in A,
  * go through entire stack,
  * find possible duplicate,
  * if found return,
  * else check next node
- * 
- * @param head 
+ *
+ * @param head
  * @return true if duplicate detected
  * @return false if exits normally
  */
 bool	has_dup(t_int_cdll *head)
 {
 	int	i;
-	int j;
-	int len;
+	int	j;
+	int	len;
 	int	buff;
 
 	i = 0;
 	j = 0;
 	buff = head->data;
 	head = head->nxt;
-	len = LST_LEN;
+	len = LST_LEN(head);
 	while (i < len)
 	{
 		while (j < len)
 		{
-			if(head->data == buff)
+			if (head->data == buff)
 				return (1);
 			head = head->nxt;
 			j++;
@@ -132,18 +132,18 @@ bool	has_dup(t_int_cdll *head)
 
 /**
  * @brief give each node an index
- * 
+ *
  * @details for every possible index (k),
- * find next lowest value in stack_a,
+ * find next lowest value in A,
  * assign index
- * 
- * @param head 
+ *
+ * @param head
  */
 void	index_input(t_int_cdll *head)
 {
-	int idx;
-	int min;
-	int stack_len;
+	int	idx;
+	int	min;
+	int	stack_len;
 
 	stack_len = LST_LEN(head);
 	idx = 0;
@@ -161,6 +161,6 @@ void	index_input(t_int_cdll *head)
 		while (head->idx != -1)
 			head = head->nxt;
 		min = head->data;
-		idx ++;
+		idx++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 11:27:29 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/24 20:42:29 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/25 15:49:00 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,12 @@
 # define RRB 9
 # define RRR 10
 
-# define IDX_ONE (*head_a)->data
-# define IDX_TWO (*head_a)->nxt->data
-# define IDX_LAST (*head_a)->prev->data
+# define A 0
+# define B 1
 
-typedef void			(*t_ops_arr)(t_int_cdll **, t_int_cdll **);
+# define IDX_ONE (stck[A])->data
+# define IDX_TWO (stck[A])->nxt->data
+# define IDX_LAST (stck[A])->prev->data
 
 typedef struct s_int_cdll
 {
@@ -58,6 +59,8 @@ typedef struct s_ops
 	struct s_ops		*nxt;
 }						t_ops;
 
+typedef void			(*t_ops_arr)(t_int_cdll **);
+
 # define BOLD_RED "\e[1;31m"
 # define RESET_COLOR "\e[0m"
 # define BOLD_WHITE "\e[1;37m"
@@ -73,38 +76,40 @@ int						main(int argc, char **argv);
 // input
 t_int_cdll				*input_dealer(int argc, char **argv);
 char					*unify_input(int argc, char **argv);
-bool					check_input(t_int_cdll **head);
+void					check_input(char **arr, t_int_cdll **head);
+void					index_input(t_int_cdll *head);
+bool					has_dup(t_int_cdll *head);
 
 // algo
 t_ops					*algo_dealer(t_int_cdll **head);
-void					sort_three(t_int_cdll **head_a, t_int_cdll **head_b,
-							t_ops **ops, t_ops_arr *ops_arr);
-void					sort_five(t_int_cdll **head_a, t_int_cdll **head_b,
-							t_ops **ops, t_ops_arr *ops_arr);
-void					sort_grand(t_int_cdll **head_a, t_int_cdll **head_b,
-							t_ops **ops, t_ops_arr *ops_arr);
-void					add_apply(t_int_cdll **int_head_a,
-							t_int_cdll **int_head_b, t_ops **lst_head,
-							char *ops);
+void					sort_three(t_int_cdll **stck, t_ops **ops,
+							t_ops_arr *ops_arr);
+void					sort_five(t_int_cdll **stck, t_ops **ops,
+							t_ops_arr *ops_arr);
+void					sort_grand(t_int_cdll **stck, t_ops **ops,
+							t_ops_arr *ops_arr);
+void					add_apply(t_int_cdll **stck, t_ops **ops_head,
+							char *ops, t_ops_arr fc);
 
 // // ops
-void					sa(t_int_cdll **head_a, t_int_cdll **head_b);
-void					sb(t_int_cdll **head_a, t_int_cdll **head_b);
-void					ss(t_int_cdll **head_a, t_int_cdll **head_b);
-void					pa(t_int_cdll **head_a, t_int_cdll **head_b);
-void					pb(t_int_cdll **head_a, t_int_cdll **head_b);
-void					ra(t_int_cdll **head_a, t_int_cdll **head_b);
-void					rb(t_int_cdll **head_a, t_int_cdll **head_b);
-void					rr(t_int_cdll **head_a, t_int_cdll **head_b);
-void					rra(t_int_cdll **head_a, t_int_cdll **head_b);
-void					rrb(t_int_cdll **head_a, t_int_cdll **head_b);
-void					rrr(t_int_cdll **head_a, t_int_cdll **head_b);
+void					sa(t_int_cdll **stck);
+void					sb(t_int_cdll **stck);
+void					ss(t_int_cdll **stck);
+void					pa(t_int_cdll **stck);
+void					pb(t_int_cdll **stck);
+void					ra(t_int_cdll **stck);
+void					rb(t_int_cdll **stck);
+void					rr(t_int_cdll **stck);
+void					rra(t_int_cdll **stck);
+void					rrb(t_int_cdll **stck);
+void					rrr(t_int_cdll **stck);
 
 // improve
 
 // utils
 bool					check_sorted(t_int_cdll *head);
 void					throw_error(char *s);
+void					throw_arr_cdll(char *s, char **arr, t_int_cdll **head);
 void					free_arr(char **arr);
 t_int_cdll				*new_int_cdll_node(int data);
 void					add_int_cdll(t_int_cdll **head, t_int_cdll *node);
