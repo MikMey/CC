@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 16:46:26 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/25 20:01:52 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/27 12:47:25 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,9 +103,12 @@ void	sort_five(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr)
 	while (stck[B])
 	{
 		if ((stck[A])->prev->idx < (stck[B])->idx && ((stck[A])->idx == 0 || (stck[A])->idx > stck[B]->idx))
+		{
 			add_apply(stck, ops, "pa", ops_arr[PA]);
-		else
 			add_apply(stck, ops, "ra", ops_arr[RA]);
+		}
+		else
+			add_apply(stck, ops, "rra", ops_arr[RRA]);
 	}
 }
 
