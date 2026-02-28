@@ -80,7 +80,7 @@ t_ops_arr	*init_ops_arr(void)
 	return (ops_arr);
 }
 
-void	free_ops(t_ops	**ops)
+void	free_ops(t_ops **ops)
 {
 	t_ops	*tmp;
 

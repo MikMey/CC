@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 16:46:26 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/27 12:47:25 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/28 21:51:22 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,8 +45,7 @@ t_ops	*algo_dealer(t_int_cdll **head_a)
 	free(ops_arr);
 	free_int_cdll(&(stck[A]));
 	free_int_cdll(&(stck[B]));
-	free(stck);
-	return(ops);
+	return (free(stck), ops);
 }
 
 /**
@@ -62,7 +61,6 @@ void	sort_three(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr)
 	{
 		add_apply(stck, ops, "rra", ops_arr[RRA]);
 		add_apply(stck, ops, "sa", ops_arr[SA]);
-		add_apply(stck, ops, "ra", ops_arr[RA]);
 	}
 	else if (IDX_ONE > IDX_TWO && IDX_TWO > IDX_LAST) // 3 2 1
 	{
@@ -71,10 +69,10 @@ void	sort_three(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr)
 	}
 	else if (IDX_ONE < IDX_TWO && IDX_TWO > IDX_LAST && IDX_LAST < IDX_ONE)
 		// 2 3 1
-		add_apply(stck, ops, "ra", ops_arr[RA]);
+		add_apply(stck, ops, "rra", ops_arr[RRA]);
 	else if (IDX_ONE > IDX_TWO && IDX_TWO < IDX_LAST && IDX_LAST < IDX_ONE)
 		// 3 1 2
-		add_apply(stck, ops, "rra", ops_arr[RRA]);
+		add_apply(stck, ops, "ra", ops_arr[RA]);
 	else if (IDX_ONE > IDX_TWO && IDX_TWO < IDX_LAST && IDX_LAST > IDX_ONE)
 		// 2 1 3
 		add_apply(stck, ops, "sa", ops_arr[SA]);
@@ -89,7 +87,7 @@ void	sort_three(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr)
  */
 void	sort_five(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr)
 {
-	int len;
+	int	len;
 
 	len = LST_LEN(stck[A]);
 	if (check_sorted(stck[A]))
@@ -102,11 +100,14 @@ void	sort_five(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr)
 	sort_three(stck, ops, ops_arr);
 	while (stck[B])
 	{
-		if ((stck[A])->prev->idx < (stck[B])->idx && ((stck[A])->idx == 0 || (stck[A])->idx > stck[B]->idx))
+		if ((stck[A])->prev->idx < (stck[B])->idx && ((stck[A])->idx == 0
+				|| (stck[A])->idx > stck[B]->idx))
 		{
 			add_apply(stck, ops, "pa", ops_arr[PA]);
 			add_apply(stck, ops, "ra", ops_arr[RA]);
 		}
+		else if (stck[B]->idx == 0)
+			add_apply(stck, ops, "pa", ops_arr[PA]);
 		else
 			add_apply(stck, ops, "rra", ops_arr[RRA]);
 	}

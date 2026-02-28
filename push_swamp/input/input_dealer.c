@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 17:31:40 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/25 19:24:38 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/28 21:52:10 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ t_int_cdll	*input_dealer(int argc, char **argv)
 	arr_input = ft_split(unify_input(argc, argv), ' ');
 	check_input(arr_input, &stack_a);
 	index_input(stack_a);
+	if (arr_input)
+		free_arr(arr_input);
 	return (stack_a);
 }
 
@@ -83,9 +85,14 @@ void	check_input(char **arr, t_int_cdll **head)
 		ADD_NODE(head, NEW_NODE(buff));
 		i++;
 	}
-	if (i < 3 || has_dup(*head) || check_sorted(*head))
+	if (i < 3 || has_dup(*head))
 		throw_arr_cdll(INPUT_VALUE_ERROR, arr, head);
-	free_arr(arr);
+	if (check_sorted(*head))
+	{
+		free_int_cdll(head);
+		free_arr(arr);
+		exit(0);
+	}
 	return ;
 }
 

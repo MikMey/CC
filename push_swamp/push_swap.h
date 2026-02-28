@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 11:27:29 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/25 18:08:02 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/02/28 21:32:27 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,14 +61,14 @@ typedef struct s_ops
 
 typedef void			(*t_ops_arr)(t_int_cdll **);
 
-# define BOLD_RED "\e[1;31m"
-# define RESET_COLOR "\e[0m"
-# define BOLD_WHITE "\e[1;37m"
+# define BOLD_RED "\e[1;31m\0"
+# define RESET_COLOR "\e[0m\0"
+# define BOLD_WHITE "\e[1;37m\0"
 
-# define MALLOC_ERROR "\nERROR\n\nMalloc failed to allocate; terminating\n"
-# define INPUT_VALUE_ERROR "\nERROR\n\nInput arguments are bad; terminating\n"
-# define INPUT_ERROR "\nERROR\n\nInput is bad; terminating\n"
-# define NULL_POINTER "\nERROR\n\nNull pointer exception error; terminating\n"
+# define MALLOC_ERROR "\nERROR\n\nMalloc failed to allocate; terminating\n\0"
+# define INPUT_VALUE_ERROR "\nERROR\n\nInput arguments are bad; terminating\n\0"
+# define INPUT_ERROR "\nERROR\n\nInput is bad; terminating\n\0"
+# define NULL_POINTER "\nERROR\n\nNull pointer exception error; terminating\n\0"
 
 // main
 int						main(int argc, char **argv);
@@ -124,6 +124,6 @@ t_ops					*ops_newnode(char *op, int len_a, int len_b);
 t_ops					*ops_last(t_ops *head);
 void					mtrx_isdigit(char **arr);
 t_ops_arr				*init_ops_arr(void);
-void	free_ops(t_ops	**ops);
+void					free_ops(t_ops **ops);
 
 #endif
