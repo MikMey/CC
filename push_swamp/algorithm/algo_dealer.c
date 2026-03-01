@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 16:46:26 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/03/01 20:19:43 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/01 21:13:40 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,7 +114,7 @@ void	sort_grand(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr)
 {
 	t_ll *lis;
 	
-	lis = fill_lis(stck);
+	lis = fill_lis(stck[A]);
 	(void)ops;
 	(void)ops_arr;
 }

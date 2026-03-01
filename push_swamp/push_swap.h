@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 11:27:29 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/03/01 20:18:39 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/01 21:13:50 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,11 +107,11 @@ void					sort_grand(t_int_cdll **stck, t_ops **ops,
 void					add_apply(t_int_cdll **stck, t_ops **ops_head,
 							char *ops, t_ops_arr fc);
 // // LIS
-t_ll	*fill_lis(t_int_cdll **stck);
+t_ll	*fill_lis(t_int_cdll *stck);
 void	lisadd_back(t_lis_ll **head, t_lis_ll *node);
 t_lis_ll	*lis_last(t_lis_ll *head);
 t_lis_ll	*new_lis(t_ll	*content);
-t_ll	*get_lis(t_int_cdll **stck, int len);
+t_ll	*get_lis(t_int_cdll *stck, int len);
 int	get_high_len(t_lis_ll *lis);
 void free_ll(t_ll **head);
 int llsize(t_ll *head);

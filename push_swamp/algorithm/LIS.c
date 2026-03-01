@@ -6,22 +6,26 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/01 19:35:22 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/03/01 20:18:58 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/01 21:14:19 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_ll	*fill_lis(t_int_cdll **stck)
+t_ll	*fill_lis(t_int_cdll *stck)
 {
 	int 		len;
 	t_lis_ll	*temp;
 	t_lis_ll	*save;
 	t_lis_ll	*lis;
 
-	len = LST_LEN(stck[A]) + 1;
+	lis = NULL;
+	len = LST_LEN(stck) + 1;
 	while(--len > 0)
+	{
 		lisadd_back(&lis, new_lis(get_lis(stck, len)));
+		stck = stck->nxt;
+	}
 	len = get_high_len(lis);
 	while (lis)
 	{
@@ -67,7 +71,7 @@ void	lisadd_back(t_lis_ll **head, t_lis_ll *node)
 
 t_lis_ll	*lis_last(t_lis_ll *head)
 {
-	while(head)
+	while(head->nxt)
 		head = head->nxt;
 	return(head);
 }
@@ -98,24 +102,28 @@ int llsize(t_ll *head)
 	return(len);
 }
 
-t_ll	*get_lis(t_int_cdll **stck, int len)
+t_ll	*get_lis(t_int_cdll *stck, int len)
 {
 	int	count;
 	int end;
 	t_ll	*head;
+	int prev_idx;
 
+	prev_idx = stck->idx;
+	head = NULL;
 	count = 1;
 	end = len - 1;
-	lladd_back(&head, llnew(stck[A]->idx));
-	stck[A] = stck[A]->nxt;
+	lladd_back(&head, llnew(stck->idx));
+	stck = stck->nxt;
 	while (end > 0)
 	{
-		if (stck[A]->idx <= ((len / DIV) + ADD + count))
+		if (stck->idx > prev_idx && stck->idx <= ((len / DIV) + ADD + count))
 		{
-			lladd_back(&head, llnew(stck[A]->idx));
+			lladd_back(&head, llnew(stck->idx));
 			count ++;
+			prev_idx = stck->idx;
 		}
-		stck[A] = stck[A]->nxt;
+		stck = stck->nxt;
 		end--;
 	}
 	return(head);
@@ -135,7 +143,7 @@ t_ll *llnew(int idx)
 
 t_ll *ll_last(t_ll *head)
 {
-	while ( head)
+	while ( head->nxt)
 		head = head->nxt;
 	return(head);
 }
