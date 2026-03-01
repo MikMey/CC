@@ -64,16 +64,16 @@ typedef struct s_ops
 
 typedef struct s_ll
 {
-	struct s_ll *nxt;
-	int			idx;
-}	t_ll;
+	struct s_ll			*nxt;
+	int					idx;
+}						t_ll;
 
 typedef struct s_lis_ll
 {
 	int					len;
-	struct s_ll		*head;
+	struct s_ll			*head;
 	struct s_lis_ll		*nxt;
-}					t_lis_ll;
+}						t_lis_ll;
 
 typedef void			(*t_ops_arr)(t_int_cdll **);
 
@@ -107,17 +107,17 @@ void					sort_grand(t_int_cdll **stck, t_ops **ops,
 void					add_apply(t_int_cdll **stck, t_ops **ops_head,
 							char *ops, t_ops_arr fc);
 // // LIS
-t_ll	*fill_lis(t_int_cdll *stck);
-void	lisadd_back(t_lis_ll **head, t_lis_ll *node);
-t_lis_ll	*lis_last(t_lis_ll *head);
-t_lis_ll	*new_lis(t_ll	*content);
-t_ll	*get_lis(t_int_cdll *stck, int len);
-int	get_high_len(t_lis_ll *lis);
-void free_ll(t_ll **head);
-int llsize(t_ll *head);
-t_ll *ll_last(t_ll *head);
-void lladd_back(t_ll **head, t_ll *node);
-t_ll *llnew(int idx);
+t_ll					*fill_lis(t_int_cdll *stck);
+void					lisadd_back(t_lis_ll **head, t_lis_ll *node);
+t_lis_ll				*lis_last(t_lis_ll *head);
+t_lis_ll				*new_lis(t_ll *content);
+t_ll					*get_lis(t_int_cdll *stck, int len);
+int						get_high_len(t_lis_ll *lis);
+void					free_ll(t_ll **head);
+int						llsize(t_ll *head);
+t_ll					*ll_last(t_ll *head);
+void					lladd_back(t_ll **head, t_ll *node);
+t_ll					*llnew(int idx);
 
 // // ops
 void					sa(t_int_cdll **stck);

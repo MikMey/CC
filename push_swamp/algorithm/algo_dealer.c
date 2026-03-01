@@ -101,7 +101,7 @@ void	sort_five(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr)
 	while (stck[B])
 	{
 		if (((stck[A])->prev->idx < (stck[B])->idx && ((stck[A])->idx == 0
-				|| (stck[A])->idx > stck[B]->idx)) || stck[B]->idx == 0)
+					|| (stck[A])->idx > stck[B]->idx)) || stck[B]->idx == 0)
 			add_apply(stck, ops, "pa", ops_arr[PA]);
 		else
 			add_apply(stck, ops, "ra", ops_arr[RA]);
@@ -112,8 +112,8 @@ void	sort_five(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr)
 
 void	sort_grand(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr)
 {
-	t_ll *lis;
-	
+	t_ll	*lis;
+
 	lis = fill_lis(stck[A]);
 	(void)ops;
 	(void)ops_arr;

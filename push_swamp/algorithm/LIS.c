@@ -14,14 +14,14 @@
 
 t_ll	*fill_lis(t_int_cdll *stck)
 {
-	int 		len;
+	int			len;
 	t_lis_ll	*temp;
 	t_lis_ll	*save;
 	t_lis_ll	*lis;
 
 	lis = NULL;
 	len = LST_LEN(stck) + 1;
-	while(--len > 0)
+	while (--len > 0)
 	{
 		lisadd_back(&lis, new_lis(get_lis(stck, len)));
 		stck = stck->nxt;
@@ -33,21 +33,21 @@ t_ll	*fill_lis(t_int_cdll *stck)
 		{
 			save = lis;
 			lis = lis->nxt;
-			continue;
+			continue ;
 		}
 		temp = lis->nxt;
 		free_ll(&(lis->head));
 		free(lis);
 		lis = temp;
 	}
-	return(save->head);
+	return (save->head);
 }
 
-void free_ll(t_ll **head)
+void	free_ll(t_ll **head)
 {
-	t_ll *temp;
-	
-	while(*head)
+	t_ll	*temp;
+
+	while (*head)
 	{
 		temp = (*head)->nxt;
 		free(*head);
@@ -57,57 +57,57 @@ void free_ll(t_ll **head)
 
 void	lisadd_back(t_lis_ll **head, t_lis_ll *node)
 {
-	t_lis_ll *last;
+	t_lis_ll	*last;
 
 	if (!(*head))
 	{
 		(*head) = node;
-		return;
+		return ;
 	}
 	last = lis_last(*head);
 	last->nxt = node;
-	return;
+	return ;
 }
 
 t_lis_ll	*lis_last(t_lis_ll *head)
 {
-	while(head->nxt)
+	while (head->nxt)
 		head = head->nxt;
-	return(head);
+	return (head);
 }
 
-t_lis_ll	*new_lis(t_ll	*content)
+t_lis_ll	*new_lis(t_ll *content)
 {
 	t_lis_ll	*node;
 
 	node = malloc(sizeof(t_lis_ll));
 	if (node == NULL)
-		return(NULL);
+		return (NULL);
 	node->head = content;
 	node->len = llsize(content);
 	node->nxt = NULL;
 	return (node);
 }
 
-int llsize(t_ll *head)
+int	llsize(t_ll *head)
 {
-	int len;
+	int	len;
 
 	len = 0;
-	while(head)
+	while (head)
 	{
 		head = head->nxt;
-		len ++;
+		len++;
 	}
-	return(len);
+	return (len);
 }
 
 t_ll	*get_lis(t_int_cdll *stck, int len)
 {
-	int	count;
-	int end;
+	int		count;
+	int		end;
 	t_ll	*head;
-	int prev_idx;
+	int		prev_idx;
 
 	prev_idx = stck->idx;
 	head = NULL;
@@ -120,42 +120,42 @@ t_ll	*get_lis(t_int_cdll *stck, int len)
 		if (stck->idx > prev_idx && stck->idx <= ((len / DIV) + ADD + count))
 		{
 			lladd_back(&head, llnew(stck->idx));
-			count ++;
+			count++;
 			prev_idx = stck->idx;
 		}
 		stck = stck->nxt;
 		end--;
 	}
-	return(head);
+	return (head);
 }
 
-t_ll *llnew(int idx)
+t_ll	*llnew(int idx)
 {
-	t_ll *node;
+	t_ll	*node;
 
 	node = malloc(sizeof(t_ll));
 	if (!node)
-		return(NULL);
-	node ->idx = idx;
+		return (NULL);
+	node->idx = idx;
 	node->nxt = NULL;
-	return(node);
+	return (node);
 }
 
-t_ll *ll_last(t_ll *head)
+t_ll	*ll_last(t_ll *head)
 {
-	while ( head->nxt)
+	while (head->nxt)
 		head = head->nxt;
-	return(head);
+	return (head);
 }
 
-void lladd_back(t_ll **head, t_ll *node)
+void	lladd_back(t_ll **head, t_ll *node)
 {
-	t_ll * last;
+	t_ll	*last;
 
-	if(!(*head))
+	if (!(*head))
 	{
 		*head = node;
-		return;
+		return ;
 	}
 	last = ll_last(*head);
 	last->nxt = node;
@@ -163,14 +163,14 @@ void lladd_back(t_ll **head, t_ll *node)
 
 int	get_high_len(t_lis_ll *lis)
 {
-	int len;
+	int	len;
 
 	len = 0;
-	while(lis)
+	while (lis)
 	{
 		if (lis->len > len)
 			len = lis->len;
 		lis = lis->nxt;
 	}
-	return(len);
+	return (len);
 }

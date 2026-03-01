@@ -33,7 +33,7 @@ void	pa(t_int_cdll **stck)
 	tmp = stck[B];
 	if (stck[B]->nxt == NULL)
 		stck[B] = NULL;
-	else if(stck[B]->nxt == stck[B]->prev)
+	else if (stck[B]->nxt == stck[B]->prev)
 	{
 		stck[B] = stck[B]->nxt;
 		stck[B]->nxt = NULL;
@@ -55,7 +55,7 @@ void	pb(t_int_cdll **stck)
 	tmp = stck[A];
 	if (stck[A]->nxt == NULL)
 		stck[A] = NULL;
-	else if(stck[A]->nxt == stck[A]->prev)
+	else if (stck[A]->nxt == stck[A]->prev)
 	{
 		stck[A] = stck[A]->nxt;
 		stck[A]->nxt = NULL;

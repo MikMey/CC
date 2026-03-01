@@ -28,7 +28,7 @@ void	sa(t_int_cdll **stck)
 	temp = stck[A];
 	stck[A] = stck[A]->nxt;
 	if (stck[A]->nxt == temp)
-		return;
+		return ;
 	temp->nxt = stck[A]->nxt;
 	stck[A]->prev = temp->prev;
 	temp->prev = stck[A];
@@ -44,7 +44,7 @@ void	sb(t_int_cdll **stck)
 	temp = stck[B];
 	stck[B] = stck[B]->nxt;
 	if (stck[B]->nxt == temp)
-		return;
+		return ;
 	temp->nxt = stck[B]->nxt;
 	stck[B]->prev = temp->prev;
 	temp->prev = stck[B];
