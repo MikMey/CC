@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/23 18:54:07 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/25 19:17:18 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/01 16:47:46 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	mtrx_isdigit(char **arr)
 		while (arr[i][j])
 		{
 			if (j == 0 && (arr[i][j] == '-' || arr[i][j] == '+'))
-				continue ;
+				j = (int) j;
 			else if (!(ft_isdigit(arr[i][j])))
 			{
 				free_arr(arr);
