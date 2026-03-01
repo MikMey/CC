@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 11:27:29 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/03/01 19:37:49 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/01 20:18:39 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,16 @@ typedef struct s_ops
 	struct s_ops		*nxt;
 }						t_ops;
 
+typedef struct s_ll
+{
+	struct s_ll *nxt;
+	int			idx;
+}	t_ll;
+
 typedef struct s_lis_ll
 {
 	int					len;
-	struct s_list		*head;
+	struct s_ll		*head;
 	struct s_lis_ll		*nxt;
 }					t_lis_ll;
 
@@ -100,8 +106,18 @@ void					sort_grand(t_int_cdll **stck, t_ops **ops,
 							t_ops_arr *ops_arr);
 void					add_apply(t_int_cdll **stck, t_ops **ops_head,
 							char *ops, t_ops_arr fc);
-void					fill_lis(t_int_cdll **stck, t_lis_ll **lis);
-t_list					*get_lis(t_int_cdll **stck, int len);
+// // LIS
+t_ll	*fill_lis(t_int_cdll **stck);
+void	lisadd_back(t_lis_ll **head, t_lis_ll *node);
+t_lis_ll	*lis_last(t_lis_ll *head);
+t_lis_ll	*new_lis(t_ll	*content);
+t_ll	*get_lis(t_int_cdll **stck, int len);
+int	get_high_len(t_lis_ll *lis);
+void free_ll(t_ll **head);
+int llsize(t_ll *head);
+t_ll *ll_last(t_ll *head);
+void lladd_back(t_ll **head, t_ll *node);
+t_ll *llnew(int idx);
 
 // // ops
 void					sa(t_int_cdll **stck);

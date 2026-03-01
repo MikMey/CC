@@ -6,13 +6,13 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/01 19:35:22 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/03/01 19:54:47 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/01 20:18:58 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-t_list	*fill_lis(t_int_cdll **stck)
+t_ll	*fill_lis(t_int_cdll **stck)
 {
 	int 		len;
 	t_lis_ll	*temp;
@@ -21,7 +21,7 @@ t_list	*fill_lis(t_int_cdll **stck)
 
 	len = LST_LEN(stck[A]) + 1;
 	while(--len > 0)
-		lisadd_back(&lis, new_lis(get_lis(stck[A], len)));
+		lisadd_back(&lis, new_lis(get_lis(stck, len)));
 	len = get_high_len(lis);
 	while (lis)
 	{
@@ -32,11 +32,23 @@ t_list	*fill_lis(t_int_cdll **stck)
 			continue;
 		}
 		temp = lis->nxt;
-		ft_lstclear(lis->head, NULL);
+		free_ll(&(lis->head));
 		free(lis);
 		lis = temp;
 	}
 	return(save->head);
+}
+
+void free_ll(t_ll **head)
+{
+	t_ll *temp;
+	
+	while(*head)
+	{
+		temp = (*head)->nxt;
+		free(*head);
+		*head = temp;
+	}
 }
 
 void	lisadd_back(t_lis_ll **head, t_lis_ll *node)
@@ -60,7 +72,7 @@ t_lis_ll	*lis_last(t_lis_ll *head)
 	return(head);
 }
 
-t_lis_ll	*new_lis(t_list	*content)
+t_lis_ll	*new_lis(t_ll	*content)
 {
 	t_lis_ll	*node;
 
@@ -68,32 +80,77 @@ t_lis_ll	*new_lis(t_list	*content)
 	if (node == NULL)
 		return(NULL);
 	node->head = content;
-	node->len = ft_lstsize(content);
+	node->len = llsize(content);
 	node->nxt = NULL;
 	return (node);
 }
 
-t_list	*get_lis(t_int_cdll **stck, int len)
+int llsize(t_ll *head)
+{
+	int len;
+
+	len = 0;
+	while(head)
+	{
+		head = head->nxt;
+		len ++;
+	}
+	return(len);
+}
+
+t_ll	*get_lis(t_int_cdll **stck, int len)
 {
 	int	count;
 	int end;
-	t_list	*head;
+	t_ll	*head;
 
 	count = 1;
 	end = len - 1;
-	ft_lstadd_back(&head, ft_lstnew(stck[A]->idx));
+	lladd_back(&head, llnew(stck[A]->idx));
 	stck[A] = stck[A]->nxt;
 	while (end > 0)
 	{
 		if (stck[A]->idx <= ((len / DIV) + ADD + count))
 		{
-			ft_lstadd_back(&head, ft_lstnew(stck[A]->idx));
+			lladd_back(&head, llnew(stck[A]->idx));
 			count ++;
 		}
 		stck[A] = stck[A]->nxt;
 		end--;
 	}
 	return(head);
+}
+
+t_ll *llnew(int idx)
+{
+	t_ll *node;
+
+	node = malloc(sizeof(t_ll));
+	if (!node)
+		return(NULL);
+	node ->idx = idx;
+	node->nxt = NULL;
+	return(node);
+}
+
+t_ll *ll_last(t_ll *head)
+{
+	while ( head)
+		head = head->nxt;
+	return(head);
+}
+
+void lladd_back(t_ll **head, t_ll *node)
+{
+	t_ll * last;
+
+	if(!(*head))
+	{
+		*head = node;
+		return;
+	}
+	last = ll_last(*head);
+	last->nxt = node;
 }
 
 int	get_high_len(t_lis_ll *lis)

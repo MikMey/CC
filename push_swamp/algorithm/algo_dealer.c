@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 16:46:26 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/03/01 19:37:09 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/01 20:19:43 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -112,7 +112,9 @@ void	sort_five(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr)
 
 void	sort_grand(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr)
 {
-	t_lis_ll *lis;
+	t_ll *lis;
 	
-	fill_lis(stck, &lis);
+	lis = fill_lis(stck);
+	(void)ops;
+	(void)ops_arr;
 }
