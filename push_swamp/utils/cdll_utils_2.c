@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 18:23:24 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/28 21:49:32 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/01 15:31:31 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ void	addfront_int_cdll(t_int_cdll **head, t_int_cdll *node)
 	if (!(*head))
 	{
 		*head = node;
+		(*head)->nxt = NULL;
+		(*head)->prev = NULL;
 		return ;
 	}
 	if ((*head)->nxt == NULL)
-		node->prev = (*head);
+		node->prev = *head;
 	else
-	{
 		node->prev = (*head)->prev;
-		(*head)->nxt->prev = node;
-		(*head)->prev->nxt = node;
-	}
-	node->nxt = (*head);
+	node->nxt = *head;
+	node->nxt->prev = node;
+	node->prev->nxt = node;
 	*head = node;
 }

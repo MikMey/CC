@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 16:46:26 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/28 21:51:22 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/01 15:48:49 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,17 +100,14 @@ void	sort_five(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr)
 	sort_three(stck, ops, ops_arr);
 	while (stck[B])
 	{
-		if ((stck[A])->prev->idx < (stck[B])->idx && ((stck[A])->idx == 0
-				|| (stck[A])->idx > stck[B]->idx))
-		{
-			add_apply(stck, ops, "pa", ops_arr[PA]);
-			add_apply(stck, ops, "ra", ops_arr[RA]);
-		}
-		else if (stck[B]->idx == 0)
+		if (((stck[A])->prev->idx < (stck[B])->idx && ((stck[A])->idx == 0
+				|| (stck[A])->idx > stck[B]->idx)) || stck[B]->idx == 0)
 			add_apply(stck, ops, "pa", ops_arr[PA]);
 		else
-			add_apply(stck, ops, "rra", ops_arr[RRA]);
+			add_apply(stck, ops, "ra", ops_arr[RA]);
 	}
+	while (stck[A]->idx != 0)
+		add_apply(stck, ops, "ra", ops_arr[RA]);
 }
 
 void	sort_grand(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr)

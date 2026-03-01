@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 17:54:24 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/25 15:49:16 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/01 16:15:51 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,34 @@
 
 void	sa(t_int_cdll **stck)
 {
-	int	temp;
+	t_int_cdll	*temp;
 
-	temp = stck[A]->data;
-	stck[A]->data = stck[A]->nxt->data;
-	stck[A]->nxt->data = temp;
+	temp = stck[A];
+	stck[A] = stck[A]->nxt;
+	if (stck[A]->nxt == temp)
+		return;
+	temp->nxt = stck[A]->nxt;
+	stck[A]->prev = temp->prev;
+	temp->prev = stck[A];
+	stck[A]->nxt = temp;
+	temp->nxt->prev = temp;
+	stck[A]->prev->nxt = stck[A];
 }
 
 void	sb(t_int_cdll **stck)
 {
-	int	temp;
+	t_int_cdll	*temp;
 
-	temp = stck[B]->data;
-	stck[B]->data = stck[B]->nxt->data;
-	stck[B]->nxt->data = temp;
+	temp = stck[B];
+	stck[B] = stck[B]->nxt;
+	if (stck[B]->nxt == temp)
+		return;
+	temp->nxt = stck[B]->nxt;
+	stck[B]->prev = temp->prev;
+	temp->prev = stck[B];
+	stck[B]->nxt = temp;
+	temp->nxt->prev = temp;
+	stck[B]->prev->nxt = stck[B];
 }
 
 void	ss(t_int_cdll **stck)

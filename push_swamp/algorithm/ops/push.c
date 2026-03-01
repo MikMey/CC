@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 17:54:17 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/25 19:56:38 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/01 15:35:42 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,10 +33,17 @@ void	pa(t_int_cdll **stck)
 	tmp = stck[B];
 	if (stck[B]->nxt == NULL)
 		stck[B] = NULL;
+	else if(stck[B]->nxt == stck[B]->prev)
+	{
+		stck[B] = stck[B]->nxt;
+		stck[B]->nxt = NULL;
+		stck[B]->prev = NULL;
+	}
 	else
 	{
 		stck[B]->nxt->prev = stck[B]->prev;
 		stck[B]->prev->nxt = stck[B]->nxt;
+		stck[B] = stck[B]->nxt;
 	}
 	addfront_int_cdll((&stck[A]), tmp);
 }
@@ -48,13 +55,17 @@ void	pb(t_int_cdll **stck)
 	tmp = stck[A];
 	if (stck[A]->nxt == NULL)
 		stck[A] = NULL;
+	else if(stck[A]->nxt == stck[A]->prev)
+	{
+		stck[A] = stck[A]->nxt;
+		stck[A]->nxt = NULL;
+		stck[A]->prev = NULL;
+	}
 	else
 	{
 		stck[A]->nxt->prev = stck[A]->prev;
 		stck[A]->prev->nxt = stck[A]->nxt;
 		stck[A] = stck[A]->nxt;
 	}
-	tmp->nxt = NULL;
-	tmp->prev = NULL;
 	addfront_int_cdll((&stck[B]), tmp);
 }
