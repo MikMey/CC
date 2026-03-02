@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 16:46:26 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/03/01 21:13:40 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/02 22:15:16 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,8 +113,124 @@ void	sort_five(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr)
 void	sort_grand(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr)
 {
 	t_ll	*lis;
-
+	int		high_idx;
+	int last;
+	
 	lis = fill_lis(stck[A]);
-	(void)ops;
-	(void)ops_arr;
+	grand_push(stck, ops, ops_arr, &lis);
+	high_idx = get_high_idx(stck[B]);
+	last = (ll_last(lis))->idx;
+	while (stck[A]->idx != last)
+		add_apply(stck, ops, "ra", ops_arr[RA]);
+	free_ll(&lis);
+	insert_k(stck, ops, ops_arr, high_idx);
+}
+
+void	insert_k(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr, int high)
+{
+	int dir;
+	
+	dir = RIGHT;
+	while (stck[B])
+	{
+		if (stck[A]->idx > high)
+			add_apply(stck, ops, "rra", ops_arr[RRA]);
+		dir = get_dir(stck[B], high);
+		if (dir == RIGHT)
+		{
+			
+		}
+		else
+		{
+			
+		}
+		high = get_high_idx(stck[B]);
+	}
+}
+
+int	get_high_idx(t_int_cdll *stck)
+{
+	int len;
+	int high;
+
+	high = stck->idx;
+	len = LST_LEN(stck);
+	while(len > 0)
+	{
+		if (stck->idx > high)
+			high = stck->idx;
+		len --;
+	}
+	return(high);
+}
+
+void	grand_push(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr, t_ll **lis)
+{
+	t_ll *lis_node;
+	int	len_a;
+	int len_b;
+	int len_lis;
+
+	len_lis = 0;
+	len_b = 0;
+	len_a = LST_LEN(stck[A]);
+	lis_node = *lis;
+	while (has_elem_or_buff(stck[A], *lis))
+	{
+		if (stck[A]->idx == lis_node->buff && stck[A]->nxt->idx == lis_node->idx) //buff and lis next to each other
+		{
+			add_apply(stck, ops, "sa", ops_arr[SA]);
+			lladd_after(&lis_node, llnew(lis_node->buff));
+			lis_node->buff = -1;
+		}
+		else if (stck[A]->idx > lis_node->idx && (stck[A]->idx < (*lis)->idx || (lis_node->nxt && stck[A]->idx < lis_node->nxt->idx)) && lis_node->buff == -1) //can be added to lis buff
+			lis_node->buff = stck[A]->idx;
+		else if (stck[A]->idx == lis_node->idx) //is lis elem
+		{
+			add_apply(stck, ops, "ra", ops_arr[RA]);
+			if (lis_node->nxt == NULL)
+			{
+				len_lis = 0;
+				lis_node = *lis;
+			}
+			else
+			{
+				len_lis ++;
+				lis_node = lis_node->nxt;
+			}
+		}
+		else //any other
+		{
+			if (stck[A]->idx <= (len_a / DIV) + ADD + len_b + len_lis && stck[A]->idx != lis_node->buff)
+			{	
+				add_apply(stck, ops, "pb", ops_arr[PB]);
+				if (stck[B]->idx < len_b * ROT_MULT)
+					add_apply(stck, ops, "rb", ops_arr[RRB]);
+				len_b ++;
+			}
+			else
+				add_apply(stck, ops, "ra", ops_arr[RA]);
+		}
+	}
+}
+
+bool	has_elem_or_buff(t_int_cdll *stck,t_ll *lis)
+{
+	int len;
+
+	len = LST_LEN(stck);
+	while (len > 0)
+	{
+		if (stck->idx == lis->idx || lis->buff != -1)
+		{
+			stck = stck->nxt;
+			if (lis->buff != -1)
+				return(1);
+			lis = lis->nxt;
+		}
+		else
+			return(1);
+		len --;
+	}
+	return(0);
 }

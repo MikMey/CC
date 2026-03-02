@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/01 19:35:22 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/03/01 21:14:19 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/02 20:31:31 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_ll	*fill_lis(t_int_cdll *stck)
 {
 	int			len;
 	t_lis_ll	*temp;
-	t_lis_ll	*save;
+	t_ll		*save;
 	t_lis_ll	*lis;
 
 	lis = NULL;
@@ -31,16 +31,16 @@ t_ll	*fill_lis(t_int_cdll *stck)
 	{
 		if (lis->len == len)
 		{
-			save = lis;
-			lis = lis->nxt;
-			continue ;
+			save = lis->head;
+			len = -1;
 		}
+		else
+			free_ll(&(lis->head));
 		temp = lis->nxt;
-		free_ll(&(lis->head));
 		free(lis);
 		lis = temp;
 	}
-	return (save->head);
+	return (save);
 }
 
 void	free_ll(t_ll **head)
@@ -53,6 +53,18 @@ void	free_ll(t_ll **head)
 		free(*head);
 		*head = temp;
 	}
+}
+
+void	lladd_after(t_ll **head, t_ll *node)
+{
+	if (!(*head))
+	{
+		(*head) = node;
+		return ;
+	}
+	node->nxt = (*head)->nxt;
+	(*head)->nxt = node;
+	return ;
 }
 
 void	lisadd_back(t_lis_ll **head, t_lis_ll *node)
@@ -117,7 +129,7 @@ t_ll	*get_lis(t_int_cdll *stck, int len)
 	stck = stck->nxt;
 	while (end > 0)
 	{
-		if (stck->idx > prev_idx && stck->idx <= ((len / DIV) + ADD + count))
+		if (stck->idx > prev_idx && stck->idx <= ((len / DIV) + ADD + (count * LIS_MULT)))
 		{
 			lladd_back(&head, llnew(stck->idx));
 			count++;
@@ -137,6 +149,7 @@ t_ll	*llnew(int idx)
 	if (!node)
 		return (NULL);
 	node->idx = idx;
+	node->buff = -1;
 	node->nxt = NULL;
 	return (node);
 }

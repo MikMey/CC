@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 11:27:29 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/03/01 21:13:50 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/02 22:05:37 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,13 @@
 # define A 0
 # define B 1
 
+# define RIGHT 0
+# define LEFT 1
+
 # define DIV 20
 # define ADD 7
+# define LIS_MULT 20
+# define ROT_MULT 1.06 // bigger: more bottom, smaller: more top
 
 # define IDX_ONE (stck[A])->data
 # define IDX_TWO (stck[A])->nxt->data
@@ -66,6 +71,7 @@ typedef struct s_ll
 {
 	struct s_ll			*nxt;
 	int					idx;
+	int					buff;
 }						t_ll;
 
 typedef struct s_lis_ll
@@ -106,6 +112,8 @@ void					sort_grand(t_int_cdll **stck, t_ops **ops,
 							t_ops_arr *ops_arr);
 void					add_apply(t_int_cdll **stck, t_ops **ops_head,
 							char *ops, t_ops_arr fc);
+							void	grand_push(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr, t_ll **lis);
+							bool	has_elem_or_buff(t_int_cdll *stck,t_ll *lis);
 // // LIS
 t_ll					*fill_lis(t_int_cdll *stck);
 void					lisadd_back(t_lis_ll **head, t_lis_ll *node);
@@ -118,6 +126,7 @@ int						llsize(t_ll *head);
 t_ll					*ll_last(t_ll *head);
 void					lladd_back(t_ll **head, t_ll *node);
 t_ll					*llnew(int idx);
+void	lladd_after(t_ll **head, t_ll *node);
 
 // // ops
 void					sa(t_int_cdll **stck);
