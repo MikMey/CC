@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 16:46:26 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/03/02 22:15:16 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/03 13:28:35 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,12 +118,14 @@ void	sort_grand(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr)
 	
 	lis = fill_lis(stck[A]);
 	grand_push(stck, ops, ops_arr, &lis);
-	high_idx = get_high_idx(stck[B]);
 	last = (ll_last(lis))->idx;
 	while (stck[A]->idx != last)
 		add_apply(stck, ops, "ra", ops_arr[RA]);
 	free_ll(&lis);
+	high_idx = get_high_idx(stck[B]);
 	insert_k(stck, ops, ops_arr, high_idx);
+	while (stck[A]->idx != 0)
+		add_apply(stck, ops, "ra", ops_arr[RA]);
 }
 
 void	insert_k(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr, int high)
@@ -133,18 +135,60 @@ void	insert_k(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr, int high)
 	dir = RIGHT;
 	while (stck[B])
 	{
-		if (stck[A]->idx > high)
-			add_apply(stck, ops, "rra", ops_arr[RRA]);
+		if (stck[A]->idx < high)
+			add_apply(stck, ops, "ra", ops_arr[RA]);
+		else if (stck[A]->idx != (high + 1))
+		{
+			while (stck[A]->idx != (high + 1))
+				add_apply(stck, ops, "rra", ops_arr[RRA]);
+		}
 		dir = get_dir(stck[B], high);
 		if (dir == RIGHT)
 		{
-			
+			while(stck[B]->idx != high)
+				add_apply(stck, ops, "rb", ops_arr[RB]);
 		}
 		else
 		{
-			
+			while(stck[B]->idx != high)
+				add_apply(stck, ops, "rrb", ops_arr[RRB]);
 		}
-		high = get_high_idx(stck[B]);
+		add_apply(stck, ops, "pa", ops_arr[PA]);
+		if (stck[B])
+			high = get_high_idx(stck[B]);
+	}
+}
+
+int	get_dir(t_int_cdll *stck, int idx)
+{
+	int buff;
+	int set;
+	t_int_cdll *temp;
+
+	set = LST_LEN(stck) / DIV + ADD;
+	buff = set;
+	temp = stck;
+	while (true)
+	{
+		while (buff > 0)
+		{
+			if (temp->idx == idx)
+				return (RIGHT);
+			temp = temp->nxt;
+			buff--;
+		}
+		buff = set;
+		temp = stck;
+		while (buff > 0)
+		{
+			if (temp->idx == idx)
+				return (LEFT);
+			temp = temp->prev;
+			buff--;
+		}
+		set *= 2;
+		buff = set;
+		temp = stck;
 	}
 }
 
@@ -159,6 +203,7 @@ int	get_high_idx(t_int_cdll *stck)
 	{
 		if (stck->idx > high)
 			high = stck->idx;
+		stck = stck->nxt;
 		len --;
 	}
 	return(high);
@@ -205,7 +250,7 @@ void	grand_push(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr, t_ll **lis)
 			{	
 				add_apply(stck, ops, "pb", ops_arr[PB]);
 				if (stck[B]->idx < len_b * ROT_MULT)
-					add_apply(stck, ops, "rb", ops_arr[RRB]);
+					add_apply(stck, ops, "rb", ops_arr[RB]);
 				len_b ++;
 			}
 			else
@@ -221,7 +266,7 @@ bool	has_elem_or_buff(t_int_cdll *stck,t_ll *lis)
 	len = LST_LEN(stck);
 	while (len > 0)
 	{
-		if (stck->idx == lis->idx || lis->buff != -1)
+		if (lis && (stck->idx == lis->idx || lis->buff != -1))
 		{
 			stck = stck->nxt;
 			if (lis->buff != -1)

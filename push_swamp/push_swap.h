@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 11:27:29 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/03/02 22:05:37 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/03 12:20:49 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,6 +114,10 @@ void					add_apply(t_int_cdll **stck, t_ops **ops_head,
 							char *ops, t_ops_arr fc);
 							void	grand_push(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr, t_ll **lis);
 							bool	has_elem_or_buff(t_int_cdll *stck,t_ll *lis);
+							int	get_dir(t_int_cdll *stck, int idx);
+							int	get_high_idx(t_int_cdll *stck);
+							void	insert_k(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr, int high);
+
 // // LIS
 t_ll					*fill_lis(t_int_cdll *stck);
 void					lisadd_back(t_lis_ll **head, t_lis_ll *node);
