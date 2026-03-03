@@ -1,0 +1,103 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   improve.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/03 18:36:48 by mimeyer           #+#    #+#             */
+/*   Updated: 2026/03/03 20:31:20 by mimeyer          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "../push_swap.h"
+
+void	improve(t_ops **ops)
+{
+	t_ops **last;
+	t_ops *iter;
+	int *rots;
+
+	rots = ft_calloc(sizeof(int), 3);
+	rots[A] = 0;
+	rots[B] = 0;
+	iter = (*ops)->nxt;
+	last[A] = ops;
+	last[B] = ops;
+	while (last[A] && last[B])
+	{
+		rots = count_rot(iter->op, rots);
+		if (!(is_a(iter->op)) && !(is_b(iter->op)))
+			check_rot(iter, last, rots);
+		if (!(iter->nxt))
+		{
+			check_rot(iter->op, last, rots);
+			break;
+		}
+		iter = iter->nxt;
+	}
+	combine_rot(ops);
+}
+
+void	check_rot(t_ops *iter, t_ops **last, int *rots)
+{
+	if (last[A] && (!(ft_strncmp(iter->op, "pb", 2)) || !(ft_strncmp(iter->op, "sa", 2))))
+		if (rots[A] > ((last[A])->ln_a) / 2)
+		{
+			rots[A] = 0;
+			reverse_rot(&(last[A]));
+			if (iter->nxt)
+				last[A] = iter->nxt;
+			else
+				last[A] = NULL;
+		}
+	if (last[B] && (!(ft_strncmp(iter->op, "pa", 2)) || !(ft_strncmp(iter->op, "sb", 2))))
+		if (rots[B] > ((last[B])->ln_b) / 2)
+		{
+			rots[B] = 0;
+			reverse_rot(&(last[B]));
+			if (iter->nxt)
+				last[B] = iter->nxt;
+			else
+				last[B] = NULL;
+			
+		}
+}
+
+void	reverse_rot(t_ops **last)
+{
+	
+}
+
+void	check_rot_A(int *rot, t_ops **last)
+{
+	
+}
+
+void	combine_rot(t_ops **ops)
+{
+	
+}
+
+int *count_rot(char *op, int *rots)
+{
+	if (is_a(op))
+		rots[A] ++;
+	if (is_b(op))
+		rots[B] ++;
+	return(rots);
+}
+
+bool is_a(op)
+{
+	if (!(ft_strncmp(op, "ra", 2)) || !(ft_strncmp(op, "rra", 3))|| !(ft_strncmp(op, "rrr", 3))|| !(ft_strncmp(op, "rr", 3)))
+		return (1);
+	return(0);
+}
+
+bool is_b(op)
+{
+	if (!(ft_strncmp(op, "rb", 2)) || !(ft_strncmp(op, "rrb", 3)) || !(ft_strncmp(op, "rrr", 3)) || !(ft_strncmp(op, "rr", 3)))
+		return (1);
+	return(0);
+}
