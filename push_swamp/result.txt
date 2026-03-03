@@ -106,3 +106,12 @@ Best
 4643
 Fails
 0
+
+AVERAGE
+4979
+Worst
+5481
+Best
+4715
+Fails
+0
