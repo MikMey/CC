@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 11:27:32 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/03/03 15:19:23 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/03 16:02:26 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,14 @@ int	main(int argc, char **argv)
 	ops = algo_dealer(&lst_nums);
 	node = ops;
 	node = node->nxt;
-	int len;
-	len = 0;
+	// int len;
+	// len = 0;
 	while (node)
 	{
-		// printf("%s\n", node->op);
+		printf("%s\n", node->op);
 		node = node->nxt;
-		len ++;
+		// len ++;
 	}
-	printf("%d\n", len);
+	// printf("%d\n", len);
 	free_ops(&ops);
 }

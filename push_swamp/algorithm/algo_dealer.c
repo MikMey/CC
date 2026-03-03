@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 16:46:26 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/03/03 15:34:12 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/03 21:08:10 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -146,14 +146,26 @@ void	insert_k(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr, int high)
 		if (dir == RIGHT)
 		{
 			while (stck[B]->idx != high)
-				add_apply(stck, ops, "rb", ops_arr[RB]);
+			{
+				if (stck[B]->idx == high - 1)
+					add_apply(stck, ops, "pa", ops_arr[PA]);
+				else
+					add_apply(stck, ops, "rb", ops_arr[RB]);
+			}
 		}
 		else
 		{
 			while (stck[B]->idx != high)
-				add_apply(stck, ops, "rrb", ops_arr[RRB]);
+			{
+				if (stck[B]->idx == high - 1)
+					add_apply(stck, ops, "pa", ops_arr[PA]);
+				else
+					add_apply(stck, ops, "rrb", ops_arr[RRB]);
+			}
 		}
 		add_apply(stck, ops, "pa", ops_arr[PA]);
+		if (stck[A]->nxt->idx == high - 1)
+			add_apply(stck, ops, "sa", ops_arr[SA]);
 		if (stck[B])
 			high = get_high_idx(stck[B]);
 	}
@@ -217,7 +229,7 @@ void	grand_push(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr,
 	int		len_b;
 	int		len_lis;
 
-	len_lis = 0;
+	len_lis = ll_len(*lis);
 	len_b = 0;
 	len_a = LST_LEN(stck[A]);
 	lis_node = *lis;
@@ -234,20 +246,17 @@ void	grand_push(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr,
 		else if (stck[A]->idx > lis_node->idx && (stck[A]->idx < (*lis)->idx
 				|| (lis_node->nxt && stck[A]->idx < lis_node->nxt->idx))
 			&& lis_node->buff == -1) // can be added to lis buff
+		{
 			lis_node->buff = stck[A]->idx;
+			len_lis++;
+		}
 		else if (stck[A]->idx == lis_node->idx) // is lis elem
 		{
 			add_apply(stck, ops, "ra", ops_arr[RA]);
 			if (lis_node->nxt == NULL)
-			{
-				len_lis = 0;
 				lis_node = *lis;
-			}
 			else
-			{
-				len_lis++;
 				lis_node = lis_node->nxt;
-			}
 		}
 		else // any other
 		{

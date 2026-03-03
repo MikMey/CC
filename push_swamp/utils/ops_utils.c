@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 20:25:00 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/02/25 18:12:01 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/03 16:06:59 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,16 @@ void	opsnew_add(t_ops **head, char *op, int len_a, int len_b)
 		len_a = last->ln_a;
 	if (len_b == -1)
 		len_b = last->ln_b;
+	if (ft_strncmp(op, "pa", 2) == 0)
+	{
+		len_b -= 1;
+		len_a += 1;
+	}
+	else if (ft_strncmp(op, "pb", 2) == 0)
+	{
+		len_a -= 1;
+		len_b += 1;
+	}
 	ops_addback(head, ops_newnode(op, len_a, len_b));
 }
 

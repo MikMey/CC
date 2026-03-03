@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/01 19:35:22 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/03/02 20:31:31 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/03 21:09:19 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,19 @@ t_ll	*fill_lis(t_int_cdll *stck)
 		lis = temp;
 	}
 	return (save);
+}
+
+int ll_len(t_ll *head)
+{
+	int len;
+
+	len = 0;
+	while(head)
+	{
+		head = head->nxt;
+		len++;
+	}
+	return(len);
 }
 
 void	free_ll(t_ll **head)

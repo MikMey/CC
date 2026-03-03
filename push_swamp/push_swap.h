@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 11:27:29 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/03/03 15:36:37 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/03 21:09:26 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -134,6 +134,7 @@ t_ll					*ll_last(t_ll *head);
 void					lladd_back(t_ll **head, t_ll *node);
 t_ll					*llnew(int idx);
 void					lladd_after(t_ll **head, t_ll *node);
+int ll_len(t_ll *head);
 
 // // ops
 void					sa(t_int_cdll **stck);
