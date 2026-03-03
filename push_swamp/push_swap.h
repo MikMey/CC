@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 11:27:29 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/03/03 21:49:19 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/03 22:20:26 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,6 @@
 # define LIS_MULT 20
 # define ROT_MULT 1.06 // bigger: more bottom, smaller: more top
 # define PUSH_MULT 1.02
-
-# define IDX_ONE (stck[A])->data
-# define IDX_TWO (stck[A])->nxt->data
-# define IDX_LAST (stck[A])->prev->data
 
 typedef struct s_int_cdll
 {
@@ -120,6 +116,12 @@ int						get_dir(t_int_cdll *stck, int idx);
 int						get_high_idx(t_int_cdll *stck);
 void					insert_k(t_int_cdll **stck, t_ops **ops,
 							t_ops_arr *ops_arr, int high);
+int						check_dir(int set, int idx, t_int_cdll *stck,
+							t_int_cdll *temp);
+void					go_left(t_int_cdll **stck, t_ops **ops, int high,
+							t_ops_arr **ops_arr);
+void					go_right(t_int_cdll **stck, t_ops **ops, int high,
+							t_ops_arr *ops_arr);
 
 // // LIS
 t_ll					*fill_lis(t_int_cdll *stck);
@@ -134,7 +136,8 @@ t_ll					*ll_last(t_ll *head);
 void					lladd_back(t_ll **head, t_ll *node);
 t_ll					*llnew(int idx);
 void					lladd_after(t_ll **head, t_ll *node);
-int ll_len(t_ll *head);
+int						ll_len(t_ll *head);
+t_int_cdll				*get_all_lis(t_int_cdll *stck, t_lis_ll *lis, int len);
 
 // // ops
 void					sa(t_int_cdll **stck);

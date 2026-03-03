@@ -1,31 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ops_utils2.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/04 11:27:32 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/03/03 21:52:55 by mimeyer          ###   ########.fr       */
+/*   Created: 2026/03/03 22:07:14 by mimeyer           #+#    #+#             */
+/*   Updated: 2026/03/03 22:07:51 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
-int	main(int argc, char **argv)
+void	free_ops(t_ops **ops)
 {
-	t_ops		*ops;
-	t_ops		*node;
-	t_int_cdll	*lst_nums;
+	t_ops	*tmp;
 
-	lst_nums = input_dealer(argc, argv);
-	ops = algo_dealer(&lst_nums);
-	node = ops;
-	node = node->nxt;
-	while (node)
+	while (*ops)
 	{
-		ft_printf("%s\n", node->op);
-		node = node->nxt;
+		tmp = (*ops)->nxt;
+		free(*ops);
+		*ops = tmp;
 	}
-	free_ops(&ops);
 }

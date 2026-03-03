@@ -1,31 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   ll_util2.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/04 11:27:32 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/03/03 21:52:55 by mimeyer          ###   ########.fr       */
+/*   Created: 2026/03/03 22:06:19 by mimeyer           #+#    #+#             */
+/*   Updated: 2026/03/03 22:06:38 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+t_ll	*ll_last(t_ll *head)
 {
-	t_ops		*ops;
-	t_ops		*node;
-	t_int_cdll	*lst_nums;
+	while (head->nxt)
+		head = head->nxt;
+	return (head);
+}
 
-	lst_nums = input_dealer(argc, argv);
-	ops = algo_dealer(&lst_nums);
-	node = ops;
-	node = node->nxt;
-	while (node)
+void	lladd_back(t_ll **head, t_ll *node)
+{
+	t_ll	*last;
+
+	if (!(*head))
 	{
-		ft_printf("%s\n", node->op);
-		node = node->nxt;
+		*head = node;
+		return ;
 	}
-	free_ops(&ops);
+	last = ll_last(*head);
+	last->nxt = node;
 }

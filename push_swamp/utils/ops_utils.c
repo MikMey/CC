@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 20:25:00 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/03/03 16:06:59 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/03 22:07:44 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,16 +88,4 @@ t_ops_arr	*init_ops_arr(void)
 	ops_arr[RRR] = &rrr;
 	ops_arr[11] = NULL;
 	return (ops_arr);
-}
-
-void	free_ops(t_ops **ops)
-{
-	t_ops	*tmp;
-
-	while (*ops)
-	{
-		tmp = (*ops)->nxt;
-		free(*ops);
-		*ops = tmp;
-	}
 }

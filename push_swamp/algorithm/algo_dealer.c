@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 16:46:26 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/03/03 21:46:22 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/03 22:10:33 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,24 +57,30 @@ t_ops	*algo_dealer(t_int_cdll **head_a)
  */
 void	sort_three(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr)
 {
-	if (IDX_ONE < IDX_TWO && IDX_TWO > IDX_LAST && IDX_LAST > IDX_ONE) // 1 3 2
+	if ((stck[A])->data < (stck[A])->nxt->data
+		&& (stck[A])->nxt->data > (stck[A])->prev->data
+		&& (stck[A])->prev->data > (stck[A])->data)
 	{
 		add_apply(stck, ops, "rra", ops_arr[RRA]);
 		add_apply(stck, ops, "sa", ops_arr[SA]);
 	}
-	else if (IDX_ONE > IDX_TWO && IDX_TWO > IDX_LAST) // 3 2 1
+	else if ((stck[A])->data > (stck[A])->nxt->data
+		&& (stck[A])->nxt->data > (stck[A])->prev->data)
 	{
 		add_apply(stck, ops, "sa", ops_arr[SA]);
 		add_apply(stck, ops, "rra", ops_arr[RRA]);
 	}
-	else if (IDX_ONE < IDX_TWO && IDX_TWO > IDX_LAST && IDX_LAST < IDX_ONE)
-		// 2 3 1
+	else if ((stck[A])->data < (stck[A])->nxt->data
+		&& (stck[A])->nxt->data > (stck[A])->prev->data
+		&& (stck[A])->prev->data < (stck[A])->data)
 		add_apply(stck, ops, "rra", ops_arr[RRA]);
-	else if (IDX_ONE > IDX_TWO && IDX_TWO < IDX_LAST && IDX_LAST < IDX_ONE)
-		// 3 1 2
+	else if ((stck[A])->data > (stck[A])->nxt->data
+		&& (stck[A])->nxt->data < (stck[A])->prev->data
+		&& (stck[A])->prev->data < (stck[A])->data)
 		add_apply(stck, ops, "ra", ops_arr[RA]);
-	else if (IDX_ONE > IDX_TWO && IDX_TWO < IDX_LAST && IDX_LAST > IDX_ONE)
-		// 2 1 3
+	else if ((stck[A])->data > (stck[A])->nxt->data
+		&& (stck[A])->nxt->data < (stck[A])->prev->data
+		&& (stck[A])->prev->data > (stck[A])->data)
 		add_apply(stck, ops, "sa", ops_arr[SA]);
 }
 
@@ -128,82 +134,6 @@ void	sort_grand(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr)
 		add_apply(stck, ops, "ra", ops_arr[RA]);
 }
 
-void	insert_k(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr, int high)
-{
-	int	dir;
-
-	dir = RIGHT;
-	while (stck[B])
-	{
-		if (stck[A]->idx < high)
-			add_apply(stck, ops, "ra", ops_arr[RA]);
-		else if (stck[A]->idx != (high + 1))
-		{
-			while (stck[A]->idx != (high + 1))
-				add_apply(stck, ops, "rra", ops_arr[RRA]);
-		}
-		dir = get_dir(stck[B], high);
-		if (dir == RIGHT)
-		{
-			while (stck[B]->idx != high)
-			{
-				if (stck[B]->idx == high - 1)
-					add_apply(stck, ops, "pa", ops_arr[PA]);
-				else
-					add_apply(stck, ops, "rb", ops_arr[RB]);
-			}
-		}
-		else
-		{
-			while (stck[B]->idx != high)
-			{
-				if (stck[B]->idx == high - 1)
-					add_apply(stck, ops, "pa", ops_arr[PA]);
-				else
-					add_apply(stck, ops, "rrb", ops_arr[RRB]);
-			}
-		}
-		add_apply(stck, ops, "pa", ops_arr[PA]);
-		if (stck[A]->nxt->idx == high - 1)
-			add_apply(stck, ops, "sa", ops_arr[SA]);
-		if (stck[B])
-			high = get_high_idx(stck[B]);
-	}
-}
-
-int	get_dir(t_int_cdll *stck, int idx)
-{
-	int			buff;
-	int			set;
-	t_int_cdll	*temp;
-
-	set = LST_LEN(stck) / DIV + ADD;
-	buff = set;
-	temp = stck;
-	while (true)
-	{
-		while (buff > 0)
-		{
-			if (temp->idx == idx)
-				return (RIGHT);
-			temp = temp->nxt;
-			buff--;
-		}
-		buff = set;
-		temp = stck;
-		while (buff > 0)
-		{
-			if (temp->idx == idx)
-				return (LEFT);
-			temp = temp->prev;
-			buff--;
-		}
-		set *= 2;
-		buff = set;
-		temp = stck;
-	}
-}
-
 int	get_high_idx(t_int_cdll *stck)
 {
 	int	len;
@@ -219,78 +149,4 @@ int	get_high_idx(t_int_cdll *stck)
 		len--;
 	}
 	return (high);
-}
-
-void	grand_push(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr,
-		t_ll **lis)
-{
-	t_ll	*lis_node;
-	int		len_a;
-	int		len_b;
-	int		len_lis;
-
-	len_lis = ll_len(*lis);
-	len_b = 0;
-	len_a = LST_LEN(stck[A]);
-	lis_node = *lis;
-	while (has_elem_or_buff(stck[A], *lis))
-	{
-		if (stck[A]->idx == lis_node->buff
-			&& stck[A]->nxt->idx == lis_node->idx)
-			// buff and lis next to each other
-		{
-			add_apply(stck, ops, "sa", ops_arr[SA]);
-			lladd_after(&lis_node, llnew(lis_node->buff));
-			lis_node->buff = -1;
-		}
-		else if (stck[A]->idx > lis_node->idx && (stck[A]->idx < (*lis)->idx
-				|| (lis_node->nxt && stck[A]->idx < lis_node->nxt->idx))
-			&& lis_node->buff == -1) // can be added to lis buff
-		{
-			lis_node->buff = stck[A]->idx;
-			len_lis++;
-		}
-		else if (stck[A]->idx == lis_node->idx) // is lis elem
-		{
-			add_apply(stck, ops, "ra", ops_arr[RA]);
-			if (lis_node->nxt == NULL)
-				lis_node = *lis;
-			else
-				lis_node = lis_node->nxt;
-		}
-		else // any other
-		{
-			if (stck[A]->idx <= ((len_a / DIV) + ADD + len_b + len_lis) * PUSH_MULT
-				&& stck[A]->idx != lis_node->buff)
-			{
-				add_apply(stck, ops, "pb", ops_arr[PB]);
-				if (stck[B]->idx < len_b * ROT_MULT)
-					add_apply(stck, ops, "rb", ops_arr[RB]);
-				len_b++;
-			}
-			else
-				add_apply(stck, ops, "ra", ops_arr[RA]);
-		}
-	}
-}
-
-bool	has_elem_or_buff(t_int_cdll *stck, t_ll *lis)
-{
-	int	len;
-
-	len = LST_LEN(stck);
-	while (len > 0)
-	{
-		if (lis && (stck->idx == lis->idx || lis->buff != -1))
-		{
-			stck = stck->nxt;
-			if (lis->buff != -1)
-				return (1);
-			lis = lis->nxt;
-		}
-		else
-			return (1);
-		len--;
-	}
-	return (0);
 }
