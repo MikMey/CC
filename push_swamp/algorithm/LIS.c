@@ -129,7 +129,8 @@ t_ll	*get_lis(t_int_cdll *stck, int len)
 	stck = stck->nxt;
 	while (end > 0)
 	{
-		if (stck->idx > prev_idx && stck->idx <= ((len / DIV) + ADD + (count * LIS_MULT)))
+		if (stck->idx > prev_idx && stck->idx <= ((len / DIV) + ADD + (count
+					* LIS_MULT)))
 		{
 			lladd_back(&head, llnew(stck->idx));
 			count++;

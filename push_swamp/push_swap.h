@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 11:27:29 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/03/03 12:20:49 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/03 15:36:37 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@
 # define ADD 7
 # define LIS_MULT 20
 # define ROT_MULT 1.06 // bigger: more bottom, smaller: more top
+# define PUSH_MULT 1.02
 
 # define IDX_ONE (stck[A])->data
 # define IDX_TWO (stck[A])->nxt->data
@@ -112,11 +113,13 @@ void					sort_grand(t_int_cdll **stck, t_ops **ops,
 							t_ops_arr *ops_arr);
 void					add_apply(t_int_cdll **stck, t_ops **ops_head,
 							char *ops, t_ops_arr fc);
-							void	grand_push(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr, t_ll **lis);
-							bool	has_elem_or_buff(t_int_cdll *stck,t_ll *lis);
-							int	get_dir(t_int_cdll *stck, int idx);
-							int	get_high_idx(t_int_cdll *stck);
-							void	insert_k(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr, int high);
+void					grand_push(t_int_cdll **stck, t_ops **ops,
+							t_ops_arr *ops_arr, t_ll **lis);
+bool					has_elem_or_buff(t_int_cdll *stck, t_ll *lis);
+int						get_dir(t_int_cdll *stck, int idx);
+int						get_high_idx(t_int_cdll *stck);
+void					insert_k(t_int_cdll **stck, t_ops **ops,
+							t_ops_arr *ops_arr, int high);
 
 // // LIS
 t_ll					*fill_lis(t_int_cdll *stck);
@@ -130,7 +133,7 @@ int						llsize(t_ll *head);
 t_ll					*ll_last(t_ll *head);
 void					lladd_back(t_ll **head, t_ll *node);
 t_ll					*llnew(int idx);
-void	lladd_after(t_ll **head, t_ll *node);
+void					lladd_after(t_ll **head, t_ll *node);
 
 // // ops
 void					sa(t_int_cdll **stck);
