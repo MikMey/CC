@@ -1,5 +1,5 @@
 CC := cc -Wall -Werror -Wextra -g
-NAME := swap.a
+NAME := push_swap
 SRC := push_swap.c \
 algorithm/ops/push.c \
 algorithm/ops/reverse_rotate.c \
