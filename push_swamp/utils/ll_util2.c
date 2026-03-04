@@ -6,11 +6,11 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 22:06:19 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/03/03 22:06:38 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/04 18:33:52 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../push_swap.h"
 
 t_ll	*ll_last(t_ll *head)
 {

@@ -6,81 +6,70 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 22:08:35 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/03/03 22:24:16 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/04 19:29:04 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	grand_push(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr,
-		t_ll **lis)
+void	grand_push(t_ps *ps)
 {
 	t_ll	*lis_node;
-	int		len_a;
-	int		len_b;
-	int		len_lis;
+	int		*len;
 
-	len_lis = ll_len(*lis);
-	len_b = 0;
-	len_a = LST_LEN(stck[A]);
-	lis_node = *lis;
-	while (has_elem_or_buff(stck[A], *lis))
+	len = ft_calloc(sizeof(int), 4);
+	len[LIS] = ll_len(ps->lis);
+	len[B] = 0;
+	len[A] = LST_LEN(ps->stck[A]);
+	lis_node = ps->lis;
+	while (has_elem_or_buff(ps->stck[A], ps->lis))
 	{
-		if (stck[A]->idx == lis_node->buff
-			&& stck[A]->nxt->idx == lis_node->idx)
+		if (ps->stck[A]->idx == lis_node->buff
+			&& ps->stck[A]->nxt->idx == lis_node->idx)
+			swap_buff(ps, &lis_node);
+		else if (check_ins_buff(ps, lis_node))
 		{
-			add_apply(stck, ops, "sa", ops_arr[SA]);
-			lladd_after(&lis_node, llnew(lis_node->buff));
-			lis_node->buff = -1;
+			lis_node->buff = ps->stck[A]->idx;
+			len[LIS]++;
 		}
-		else if (stck[A]->idx > lis_node->idx && (stck[A]->idx < (*lis)->idx
-				|| (lis_node->nxt && stck[A]->idx < lis_node->nxt->idx))
-			&& lis_node->buff == -1)
-		{
-			lis_node->buff = stck[A]->idx;
-			len_lis++;
-		}
-		else if (stck[A]->idx == lis_node->idx)
-		{
-			add_apply(stck, ops, "ra", ops_arr[RA]);
-			if (lis_node->nxt == NULL)
-				lis_node = *lis;
-			else
-				lis_node = lis_node->nxt;
-		}
+		else if (ps->stck[A]->idx == lis_node->idx)
+			rot_lis(ps, &lis_node);
 		else
-		{
-			if (stck[A]->idx <= ((len_a / DIV) + ADD + len_b + len_lis)
-				* PUSH_MULT && stck[A]->idx != lis_node->buff)
-			{
-				add_apply(stck, ops, "pb", ops_arr[PB]);
-				if (stck[B]->idx < len_b * ROT_MULT)
-					add_apply(stck, ops, "rb", ops_arr[RB]);
-				len_b++;
-			}
-			else
-				add_apply(stck, ops, "ra", ops_arr[RA]);
-		}
+			len = mod_b(ps, lis_node, len);
 	}
+	free(len);
 }
 
-bool	has_elem_or_buff(t_int_cdll *stck, t_ll *lis)
+int	*mod_b(t_ps *ps, t_ll *lis_node, int *len)
 {
-	int	len;
+	if (check_push(len, ps->stck, lis_node))
+		len = rot_push(len, ps);
+	else
+		add_apply(ps, RA);
+	return (len);
+}
 
-	len = LST_LEN(stck);
-	while (len > 0)
-	{
-		if (lis && (stck->idx == lis->idx || lis->buff != -1))
-		{
-			stck = stck->nxt;
-			if (lis->buff != -1)
-				return (1);
-			lis = lis->nxt;
-		}
-		else
-			return (1);
-		len--;
-	}
-	return (0);
+void	rot_lis(t_ps *ps, t_ll **lis_node)
+{
+	add_apply(ps, RA);
+	if ((*lis_node)->nxt == NULL)
+		(*lis_node) = ps->lis;
+	else
+		(*lis_node) = (*lis_node)->nxt;
+}
+
+void	swap_buff(t_ps *ps, t_ll **lis_node)
+{
+	add_apply(ps, SA);
+	lladd_after(lis_node, llnew((*lis_node)->buff));
+	(*lis_node)->buff = -1;
+}
+
+int	*rot_push(int *len, t_ps *ps)
+{
+	add_apply(ps, PB);
+	if (ps->stck[B]->idx < len[B] * ROT_MULT)
+		add_apply(ps, RB);
+	len[B]++;
+	return (len);
 }

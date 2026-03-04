@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 17:31:40 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/03/03 21:51:35 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/04 20:19:39 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,9 +85,9 @@ void	check_input(char **arr, t_int_cdll **head)
 		ADD_NODE(head, NEW_NODE(buff));
 		i++;
 	}
-	if (i < 3 || has_dup(*head))
+	if (has_dup(*head))
 		throw_arr_cdll(INPUT_VALUE_ERROR, arr, head);
-	if (check_sorted(*head))
+	if (check_sorted(*head) || check_i(*head, i))
 	{
 		free_int_cdll(head);
 		free_arr(arr);

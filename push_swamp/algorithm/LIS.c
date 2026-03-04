@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/01 19:35:22 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/03/03 22:06:41 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/04 19:28:07 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_ll	*fill_lis(t_int_cdll *stck)
 
 	lis = NULL;
 	len = LST_LEN(stck) + 1;
-	stck = get_all_lis(stck, lis, len);
+	stck = get_all_lis(stck, &lis, len);
 	len = get_high_len(lis);
 	while (lis)
 	{
@@ -39,11 +39,11 @@ t_ll	*fill_lis(t_int_cdll *stck)
 	return (save);
 }
 
-t_int_cdll	*get_all_lis(t_int_cdll *stck, t_lis_ll *lis, int len)
+t_int_cdll	*get_all_lis(t_int_cdll *stck, t_lis_ll **lis, int len)
 {
 	while (--len > 0)
 	{
-		lisadd_back(&lis, new_lis(get_lis(stck, len)));
+		lisadd_back(lis, new_lis(get_lis(stck, len)));
 		stck = stck->nxt;
 	}
 	return (stck);

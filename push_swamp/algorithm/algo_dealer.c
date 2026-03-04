@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 16:46:26 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/03/03 22:10:33 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/04 18:37:01 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,33 +19,30 @@
  * @param head_a head of stack a
  * @return t_ops* list of operations
  */
-t_ops	*algo_dealer(t_int_cdll **head_a)
+void	algo_dealer(t_int_cdll **head_a, t_ps *ps)
 {
 	size_t		len;
-	t_ops		*ops;
 	t_int_cdll	*head_b;
-	t_int_cdll	**stck;
-	t_ops_arr	*ops_arr;
 
-	ops_arr = init_ops_arr();
+	ps->ops_arr = init_ops_arr();
 	head_b = NULL;
-	ops = NULL;
-	stck = malloc(sizeof(t_int_cdll *) * 3);
-	stck[A] = *head_a;
-	stck[B] = head_b;
-	stck[2] = NULL;
+	ps->stck = malloc(sizeof(t_int_cdll *) * 3);
+	ps->stck[A] = *head_a;
+	ps->stck[B] = head_b;
+	ps->stck[2] = NULL;
 	len = LST_LEN(*head_a);
-	opsnew_add(&ops, "", (int)len, 0);
+	opsnew_add(&(ps->ops), "", (int)len, 0);
 	if (len <= 3)
-		sort_three(stck, &ops, ops_arr);
+		sort_three(ps);
 	else if (len <= 5)
-		sort_five(stck, &ops, ops_arr);
+		sort_five(ps);
 	else
-		sort_grand(stck, &ops, ops_arr);
-	free(ops_arr);
-	free_int_cdll(&(stck[A]));
-	free_int_cdll(&(stck[B]));
-	return (free(stck), ops);
+		sort_grand(ps);
+	free(ps->ops_arr);
+	free_int_cdll(&(ps->stck[A]));
+	free_int_cdll(&(ps->stck[B]));
+	free(ps->stck);
+	return ;
 }
 
 /**
@@ -55,33 +52,33 @@ t_ops	*algo_dealer(t_int_cdll **head_a)
  * @param head_b
  * @param ops
  */
-void	sort_three(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr)
+void	sort_three(t_ps *ps)
 {
-	if ((stck[A])->data < (stck[A])->nxt->data
-		&& (stck[A])->nxt->data > (stck[A])->prev->data
-		&& (stck[A])->prev->data > (stck[A])->data)
+	if ((ps->stck[A])->data < (ps->stck[A])->nxt->data
+		&& (ps->stck[A])->nxt->data > (ps->stck[A])->prev->data
+		&& (ps->stck[A])->prev->data > (ps->stck[A])->data)
 	{
-		add_apply(stck, ops, "rra", ops_arr[RRA]);
-		add_apply(stck, ops, "sa", ops_arr[SA]);
+		add_apply(ps, RRA);
+		add_apply(ps, SA);
 	}
-	else if ((stck[A])->data > (stck[A])->nxt->data
-		&& (stck[A])->nxt->data > (stck[A])->prev->data)
+	else if ((ps->stck[A])->data > (ps->stck[A])->nxt->data
+		&& (ps->stck[A])->nxt->data > (ps->stck[A])->prev->data)
 	{
-		add_apply(stck, ops, "sa", ops_arr[SA]);
-		add_apply(stck, ops, "rra", ops_arr[RRA]);
+		add_apply(ps, SA);
+		add_apply(ps, RRA);
 	}
-	else if ((stck[A])->data < (stck[A])->nxt->data
-		&& (stck[A])->nxt->data > (stck[A])->prev->data
-		&& (stck[A])->prev->data < (stck[A])->data)
-		add_apply(stck, ops, "rra", ops_arr[RRA]);
-	else if ((stck[A])->data > (stck[A])->nxt->data
-		&& (stck[A])->nxt->data < (stck[A])->prev->data
-		&& (stck[A])->prev->data < (stck[A])->data)
-		add_apply(stck, ops, "ra", ops_arr[RA]);
-	else if ((stck[A])->data > (stck[A])->nxt->data
-		&& (stck[A])->nxt->data < (stck[A])->prev->data
-		&& (stck[A])->prev->data > (stck[A])->data)
-		add_apply(stck, ops, "sa", ops_arr[SA]);
+	else if ((ps->stck[A])->data < (ps->stck[A])->nxt->data
+		&& (ps->stck[A])->nxt->data > (ps->stck[A])->prev->data
+		&& (ps->stck[A])->prev->data < (ps->stck[A])->data)
+		add_apply(ps, RRA);
+	else if ((ps->stck[A])->data > (ps->stck[A])->nxt->data
+		&& (ps->stck[A])->nxt->data < (ps->stck[A])->prev->data
+		&& (ps->stck[A])->prev->data < (ps->stck[A])->data)
+		add_apply(ps, RA);
+	else if ((ps->stck[A])->data > (ps->stck[A])->nxt->data
+		&& (ps->stck[A])->nxt->data < (ps->stck[A])->prev->data
+		&& (ps->stck[A])->prev->data > (ps->stck[A])->data)
+		add_apply(ps, SA);
 }
 
 /**
@@ -91,47 +88,48 @@ void	sort_three(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr)
  * @param head_b
  * @param ops
  */
-void	sort_five(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr)
+void	sort_five(t_ps *ps)
 {
 	int	len;
 
-	len = LST_LEN(stck[A]);
-	if (check_sorted(stck[A]))
+	len = LST_LEN(ps->stck[A]);
+	if (check_sorted(ps->stck[A]))
 		return ;
 	if (len == 5)
-		add_apply(stck, ops, "pb", ops_arr[PB]);
-	add_apply(stck, ops, "pb", ops_arr[PB]);
-	if (stck[B]->nxt && (stck[B])->data > (stck[B])->nxt->data)
-		add_apply(stck, ops, "sb", ops_arr[SB]);
-	sort_three(stck, ops, ops_arr);
-	while (stck[B])
+		add_apply(ps, PB);
+	add_apply(ps, PB);
+	if (ps->stck[B]->nxt && (ps->stck[B])->data > (ps->stck[B])->nxt->data)
+		add_apply(ps, SB);
+	sort_three(ps);
+	while (ps->stck[B])
 	{
-		if (((stck[A])->prev->idx < (stck[B])->idx && ((stck[A])->idx == 0
-					|| (stck[A])->idx > stck[B]->idx)) || stck[B]->idx == 0)
-			add_apply(stck, ops, "pa", ops_arr[PA]);
+		if (((ps->stck[A])->prev->idx < (ps->stck[B])->idx
+				&& ((ps->stck[A])->idx == 0
+					|| (ps->stck[A])->idx > ps->stck[B]->idx))
+			|| ps->stck[B]->idx == 0)
+			add_apply(ps, PA);
 		else
-			add_apply(stck, ops, "ra", ops_arr[RA]);
+			add_apply(ps, RA);
 	}
-	while (stck[A]->idx != 0)
-		add_apply(stck, ops, "ra", ops_arr[RA]);
+	while (ps->stck[A]->idx != 0)
+		add_apply(ps, RA);
 }
 
-void	sort_grand(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr)
+void	sort_grand(t_ps *ps)
 {
-	t_ll	*lis;
-	int		high_idx;
-	int		last;
+	int	high_idx;
+	int	last;
 
-	lis = fill_lis(stck[A]);
-	grand_push(stck, ops, ops_arr, &lis);
-	last = (ll_last(lis))->idx;
-	while (stck[A]->idx != last)
-		add_apply(stck, ops, "ra", ops_arr[RA]);
-	free_ll(&lis);
-	high_idx = get_high_idx(stck[B]);
-	insert_k(stck, ops, ops_arr, high_idx);
-	while (stck[A]->idx != 0)
-		add_apply(stck, ops, "ra", ops_arr[RA]);
+	ps->lis = fill_lis(ps->stck[A]);
+	grand_push(ps);
+	last = (ll_last(ps->lis))->idx;
+	while (ps->stck[A]->idx != last)
+		add_apply(ps, RA);
+	free_ll(&(ps->lis));
+	high_idx = get_high_idx(ps->stck[B]);
+	insert_k(ps, high_idx);
+	while (ps->stck[A]->idx != 0)
+		add_apply(ps, RA);
 }
 
 int	get_high_idx(t_int_cdll *stck)

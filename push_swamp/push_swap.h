@@ -6,7 +6,7 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/04 11:27:29 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/03/03 22:20:26 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/04 20:20:49 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@
 
 # define A 0
 # define B 1
+# define LIS 2
 
 # define RIGHT 0
 # define LEFT 1
@@ -47,6 +48,15 @@
 # define LIS_MULT 20
 # define ROT_MULT 1.06 // bigger: more bottom, smaller: more top
 # define PUSH_MULT 1.02
+
+# define BOLD_RED "\e[1;31m\0"
+# define RESET_COLOR "\e[0m\0"
+# define BOLD_WHITE "\e[1;37m\0"
+
+# define MALLOC_ERROR "\nERROR\n\nMalloc failed to allocate; terminating\n\0"
+# define INPUT_VALUE_ERROR "\nERROR\n\nInput arguments are bad; terminating\n\0"
+# define INPUT_ERROR "\nERROR\n\nInput is bad; terminating\n\0"
+# define NULL_POINTER "\nERROR\n\nNull pointer exception error; terminating\n\0"
 
 typedef struct s_int_cdll
 {
@@ -80,98 +90,131 @@ typedef struct s_lis_ll
 
 typedef void			(*t_ops_arr)(t_int_cdll **);
 
-# define BOLD_RED "\e[1;31m\0"
-# define RESET_COLOR "\e[0m\0"
-# define BOLD_WHITE "\e[1;37m\0"
-
-# define MALLOC_ERROR "\nERROR\n\nMalloc failed to allocate; terminating\n\0"
-# define INPUT_VALUE_ERROR "\nERROR\n\nInput arguments are bad; terminating\n\0"
-# define INPUT_ERROR "\nERROR\n\nInput is bad; terminating\n\0"
-# define NULL_POINTER "\nERROR\n\nNull pointer exception error; terminating\n\0"
+typedef struct s_ps
+{
+	t_int_cdll			**stck;
+	t_ops				*ops;
+	t_ops_arr			*ops_arr;
+	t_ll				*lis;
+	char				**str_ops;
+}						t_ps;
 
 // main
 int						main(int argc, char **argv);
+char					**init_str_ops(void);
+char					**init_str_ops2(char **str_ops);
+void					free_str_ops(char **str_ops);
 
 // input
 t_int_cdll				*input_dealer(int argc, char **argv);
 char					*unify_input(int argc, char **argv);
 void					check_input(char **arr, t_int_cdll **head);
-void					index_input(t_int_cdll *head);
 bool					has_dup(t_int_cdll *head);
+void					index_input(t_int_cdll *head);
 
 // algo
-t_ops					*algo_dealer(t_int_cdll **head);
-void					sort_three(t_int_cdll **stck, t_ops **ops,
-							t_ops_arr *ops_arr);
-void					sort_five(t_int_cdll **stck, t_ops **ops,
-							t_ops_arr *ops_arr);
-void					sort_grand(t_int_cdll **stck, t_ops **ops,
-							t_ops_arr *ops_arr);
-void					add_apply(t_int_cdll **stck, t_ops **ops_head,
-							char *ops, t_ops_arr fc);
-void					grand_push(t_int_cdll **stck, t_ops **ops,
-							t_ops_arr *ops_arr, t_ll **lis);
-bool					has_elem_or_buff(t_int_cdll *stck, t_ll *lis);
-int						get_dir(t_int_cdll *stck, int idx);
+
+// // dealer
+void					algo_dealer(t_int_cdll **head_a, t_ps *ps);
+void					sort_three(t_ps *ps);
+void					sort_five(t_ps *ps);
+void					sort_grand(t_ps *ps);
 int						get_high_idx(t_int_cdll *stck);
-void					insert_k(t_int_cdll **stck, t_ops **ops,
-							t_ops_arr *ops_arr, int high);
+
+// // modify
+void					add_apply(t_ps *ps, int idx);
+
+// // grand_sort
+void					grand_push(t_ps *ps);
+int						*mod_b(t_ps *ps, t_ll *lis_node, int *len);
+void					rot_lis(t_ps *ps, t_ll **lis_node);
+void					swap_buff(t_ps *ps, t_ll **lis_node);
+int						*rot_push(int *len, t_ps *ps);
+
+// // k_insert
+void					insert_k(t_ps *ps, int high);
+void					go_right(t_ps *ps, int high);
+void					go_left(t_ps *ps, int high);
+int						get_dir(t_int_cdll *stck, int idx);
 int						check_dir(int set, int idx, t_int_cdll *stck,
 							t_int_cdll *temp);
-void					go_left(t_int_cdll **stck, t_ops **ops, int high,
-							t_ops_arr **ops_arr);
-void					go_right(t_int_cdll **stck, t_ops **ops, int high,
-							t_ops_arr *ops_arr);
 
 // // LIS
 t_ll					*fill_lis(t_int_cdll *stck);
-void					lisadd_back(t_lis_ll **head, t_lis_ll *node);
-t_lis_ll				*lis_last(t_lis_ll *head);
-t_lis_ll				*new_lis(t_ll *content);
+t_int_cdll				*get_all_lis(t_int_cdll *stck, t_lis_ll **lis, int len);
 t_ll					*get_lis(t_int_cdll *stck, int len);
 int						get_high_len(t_lis_ll *lis);
-void					free_ll(t_ll **head);
-int						llsize(t_ll *head);
-t_ll					*ll_last(t_ll *head);
-void					lladd_back(t_ll **head, t_ll *node);
-t_ll					*llnew(int idx);
-void					lladd_after(t_ll **head, t_ll *node);
-int						ll_len(t_ll *head);
-t_int_cdll				*get_all_lis(t_int_cdll *stck, t_lis_ll *lis, int len);
 
 // // ops
+
+// // // swap
 void					sa(t_int_cdll **stck);
 void					sb(t_int_cdll **stck);
 void					ss(t_int_cdll **stck);
+
+// // // push
 void					pa(t_int_cdll **stck);
 void					pb(t_int_cdll **stck);
+
+// // // rotate
 void					ra(t_int_cdll **stck);
 void					rb(t_int_cdll **stck);
 void					rr(t_int_cdll **stck);
+
+// // // reverse_rotate
 void					rra(t_int_cdll **stck);
 void					rrb(t_int_cdll **stck);
 void					rrr(t_int_cdll **stck);
 
-// improve
-
 // utils
+
+// // algo_utils
 bool					check_sorted(t_int_cdll *head);
+
+// // errors
 void					throw_error(char *s);
+void					throw_arr(char *s, char **arr);
 void					throw_arr_cdll(char *s, char **arr, t_int_cdll **head);
 void					free_arr(char **arr);
-t_int_cdll				*new_int_cdll_node(int data);
+
+// // cdll_utils
 void					add_int_cdll(t_int_cdll **head, t_int_cdll *node);
+t_int_cdll				*new_int_cdll_node(int data);
 size_t					len_int_cdll(t_int_cdll *head);
 void					free_int_cdll(t_int_cdll **head);
 t_int_cdll				*copy_int_cdll(t_int_cdll **head);
 void					addfront_int_cdll(t_int_cdll **head, t_int_cdll *node);
+
+// // ops_utils
 void					opsnew_add(t_ops **head, char *op, int len_a,
 							int len_b);
 void					ops_addback(t_ops **head, t_ops *node);
-t_ops					*ops_newnode(char *op, int len_a, int len_b);
 t_ops					*ops_last(t_ops *head);
-void					mtrx_isdigit(char **arr);
+t_ops					*ops_newnode(char *op, int len_a, int len_b);
 t_ops_arr				*init_ops_arr(void);
 void					free_ops(t_ops **ops);
+
+// // input_utils
+void					mtrx_isdigit(char **arr);
+bool					check_i(t_int_cdll *head, int i);
+
+// // lis_util
+void					lisadd_back(t_lis_ll **head, t_lis_ll *node);
+t_lis_ll				*lis_last(t_lis_ll *head);
+t_lis_ll				*new_lis(t_ll *content);
+
+// // ll_util
+int						ll_len(t_ll *head);
+void					free_ll(t_ll **head);
+void					lladd_after(t_ll **head, t_ll *node);
+int						llsize(t_ll *head);
+t_ll					*llnew(int idx);
+t_ll					*ll_last(t_ll *head);
+void					lladd_back(t_ll **head, t_ll *node);
+
+// // grand_utils
+bool					check_ins_buff(t_ps *ps, t_ll *lis_node);
+bool					check_push(int *len, t_int_cdll **stck, t_ll *lis_node);
+bool					has_elem_or_buff(t_int_cdll *stck, t_ll *lis);
 
 #endif

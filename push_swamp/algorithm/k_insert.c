@@ -6,58 +6,58 @@
 /*   By: mimeyer <mimeyer@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/03 22:08:31 by mimeyer           #+#    #+#             */
-/*   Updated: 2026/03/03 22:20:04 by mimeyer          ###   ########.fr       */
+/*   Updated: 2026/03/04 18:35:20 by mimeyer          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	insert_k(t_int_cdll **stck, t_ops **ops, t_ops_arr *ops_arr, int high)
+void	insert_k(t_ps *ps, int high)
 {
 	int	dir;
 
 	dir = RIGHT;
-	while (stck[B])
+	while (ps->stck[B])
 	{
-		if (stck[A]->idx < high)
-			add_apply(stck, ops, "ra", ops_arr[RA]);
-		else if (stck[A]->idx != (high + 1))
+		if (ps->stck[A]->idx < high)
+			add_apply(ps, RA);
+		else if (ps->stck[A]->idx != (high + 1))
 		{
-			while (stck[A]->idx != (high + 1))
-				add_apply(stck, ops, "rra", ops_arr[RRA]);
+			while (ps->stck[A]->idx != (high + 1))
+				add_apply(ps, RRA);
 		}
-		dir = get_dir(stck[B], high);
+		dir = get_dir(ps->stck[B], high);
 		if (dir == RIGHT)
-			go_right(stck, ops, high, ops_arr);
+			go_right(ps, high);
 		else
-			go_left(stck, ops, high, ops_arr);
-		add_apply(stck, ops, "pa", ops_arr[PA]);
-		if (stck[A]->nxt->idx == high - 1)
-			add_apply(stck, ops, "sa", ops_arr[SA]);
-		if (stck[B])
-			high = get_high_idx(stck[B]);
+			go_left(ps, high);
+		add_apply(ps, PA);
+		if (ps->stck[A]->nxt->idx == high - 1)
+			add_apply(ps, SA);
+		if (ps->stck[B])
+			high = get_high_idx(ps->stck[B]);
 	}
 }
 
-void	go_right(t_int_cdll **stck, t_ops **ops, int high, t_ops_arr *ops_arr)
+void	go_right(t_ps *ps, int high)
 {
-	while (stck[B]->idx != high)
+	while (ps->stck[B]->idx != high)
 	{
-		if (stck[B]->idx == high - 1)
-			add_apply(stck, ops, "pa", ops_arr[PA]);
+		if (ps->stck[B]->idx == high - 1)
+			add_apply(ps, PA);
 		else
-			add_apply(stck, ops, "rb", ops_arr[RB]);
+			add_apply(ps, RB);
 	}
 }
 
-void	go_left(t_int_cdll **stck, t_ops **ops, int high, t_ops_arr **ops_arr)
+void	go_left(t_ps *ps, int high)
 {
-	while (stck[B]->idx != high)
+	while (ps->stck[B]->idx != high)
 	{
-		if (stck[B]->idx == high - 1)
-			add_apply(stck, ops, "pa", ops_arr[PA]);
+		if (ps->stck[B]->idx == high - 1)
+			add_apply(ps, PA);
 		else
-			add_apply(stck, ops, "rrb", ops_arr[RRB]);
+			add_apply(ps, RRB);
 	}
 }
 

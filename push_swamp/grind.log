@@ -1,15 +1,15 @@
-==158296== Memcheck, a memory error detector
-==158296== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
-==158296== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
-==158296== Command: ./swap.a 16828 15776 40137 873 24066 29555 19517 22691 30164 20844 15256 21229 1220 29343 44512 28445 7224 14568 27692 45619 33417 19445 4535 48197 20983 27652 2815 35748 33374 33787 1409 16261 19179 24975 37225 12185 640 41483 5219 35417 1623 4815 19678 14192 25458 7173 24050 29998 44134 45169 23062 21287 11551 16520 21194 14652 45871 14408 8842 6422 29701 30211 6423 25008 13613 15878 46191 15707 22670 29089 12146 11798 38295 285 12763 13433 46038 29576 12673 37913 30959 9575 19479 18190 17147 47158 37975 49422 3193 30839 24415 28061 40129 22469 45003 43138 35141 14225 49271 20154
-==158296== Parent PID: 110718
-==158296== 
-==158296== 
-==158296== HEAP SUMMARY:
-==158296==     in use at exit: 0 bytes in 0 blocks
-==158296==   total heap usage: 1,251 allocs, 1,251 frees, 58,114 bytes allocated
-==158296== 
-==158296== All heap blocks were freed -- no leaks are possible
-==158296== 
-==158296== For lists of detected and suppressed errors, rerun with: -s
-==158296== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+==116337== Memcheck, a memory error detector
+==116337== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==116337== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==116337== Command: ./push_swap 1
+==116337== Parent PID: 10532
+==116337== 
+==116337== 
+==116337== HEAP SUMMARY:
+==116337==     in use at exit: 0 bytes in 0 blocks
+==116337==   total heap usage: 6 allocs, 6 frees, 48 bytes allocated
+==116337== 
+==116337== All heap blocks were freed -- no leaks are possible
+==116337== 
+==116337== For lists of detected and suppressed errors, rerun with: -s
+==116337== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
