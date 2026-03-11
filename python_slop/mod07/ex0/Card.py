@@ -3,9 +3,6 @@ from abc import ABC, abstractmethod
 
 class Card(ABC):
 
-    """
-    Elite card combining combat and magical capabilities.
-    """
     def __init__(self, name: str, cost: int, rarity: str) -> None:
         self.name = name
         self.cost = cost

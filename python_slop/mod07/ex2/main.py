@@ -1,12 +1,7 @@
-"""
-Demonstration script for the Ability System.
-"""
-
 from .EliteCard import EliteCard
 
 
 def main() -> None:
-    """Run the demonstration."""
     print("=== DataDeck Ability System ===\n")
 
     print("EliteCard capabilities:")

@@ -1,11 +1,4 @@
 #!/usr/bin/env python3
-"""
-Cyber Archives Training Data Generator
-
-Generates structured test data for file operation exercises with comprehensive
-error handling, type safety, and extensible architecture.
-"""
-
 import json
 import sys
 from functools import wraps
@@ -15,7 +8,7 @@ from datetime import datetime
 
 
 def handle_file_errors(func: Callable) -> Callable:
-    """Decorator for consistent file operation error handling."""
+    
     @wraps(func)
     def wrapper(*args, **kwargs):
         try:
@@ -36,7 +29,7 @@ def handle_file_errors(func: Callable) -> Callable:
 
 
 def validate_output(func: Callable) -> Callable:
-    """Decorator to validate generated content before writing."""
+
     @wraps(func)
     def wrapper(self, filename: str, content: str, *args, **kwargs):
         if not content or not content.strip():
@@ -48,11 +41,10 @@ def validate_output(func: Callable) -> Callable:
 
 
 class DataTemplates:
-    """Centralized template definitions with metadata."""
 
     @staticmethod
     def get_templates() -> Dict[str, Dict[str, Union[str, List[str]]]]:
-        """Returns all available data templates."""
+
         return {
             "ancient_fragment": {
                 "content": [
@@ -93,10 +85,8 @@ class DataTemplates:
 
 
 class ArchiveDataGenerator:
-    """Main data generation class with comprehensive file operations."""
 
     def __init__(self, base_path: Optional[str] = None) -> None:
-        """Initialize generator with optional base path."""
         self.base_path = Path(base_path) if base_path else Path(".")
         self.templates = DataTemplates.get_templates()
         self.generated_files: List[str] = []
@@ -110,7 +100,6 @@ class ArchiveDataGenerator:
     @validate_output
     @handle_file_errors
     def _write_file(self, filename: str, content: str) -> bool:
-        """Write content to file with comprehensive error handling."""
         file_path = self.base_path / filename
 
         with open(file_path, 'w', encoding='utf-8') as file:
@@ -121,7 +110,6 @@ class ArchiveDataGenerator:
         return True
 
     def _format_content(self, template_data: Dict[str, Any]) -> str:
-        """Format template content into string representation."""
         content = template_data.get("content", "")
 
         if isinstance(content, list):
@@ -133,42 +121,37 @@ class ArchiveDataGenerator:
 
     @handle_file_errors
     def generate_ancient_fragment(self) -> Optional[bool]:
-        """Generate ancient fragment training file."""
         template = self.templates["ancient_fragment"]
         content = self._format_content(template)
         return self._write_file("ancient_fragment.txt", content)
 
     @handle_file_errors
     def generate_classified_data(self) -> Optional[bool]:
-        """Generate classified data training file."""
         template = self.templates["classified_data"]
         content = self._format_content(template)
         return self._write_file("classified_data.txt", content)
-
     @handle_file_errors
     def generate_security_protocols(self) -> Optional[bool]:
-        """Generate security protocols training file."""
         template = self.templates["security_protocols"]
         content = self._format_content(template)
         return self._write_file("security_protocols.txt", content)
 
     @handle_file_errors
     def generate_standard_archive(self) -> Optional[bool]:
-        """Generate standard archive training file."""
         template = self.templates["standard_archive"]
         content = self._format_content(template)
         return self._write_file("standard_archive.txt", content)
 
     @handle_file_errors
     def generate_corrupted_archive(self) -> Optional[bool]:
-        """Generate corrupted archive simulation file."""
+        
         template = self.templates["corrupted_archive"]
         content = self._format_content(template)
         return self._write_file("corrupted_archive.txt", content)
 
     @handle_file_errors
     def generate_sample_json(self) -> Optional[bool]:
-        """Generate JSON configuration with metadata and scenarios."""
+        
         sample_data = {
             "metadata": {
                 "version": "2.1.0",
@@ -223,7 +206,7 @@ class ArchiveDataGenerator:
             return None
 
     def generate_all_files(self) -> Dict[str, bool]:
-        """Generate all training files and return success status."""
+        
         print("=== CYBER ARCHIVES - DATA GENERATOR ===")
         print("Generating training files...")
         print()
@@ -265,11 +248,11 @@ class ArchiveDataGenerator:
         return results
 
     def get_generated_files(self) -> List[str]:
-        """Return list of successfully generated files."""
+        
         return self.generated_files.copy()
 
     def cleanup_generated_files(self) -> int:
-        """Remove all generated files and return count of deleted files."""
+        
         deleted_count = 0
 
         for filename in self.generated_files:
@@ -286,7 +269,7 @@ class ArchiveDataGenerator:
 
 
 def main() -> None:
-    """Main entry point with command-line argument handling."""
+    
     try:
         # Check for optional base path argument
         base_path = sys.argv[1] if len(sys.argv) > 1 else None

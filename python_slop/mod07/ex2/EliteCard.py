@@ -1,10 +1,3 @@
-"""
-EliteCard implementation.
-
-Represents a powerful card that combines combat and magical abilities
-using multiple inheritance.
-"""
-
 from typing import Dict, Any, List
 from ex0.Card import Card
 from .Combatable import Combatable
@@ -12,10 +5,6 @@ from .Magical import Magical
 
 
 class EliteCard(Card, Combatable, Magical):
-    """
-    Elite card combining combat and magical capabilities.
-    """
-
     def __init__(
         self,
         name: str,
@@ -25,32 +14,12 @@ class EliteCard(Card, Combatable, Magical):
         health: int,
         mana: int
     ) -> None:
-        """
-        Initialize an EliteCard.
-
-        Args:
-            name: Card name
-            cost: Mana cost to play
-            rarity: Card rarity
-            attack: Combat attack value
-            health: Health points
-            mana: Available mana pool
-        """
         super().__init__(name, cost, rarity)
         self.attack_power = attack
         self.health = health
         self.mana = mana
 
     def play(self, game_state: Dict[str, Any]) -> Dict[str, Any]:
-        """
-        Play the card.
-
-        Args:
-            game_state: Current game state
-
-        Returns:
-            Action result dictionary
-        """
         return {
             "card_played": self.name,
             "type": "EliteCard",
@@ -62,7 +31,6 @@ class EliteCard(Card, Combatable, Magical):
     # ------------------
 
     def attack(self, target: str) -> Dict[str, Any]:
-        """Perform an attack."""
         return {
             "attacker": self.name,
             "target": target,
@@ -71,7 +39,6 @@ class EliteCard(Card, Combatable, Magical):
         }
 
     def defend(self, incoming_damage: int) -> Dict[str, Any]:
-        """Defend against damage."""
         blocked = min(self.attack_power, incoming_damage)
         damage_taken = incoming_damage - blocked
         self.health -= damage_taken
@@ -84,7 +51,6 @@ class EliteCard(Card, Combatable, Magical):
         }
 
     def get_combat_stats(self) -> Dict[str, Any]:
-        """Return combat statistics."""
         return {
             "attack": self.attack_power,
             "health": self.health
@@ -94,8 +60,8 @@ class EliteCard(Card, Combatable, Magical):
     # Magical methods
     # ----------------
 
-    def cast_spell(self, spell_name: str, targets: List[str]) -> Dict[str, Any]:
-        """Cast a spell."""
+    def cast_spell(self, spell_name: str, targets: List[str]) -> Dict[str,
+                                                                      Any]:
         mana_cost = 4
         self.mana -= mana_cost
 
@@ -107,7 +73,6 @@ class EliteCard(Card, Combatable, Magical):
         }
 
     def channel_mana(self, amount: int) -> Dict[str, Any]:
-        """Channel additional mana."""
         self.mana += amount
 
         return {
@@ -116,7 +81,6 @@ class EliteCard(Card, Combatable, Magical):
         }
 
     def get_magic_stats(self) -> Dict[str, Any]:
-        """Return magic statistics."""
         return {
             "mana": self.mana
         }

@@ -1,6 +1,6 @@
-import sys
-import os
-sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+# import sys
+# import os
+# sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 from ex0.CreatureCard import CreatureCard as Creature
 from ex1.Deck import Deck
 from ex1.SpellCard import SpellCard as Spell

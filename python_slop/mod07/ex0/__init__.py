@@ -1,2 +1,1 @@
-from .Card import Card
-from .CreatureCard import CreatureCard as Creature
+from .CreatureCard import CreatureCard as Creature # noqa 401
