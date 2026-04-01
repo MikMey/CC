@@ -14,5 +14,5 @@ print(f"info: {sys.prefix}")
 
 print(
     f"exec: {sys.executable}\n"
-    f"ve: {os.path.basename(sys.prefix)}\n"  
+    f"ve: {os.path.basename(sys.prefix)}\n"
       )
