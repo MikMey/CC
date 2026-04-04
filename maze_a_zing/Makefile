@@ -1,11 +1,11 @@
 NAME := a_maze_ing.py
-FLAKE8 := python -m flake8
-FLAKE8_FLAGS :=
-MYPY := python -m mypy
+FLAKE8 := uv run -m flake8
+FLAKE8_FLAGS := --count --show-source --filename [./*.py]
+MYPY := uv run mypy
 MYPY_FLAGS := --warn-return-any \
 			  --warn-unused-ignores --ignore-missing-imports --disallow-untyped-defs \
 			  --check-untyped-defs
-UV_VENV := uv init . && uv venv && uv sync
+UV_VENV := uv sync
 
 
 install:
